@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqew4rliwbsio"]
+
+[ext_resource type="Script" uid="uid://brack5hlj1ylo" path="res://scenes/test_dialog.gd" id="1_3t068"]
+[ext_resource type="Texture2D" uid="uid://ctgmas5s20r1x" path="res://assets/graphics/ui/maquette_dialog.png" id="1_lht00"]
+[ext_resource type="Resource" uid="uid://ctgngshouurxo" path="res://dialogic/timelines/TEST_TIMELINE.dtl" id="2_qajk8"]
+[ext_resource type="Texture2D" uid="uid://dqqhk7246vt26" path="res://assets/graphics/sprites/place_holder_character.png" id="2_tddl7"]
+[ext_resource type="Resource" uid="uid://detralr8dbq63" path="res://dialogic/style/test_character_a.dch" id="3_xqq3v"]
+[ext_resource type="Resource" uid="uid://bx6acmb3c0xn7" path="res://dialogic/style/test_character_b.dch" id="4_ihiv6"]
+
+[node name="Control" type="Control" node_paths=PackedStringArray("character_A_sprite", "character_A_bubble_source", "character_B_sprite", "character_B_bubble_source")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3t068")
+dialogic_timeline = ExtResource("2_qajk8")
+character_A_sprite = NodePath("Character_A")
+character_A_resource = ExtResource("3_xqq3v")
+character_A_bubble_source = NodePath("Character_A/Control")
+character_B_sprite = NodePath("Character_B")
+character_B_resource = ExtResource("4_ihiv6")
+character_B_bubble_source = NodePath("Character_B/Control")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_lht00")
+
+[node name="Character_A" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -956.0
+offset_top = -800.0
+offset_right = -507.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_tddl7")
+
+[node name="Control" type="Control" parent="Character_A"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 114.5
+offset_top = -221.0
+offset_right = 114.5
+offset_bottom = -221.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Marker2D" type="Marker2D" parent="Character_A/Control"]
+gizmo_extents = 83.4
+
+[node name="Character_B" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 450.0
+offset_top = -924.0
+offset_right = 899.0
+offset_bottom = -124.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_tddl7")
+flip_h = true
+
+[node name="Control" type="Control" parent="Character_B"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -99.5
+offset_top = -213.0
+offset_right = -99.5
+offset_bottom = -213.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Marker2D" type="Marker2D" parent="Character_B/Control"]
+gizmo_extents = 83.4
