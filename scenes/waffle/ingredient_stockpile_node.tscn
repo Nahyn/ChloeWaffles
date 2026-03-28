@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnv6nclbviscm"]
+
+[ext_resource type="Script" uid="uid://1o4rpg1cuquf" path="res://scenes/waffle/ingredient_stockpile_node.gd" id="1_ekwl2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w1sgs"]
+resource_local_to_scene = true
+size = Vector2(200, 200)
+
+[node name="IngredientStockpileNode" type="Node2D"]
+script = ExtResource("1_ekwl2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_w1sgs")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
