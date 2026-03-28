@@ -1,0 +1,112 @@
+[gd_scene load_steps=8 format=3 uid="uid://da5la3275mqn8"]
+
+[ext_resource type="Script" uid="uid://ffamaol6cauv" path="res://scenes/cooking/cooking_screen.gd" id="1_sjtic"]
+[ext_resource type="Texture2D" uid="uid://cpg8scur3113e" path="res://assets/graphics/ui/maquette_cuisine.png" id="2_8gh6s"]
+[ext_resource type="PackedScene" uid="uid://dnv6nclbviscm" path="res://scenes/waffle/ingredient_stockpile_node.tscn" id="3_xmmkc"]
+[ext_resource type="Resource" uid="uid://buj2sh0tj8hxx" path="res://assets/resources/ingredients/diced_banana.tres" id="4_emy0g"]
+[ext_resource type="Resource" uid="uid://df1k3gluind2a" path="res://assets/resources/ingredients/glutenfree_waffle.tres" id="5_e8ce7"]
+[ext_resource type="Resource" uid="uid://do3h8hal75hjg" path="res://assets/resources/ingredients/maple_syrup.tres" id="6_qf7pb"]
+[ext_resource type="Resource" uid="uid://mbeqc8t5a68o" path="res://assets/resources/ingredients/sliced_almonds.tres" id="7_yndig"]
+
+[node name="CookingScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sjtic")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8gh6s")
+
+[node name="StockpileContainer" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BananaStockpile" parent="StockpileContainer" instance=ExtResource("3_xmmkc")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -517.0
+offset_top = 9.0
+offset_right = -517.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+ingredient = ExtResource("4_emy0g")
+
+[node name="WaffleStockpile" parent="StockpileContainer" instance=ExtResource("3_xmmkc")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 739.0
+offset_top = 202.0
+offset_right = 739.0
+offset_bottom = 202.0
+grow_horizontal = 2
+grow_vertical = 2
+ingredient = ExtResource("5_e8ce7")
+
+[node name="MapleSyrupStockpile" parent="StockpileContainer" instance=ExtResource("3_xmmkc")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -813.0
+offset_top = 138.0
+offset_right = -813.0
+offset_bottom = 138.0
+grow_horizontal = 2
+grow_vertical = 2
+ingredient = ExtResource("6_qf7pb")
+
+[node name="SlicedAlmondStockpile" parent="StockpileContainer" instance=ExtResource("3_xmmkc")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -769.0
+offset_top = -165.0
+offset_right = -769.0
+offset_bottom = -165.0
+grow_horizontal = 2
+grow_vertical = 2
+ingredient = ExtResource("7_yndig")
+
+[node name="WafflePositionner" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 101.0
+offset_top = -122.0
+offset_right = 101.0
+offset_bottom = -122.0
+grow_horizontal = 2
+grow_vertical = 2

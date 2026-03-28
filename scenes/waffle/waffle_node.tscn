@@ -1,22 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4ktetgyfxye6"]
+[gd_scene load_steps=2 format=3 uid="uid://c4ktetgyfxye6"]
 
 [ext_resource type="Script" uid="uid://dlhuwmtoy215k" path="res://scenes/waffle/waffle_node.gd" id="1_7nj41"]
-[ext_resource type="Texture2D" uid="uid://376ftl0ub1pm" path="res://assets/graphics/sprites/placehold_waffle.png" id="2_tiqsa"]
-[ext_resource type="Texture2D" uid="uid://bsyxafvs2rhg" path="res://assets/graphics/sprites/placehold_fruit.png" id="3_lxx33"]
-[ext_resource type="Texture2D" uid="uid://c6ntqggfidog7" path="res://assets/graphics/sprites/placehold_topping.png" id="4_568gj"]
 
 [node name="WaffleNode" type="Node2D"]
 script = ExtResource("1_7nj41")
+ingredient_margin = -20.0
 
-[node name="CanvasGroup" type="CanvasGroup" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasGroup"]
-texture = ExtResource("2_tiqsa")
-
-[node name="Sprite2D2" type="Sprite2D" parent="CanvasGroup"]
-position = Vector2(0, -10)
-texture = ExtResource("3_lxx33")
-
-[node name="Sprite2D3" type="Sprite2D" parent="CanvasGroup"]
-position = Vector2(0, -20)
-texture = ExtResource("4_568gj")
+[node name="IngredientSpriteContainer" type="CanvasGroup" parent="."]

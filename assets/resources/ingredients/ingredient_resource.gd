@@ -8,3 +8,4 @@ enum CATEGORY { BASE, FRUIT, TOPPING, DECORATION }
 
 @export var sprite_texture :Texture2D;
 @export var icon_texture :Texture2D;
+@export var stockpile_texture :Texture2D;
