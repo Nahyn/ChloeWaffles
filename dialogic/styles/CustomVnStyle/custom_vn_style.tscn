@@ -333,9 +333,12 @@ box_size = Vector2(1100, 300)
 name_label_use_global_color = false
 name_label_use_character_color = false
 name_label_custom_color = Color(0.11119685, 0.11119684, 0.11119684, 1)
+name_label_use_global_font_size = false
+name_label_custom_font_size = 24
 name_label_box_panel = "uid://bc6rfsrvfuo55"
 name_label_box_use_global_color = false
 name_label_box_modulate = Color(1, 1, 1, 1)
+name_label_box_offset = Vector2(-20, -30)
 apply_overrides_on_ready = true
 
 [node name="Animations" type="AnimationPlayer" parent="VN_TextboxLayer"]
@@ -439,7 +442,6 @@ show_percentage = false
 script = ExtResource("14_7650x")
 
 [node name="NameLabelHolder" type="Control" parent="VN_TextboxLayer/Anchor/AnimationParent/Sizer/DialogTextPanel"]
-visible = false
 layout_mode = 2
 mouse_filter = 2
 
