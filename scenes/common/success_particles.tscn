@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0o4t5a6xpjba"]
+
+[ext_resource type="Texture2D" uid="uid://717ms3gldrpy" path="res://assets/graphics/sprites/placeholder_particles.png" id="1_2663n"]
+[ext_resource type="Script" uid="uid://cxylggs24e6yl" path="res://scenes/common/custom_particle_system.gd" id="2_5qwuq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qwuq"]
+atlas = ExtResource("1_2663n")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="Curve" id="Curve_acr5o"]
+_data = [Vector2(0, 0), 0.0, 9.018726, 0, 0, Vector2(0.62790704, 0.8764045), 2.604787, 2.604787, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_703vc"]
+offsets = PackedFloat32Array(0, 0.7671233, 1)
+colors = PackedColorArray(0.81039643, 0.074863516, 0.8947485, 1, 0.9805202, 0.9049517, 0.98918647, 1, 1, 1, 1, 0)
+
+[node name="SuccessParticles" type="CPUParticles2D"]
+emitting = false
+amount = 10
+texture = SubResource("AtlasTexture_5qwuq")
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.2
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 200.0
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+angle_min = -45.0
+angle_max = 45.0
+scale_amount_min = 0.5
+scale_amount_max = 0.7
+scale_amount_curve = SubResource("Curve_acr5o")
+color_ramp = SubResource("Gradient_703vc")
+hue_variation_min = -0.37
+hue_variation_max = 0.35
+script = ExtResource("2_5qwuq")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

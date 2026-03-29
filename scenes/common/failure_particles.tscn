@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://bc3448o1tiw3d"]
+
+[ext_resource type="Script" uid="uid://cxylggs24e6yl" path="res://scenes/common/custom_particle_system.gd" id="2_kihiq"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5f6qq"]
+load_path = "res://.godot/imported/placeholder_particles.png-a66621bd46d64e223f03bfe9bc31d424.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1ivf"]
+atlas = SubResource("CompressedTexture2D_5f6qq")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="Curve" id="Curve_acr5o"]
+_data = [Vector2(0, 0), 0.0, 9.018726, 0, 0, Vector2(0.62790704, 0.8764045), 2.604787, 2.604787, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_5f6qq"]
+offsets = PackedFloat32Array(0, 0.7671233, 1)
+colors = PackedColorArray(0.9805202, 0.9049517, 0.98918647, 1, 0.9805202, 0.9049517, 0.98918647, 1, 1, 1, 1, 0)
+
+[node name="FailureParticles" type="CPUParticles2D"]
+amount = 20
+texture = SubResource("AtlasTexture_u1ivf")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.2
+emission_shape = 1
+emission_sphere_radius = 50.0
+direction = Vector2(0, 1)
+spread = 180.0
+gravity = Vector2(0, -100)
+initial_velocity_min = 75.0
+initial_velocity_max = 100.0
+angular_velocity_min = -45.0
+angular_velocity_max = 45.0
+angle_min = -45.0
+angle_max = 45.0
+scale_amount_min = 0.5
+scale_amount_max = 1.5
+scale_amount_curve = SubResource("Curve_acr5o")
+color_ramp = SubResource("Gradient_5f6qq")
+hue_variation_min = -0.37
+hue_variation_max = 0.35
+script = ExtResource("2_kihiq")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
