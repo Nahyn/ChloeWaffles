@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://da5la3275mqn8"]
 
 [ext_resource type="Script" uid="uid://ffamaol6cauv" path="res://scenes/cooking/assembly_screen.gd" id="1_50xx8"]
-[ext_resource type="Texture2D" uid="uid://c82q4guqfsboh" path="res://assets/graphics/ui/Sans_titre_1001_20260329001842.png" id="2_50xx8"]
+[ext_resource type="Texture2D" uid="uid://c82q4guqfsboh" path="res://assets/graphics/ui/maquette_cuisine.png" id="2_50xx8"]
 [ext_resource type="PackedScene" uid="uid://dnv6nclbviscm" path="res://scenes/waffle/ingredient_stockpile_node.tscn" id="3_kk2ym"]
 [ext_resource type="Resource" uid="uid://buj2sh0tj8hxx" path="res://assets/resources/ingredients/diced_banana.tres" id="4_gs004"]
 [ext_resource type="Resource" uid="uid://df1k3gluind2a" path="res://assets/resources/ingredients/glutenfree_waffle.tres" id="5_amxae"]

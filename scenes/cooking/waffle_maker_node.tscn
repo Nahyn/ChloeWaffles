@@ -1,0 +1,165 @@
+[gd_scene load_steps=16 format=3 uid="uid://ffnih233dw26"]
+
+[ext_resource type="PackedScene" uid="uid://4vffldnl0npg" path="res://scenes/cooking/timer_node.tscn" id="1_2oisx"]
+[ext_resource type="Script" uid="uid://cttkfud632l7d" path="res://scenes/cooking/waffle_maker_node.gd" id="1_8f2cu"]
+[ext_resource type="AudioStream" uid="uid://7qpmrt2a5jvq" path="res://assets/audio/blip_3.wav" id="2_k48uc"]
+[ext_resource type="Texture2D" uid="uid://376ftl0ub1pm" path="res://assets/graphics/sprites/placehold_waffle.png" id="2_kgxka"]
+[ext_resource type="AudioStream" uid="uid://cjq4ufydai2pe" path="res://assets/audio/blip_2.wav" id="2_kvmcp"]
+[ext_resource type="Script" uid="uid://cwgpi5udd0f8m" path="res://assets/resources/timer_phase.gd" id="2_rdp6q"]
+[ext_resource type="Texture2D" uid="uid://di1grpgl6u5ob" path="res://assets/graphics/sprites/placeholder_waffle_timer.png" id="3_kek2y"]
+
+[sub_resource type="Resource" id="Resource_kvmcp"]
+script = ExtResource("2_rdp6q")
+duration = 3.0
+tint = Color(0.74509805, 0, 0, 1)
+multiplier = 0.0
+metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
+
+[sub_resource type="Resource" id="Resource_k48uc"]
+script = ExtResource("2_rdp6q")
+duration = 2.0
+tint = Color(0.79607844, 1, 0.2509804, 1)
+multiplier = 0.7
+metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
+
+[sub_resource type="Resource" id="Resource_2vgjh"]
+script = ExtResource("2_rdp6q")
+duration = 1.0
+multiplier = 1.5
+metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
+
+[sub_resource type="Resource" id="Resource_kqea7"]
+script = ExtResource("2_rdp6q")
+duration = 1.5
+tint = Color(0, 1, 0.1882353, 1)
+multiplier = 1.0
+metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
+
+[sub_resource type="Resource" id="Resource_i7v5h"]
+script = ExtResource("2_rdp6q")
+duration = 1.0
+tint = Color(1, 0.5411765, 0, 1)
+metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdp6q"]
+atlas = ExtResource("3_kek2y")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvmcp"]
+atlas = ExtResource("3_kek2y")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k48uc"]
+atlas = ExtResource("3_kek2y")
+region = Rect2(200, 0, 200, 200)
+
+[node name="WaffleMakerNode" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8f2cu")
+SUCCESS_SOUND = ExtResource("2_k48uc")
+FAILURE_SOUND = ExtResource("2_kvmcp")
+phases = Array[ExtResource("2_rdp6q")]([SubResource("Resource_kvmcp"), SubResource("Resource_k48uc"), SubResource("Resource_2vgjh"), SubResource("Resource_kqea7"), SubResource("Resource_i7v5h")])
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kgxka")
+
+[node name="TimerPhasesContainer" type="Control" parent="TextureRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BackgroundTimerTextureRect" type="TextureRect" parent="TextureRect/TimerPhasesContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_rdp6q")
+
+[node name="PhaseIndicatorProgressBar" type="TextureProgressBar" parent="TextureRect/TimerPhasesContainer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+max_value = 1.0
+step = 0.01
+value = 0.6
+fill_mode = 4
+radial_initial_angle = 45.0
+texture_progress = SubResource("AtlasTexture_kvmcp")
+tint_progress = Color(0.76862746, 0.7882353, 0.13725491, 1)
+
+[node name="CurrentTimerTextureProgressBar" type="TextureProgressBar" parent="TextureRect/TimerPhasesContainer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+max_value = 1.0
+step = 0.01
+fill_mode = 4
+texture_over = SubResource("AtlasTexture_k48uc")
+texture_progress = SubResource("AtlasTexture_kvmcp")
+
+[node name="TimerNode" parent="." instance=ExtResource("1_2oisx")]
+timer_limits = Array[float]([2.0, 1.5, 0.75, 1.5, 0.5])
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+bus = &"SFX"
+
+[connection signal="gui_input" from="TextureRect" to="." method="_on_texture_rect_gui_input"]
+[connection signal="phase_started" from="TimerNode" to="." method="_on_timer_node_phase_started"]
+[connection signal="timer_finished" from="TimerNode" to="." method="_on_timer_node_timer_finished"]

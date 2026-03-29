@@ -35,8 +35,6 @@ func get_waffle_composition() -> Dictionary[IngredientResource, int]:
 	return composition;
 
 func create_from_ingredients( new_ingredients :Array[IngredientResource] ) -> void:
-	prints("create_from_ingredients - ingredient_sprite_container", ingredient_sprite_container)
-	prints("create_from_ingredients - ingredients", ingredients)
 	if ingredient_sprite_container == null:
 		return
 	
@@ -49,6 +47,9 @@ func create_from_ingredients( new_ingredients :Array[IngredientResource] ) -> vo
 
 func add_ingredient( ingredient :IngredientResource ) -> bool:
 	var last_ingredient_category :IngredientResource.CATEGORY
+	if ingredients.size() == 0 and ingredient.category != IngredientResource.CATEGORY.BOX:
+		return false;
+	
 	if ingredients.size() > 0:
 		last_ingredient_category = ingredients[ingredients.size() -1].category
 		if last_ingredient_category == ingredient.category:

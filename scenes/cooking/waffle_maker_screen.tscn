@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://8yr8up7q8j3f"]
+[gd_scene load_steps=7 format=3 uid="uid://8yr8up7q8j3f"]
 
 [ext_resource type="Script" uid="uid://ctyafadh78ilv" path="res://scenes/cooking/waffle_maker_screen.gd" id="1_dajco"]
+[ext_resource type="PackedScene" uid="uid://ffnih233dw26" path="res://scenes/cooking/waffle_maker_node.tscn" id="2_arua5"]
 
 [sub_resource type="Gradient" id="Gradient_dajco"]
 colors = PackedColorArray(0, 0, 0, 1, 0.3, 0.3, 0.3, 1)
@@ -45,6 +46,28 @@ theme_override_font_sizes/font_size = 64
 text = "WAFFLE MAKER SCREEN"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="WaffleMakerContainers" type="Control" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="WaffleMakerNode" parent="TextureRect/WaffleMakerContainers" instance=ExtResource("2_arua5")]
+layout_mode = 1
+offset_left = -366.0
+offset_right = -366.0
+
+[node name="WaffleMakerNode2" parent="TextureRect/WaffleMakerContainers" instance=ExtResource("2_arua5")]
+layout_mode = 1
+
+[node name="WaffleMakerNode3" parent="TextureRect/WaffleMakerContainers" instance=ExtResource("2_arua5")]
+layout_mode = 1
+offset_left = 366.0
+offset_right = 366.0
 
 [node name="GoLeftButton" type="TextureButton" parent="TextureRect"]
 layout_mode = 0

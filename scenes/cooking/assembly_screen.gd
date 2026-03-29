@@ -19,7 +19,7 @@ func _on_stockpile_clicked( stockpile :IngredientStockpileNode ) -> void:
 	
 	var waffle_node :WaffleNode
 	if %WafflePositionner.get_child_count() == 0:
-		if not ingredient.category == IngredientResource.CATEGORY.BASE:
+		if not ingredient.category == IngredientResource.CATEGORY.WAFFLE:
 			return
 		waffle_node = WAFFLE_NODE.instantiate() as WaffleNode
 		waffle_node.ingredients.push_back(ingredient);

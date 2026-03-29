@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://4vffldnl0npg"]
+
+[ext_resource type="Script" uid="uid://dk5vc1wsf21x8" path="res://scenes/cooking/timer_node.gd" id="1_5g0mc"]
+
+[node name="TimerNode" type="Node"]
+script = ExtResource("1_5g0mc")

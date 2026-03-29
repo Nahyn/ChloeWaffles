@@ -27,9 +27,6 @@ unique_name_in_owner = true
 position = Vector2(960, 540)
 position_smoothing_enabled = true
 
-[node name="AudioListener2D" type="AudioListener2D" parent="Camera2D"]
-current = true
-
 [connection signal="go_screen_down" from="ReceptionScreenPositionner/ReceptionScreen" to="." method="_on_reception_screen_go_screen_down"]
 [connection signal="go_screen_right" from="AssemblyScreenPositionner/AssemblyScreen" to="." method="_on_assembly_screen_go_screen_right"]
 [connection signal="go_screen_up" from="AssemblyScreenPositionner/AssemblyScreen" to="." method="_on_assembly_screen_go_screen_up"]
