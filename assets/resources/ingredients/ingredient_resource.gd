@@ -1,9 +1,9 @@
 extends Resource
 class_name IngredientResource
 
-enum CATEGORY { BASE, FRUIT, TOPPING, DECORATION }
+enum CATEGORY { BOX, WAFFLE, FRUIT, TOPPING, DECORATION }
 
-@export var category :CATEGORY = CATEGORY.BASE;
+@export var category :CATEGORY = CATEGORY.WAFFLE;
 @export var name := "[DEFAULT INGREDIENT NAME]";
 
 @export var sprite_texture :Texture2D;
