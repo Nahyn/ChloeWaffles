@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbxjn3gpqay84"]
+
+[ext_resource type="PackedScene" uid="uid://da5la3275mqn8" path="res://scenes/cooking/assembly_screen.tscn" id="1_i2ygs"]
+[ext_resource type="Script" uid="uid://rdb07suh3iem" path="res://scenes/game_sceen.gd" id="1_oxd8y"]
+[ext_resource type="PackedScene" uid="uid://vkrwd8ahcav0" path="res://scenes/cooking/reception_screen.tscn" id="2_oxd8y"]
+[ext_resource type="PackedScene" uid="uid://8yr8up7q8j3f" path="res://scenes/cooking/waffle_maker_screen.tscn" id="3_18c7x"]
+
+[node name="GameSceen" type="Node2D"]
+script = ExtResource("1_oxd8y")
+
+[node name="ReceptionScreenPositionner" type="Node2D" parent="."]
+
+[node name="ReceptionScreen" parent="ReceptionScreenPositionner" instance=ExtResource("2_oxd8y")]
+
+[node name="AssemblyScreenPositionner" type="Node2D" parent="."]
+position = Vector2(0, 1080)
+
+[node name="AssemblyScreen" parent="AssemblyScreenPositionner" instance=ExtResource("1_i2ygs")]
+
+[node name="WafflerMakerScreenPositionner" type="Node2D" parent="."]
+position = Vector2(1920, 1080)
+
+[node name="WaffleMakerScreen" parent="WafflerMakerScreenPositionner" instance=ExtResource("3_18c7x")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(960, 540)
+position_smoothing_enabled = true
+
+[connection signal="go_screen_down" from="ReceptionScreenPositionner/ReceptionScreen" to="." method="_on_reception_screen_go_screen_down"]
+[connection signal="go_screen_right" from="AssemblyScreenPositionner/AssemblyScreen" to="." method="_on_assembly_screen_go_screen_right"]
+[connection signal="go_screen_up" from="AssemblyScreenPositionner/AssemblyScreen" to="." method="_on_assembly_screen_go_screen_up"]
+[connection signal="go_screen_left" from="WafflerMakerScreenPositionner/WaffleMakerScreen" to="." method="_on_waffle_maker_screen_go_screen_left"]

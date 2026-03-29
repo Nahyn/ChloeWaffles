@@ -1,0 +1,137 @@
+[gd_scene load_steps=10 format=3 uid="uid://da5la3275mqn8"]
+
+[ext_resource type="Script" uid="uid://ffamaol6cauv" path="res://scenes/cooking/assembly_screen.gd" id="1_50xx8"]
+[ext_resource type="Texture2D" uid="uid://c82q4guqfsboh" path="res://assets/graphics/ui/Sans_titre_1001_20260329001842.png" id="2_50xx8"]
+[ext_resource type="PackedScene" uid="uid://dnv6nclbviscm" path="res://scenes/waffle/ingredient_stockpile_node.tscn" id="3_kk2ym"]
+[ext_resource type="Resource" uid="uid://buj2sh0tj8hxx" path="res://assets/resources/ingredients/diced_banana.tres" id="4_gs004"]
+[ext_resource type="Resource" uid="uid://df1k3gluind2a" path="res://assets/resources/ingredients/glutenfree_waffle.tres" id="5_amxae"]
+[ext_resource type="Resource" uid="uid://do3h8hal75hjg" path="res://assets/resources/ingredients/maple_syrup.tres" id="6_lbf8c"]
+[ext_resource type="Resource" uid="uid://mbeqc8t5a68o" path="res://assets/resources/ingredients/sliced_almonds.tres" id="7_yaapy"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_50xx8"]
+width = 250
+height = 100
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1cwt0"]
+width = 100
+height = 250
+
+[node name="AssemblyScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_50xx8")
+
+[node name="Background" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.39215687)
+layout_mode = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_50xx8")
+
+[node name="StockpileContainer" type="Control" parent="Background"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = -960.0
+offset_bottom = -540.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BananaStockpile" parent="Background/StockpileContainer" instance=ExtResource("3_kk2ym")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 129.0
+offset_top = 341.0
+offset_right = 129.0
+offset_bottom = 341.0
+grow_horizontal = 2
+grow_vertical = 2
+ingredient = ExtResource("4_gs004")
+
+[node name="WaffleStockpile" parent="Background/StockpileContainer" instance=ExtResource("3_kk2ym")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1759.0
+offset_top = 871.0
+offset_right = 1759.0
+offset_bottom = 871.0
+grow_horizontal = 2
+grow_vertical = 2
+ingredient = ExtResource("5_amxae")
+
+[node name="MapleSyrupStockpile" parent="Background/StockpileContainer" instance=ExtResource("3_kk2ym")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 69.0
+offset_top = 711.0
+offset_right = 69.0
+offset_bottom = 711.0
+grow_horizontal = 2
+grow_vertical = 2
+ingredient = ExtResource("6_lbf8c")
+
+[node name="SlicedAlmondStockpile" parent="Background/StockpileContainer" instance=ExtResource("3_kk2ym")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 455.0
+offset_top = 902.0
+offset_right = 455.0
+offset_bottom = 902.0
+grow_horizontal = 2
+grow_vertical = 2
+ingredient = ExtResource("7_yaapy")
+
+[node name="WafflePositionner" type="Control" parent="Background"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 108.0
+offset_top = 160.0
+offset_right = 108.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GoUpButton" type="TextureButton" parent="Background"]
+layout_mode = 0
+offset_left = 150.0
+offset_right = 400.0
+offset_bottom = 100.0
+texture_normal = SubResource("NoiseTexture2D_50xx8")
+
+[node name="GoRightButton" type="TextureButton" parent="Background"]
+layout_mode = 0
+offset_left = 1816.0
+offset_top = 421.0
+offset_right = 1916.0
+offset_bottom = 671.0
+texture_normal = SubResource("NoiseTexture2D_1cwt0")
+
+[connection signal="pressed" from="Background/GoUpButton" to="." method="_on_go_up_button_pressed"]
+[connection signal="pressed" from="Background/GoRightButton" to="." method="_on_go_right_button_pressed"]

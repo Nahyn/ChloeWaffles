@@ -1,7 +1,9 @@
 extends Control
-class_name CookingScreen
+class_name AssemblyScreen
 
-@onready var waffle_positionner: Control = $WafflePositionner
+signal go_screen_up()
+signal go_screen_right()
+
 const WAFFLE_NODE = preload("uid://c4ktetgyfxye6")
 
 func _ready() -> void:
@@ -16,13 +18,20 @@ func _on_stockpile_clicked( stockpile :IngredientStockpileNode ) -> void:
 	var ingredient = stockpile.ingredient
 	
 	var waffle_node :WaffleNode
-	if waffle_positionner.get_child_count() == 0:
+	if %WafflePositionner.get_child_count() == 0:
 		if not ingredient.category == IngredientResource.CATEGORY.BASE:
 			return
 		waffle_node = WAFFLE_NODE.instantiate() as WaffleNode
 		waffle_node.ingredients.push_back(ingredient);
-		waffle_positionner.add_child(waffle_node);
+		%WafflePositionner.add_child(waffle_node);
 	else:
-		waffle_node = waffle_positionner.get_child(0);
+		waffle_node = %WafflePositionner.get_child(0);
 		waffle_node.add_ingredient(ingredient);
 	
+
+
+func _on_go_right_button_pressed() -> void:
+	go_screen_right.emit()
+
+func _on_go_up_button_pressed() -> void:
+	go_screen_up.emit()
