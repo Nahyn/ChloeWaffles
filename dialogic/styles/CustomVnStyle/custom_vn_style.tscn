@@ -1,10 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://4p3p4lci7b6i"]
+[gd_scene load_steps=28 format=3 uid="uid://4p3p4lci7b6i"]
 
 [ext_resource type="Script" uid="uid://yivwmkfwrvfr" path="res://addons/dialogic/Modules/DefaultLayoutParts/Base_Default/default_layout_base.gd" id="1_ifsho"]
 [ext_resource type="PackedScene" uid="uid://c1k5m0w3r40xf" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_FullBackground/full_background_layer.tscn" id="2_kq02u"]
 [ext_resource type="Script" uid="uid://d0ptqnbudhkyj" path="res://addons/dialogic/Modules/Character/node_portrait_container.gd" id="4_0uh6p"]
 [ext_resource type="Script" uid="uid://cx1i44s2olq2d" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Portraits/vn_portrait_layer.gd" id="5_bbm5t"]
-[ext_resource type="Texture2D" uid="uid://taqxqbgfbh3k" path="res://assets/graphics/decor/place_holder_client_table.png" id="5_t25po"]
+[ext_resource type="Texture2D" uid="uid://oixvotcipimm" path="res://assets/graphics/backgrounds/Floor.png" id="5_i6cxo"]
 [ext_resource type="Script" uid="uid://kgouvpi34a8b" path="res://dialogic/styles/CustomVnStyle/customer_counter.gd" id="6_t25po"]
 [ext_resource type="PackedScene" uid="uid://cn674foxwedqu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.tscn" id="6_xrmsk"]
 [ext_resource type="Script" uid="uid://bl43m5qw8pso3" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_layer.gd" id="9_7650x"]
@@ -20,6 +20,10 @@
 [ext_resource type="StyleBox" uid="uid://m7gyepkysu83" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_name_label_panel.tres" id="15_00uwt"]
 [ext_resource type="Script" uid="uid://bak74s0kcr0ao" path="res://addons/dialogic/Modules/Text/node_name_label.gd" id="16_a73xa"]
 [ext_resource type="PackedScene" uid="uid://lx24i8fl6uo" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_History/history_layer.tscn" id="16_efd4v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbm5t"]
+atlas = ExtResource("5_i6cxo")
+region = Rect2(0, 0, 0, 100)
 
 [sub_resource type="Animation" id="Animation_au0a2"]
 length = 0.001
@@ -302,12 +306,18 @@ container_ids = PackedStringArray("rightmost", "4")
 metadata/_edit_use_anchors_ = true
 
 [node name="CustomerCounterTextureRect" type="TextureRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
+z_as_relative = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -100.0
+offset_right = 960.0
 grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_t25po")
+grow_vertical = 0
+texture = SubResource("AtlasTexture_bbm5t")
 script = ExtResource("6_t25po")
 
 [node name="FullAdvanceInputLayer" parent="." instance=ExtResource("6_xrmsk")]

@@ -5,34 +5,23 @@
 &"color": Color(1, 1, 1, 1),
 &"custom_info": {
 "prefix": "",
-"sound_mood_default": "Mood 1",
-"sound_moods": {
-"Mood 1": {
-"mode": 0,
-"name": "Mood 1",
-"pitch_base": 0.8,
-"pitch_variance": -0.3,
-"skip_characters": 0.0,
-"sound_path": "res://assets/audio/blip_0.wav",
-"volume_base": -0.5,
-"volume_variance": 0.0
-}
-},
+"sound_mood_default": "",
+"sound_moods": {},
 "style": "",
 "suffix": ""
 },
 &"default_portrait": "New portrait",
 &"description": "",
-&"display_name": "Test Character B",
+&"display_name": "Chloe",
 &"mirror": false,
 &"nicknames": [""],
 &"offset": Vector2(0, 0),
 &"portraits": {
 "New portrait": {
 "export_overrides": {
-"image": "\"res://assets/graphics/sprites/place_holder_character.png\""
+"image": "\"res://assets/graphics/sprites/Chloe.png\""
 },
-"mirror": true,
+"mirror": false,
 "offset": Vector2(0, 0),
 "scale": 1,
 "scene": ""
