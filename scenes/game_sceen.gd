@@ -24,7 +24,7 @@ func _ready() -> void:
 	EventManager.waffle_trashed.connect(_on_waffle_trashed)
 	EventManager.waffle_burnt.connect(_on_waffle_burnt)
 
-func _on_client_served( ingredients :Array[IngredientResource], modifiers :Array[float] ) -> void:
+func _on_client_served( _ingredients :Array[IngredientResource], modifiers :Array[float] ) -> void:
 	var waffle_score = 0;
 	
 	for modifier in modifiers:
@@ -39,16 +39,17 @@ func change_score( _modifier :int ) -> void:
 	
 	var modifier_label := SCORE_LABEL.instantiate() as ScoreLabel;
 	var modifier_str = str(_modifier);
+	var modifier_color = Color(0.741, 0.118, 0.0, 1.0);
 	if _modifier > 0:
 		modifier_str = str("+", modifier_str);
+		modifier_color = Color(0.208, 0.541, 0.243, 1.0);
 	modifier_label.text = modifier_str
+	modifier_label.set_outline_color(modifier_color)
 	
 	var score_position = %ScoreLabel.global_position
-	var limit_position = score_position + %ScoreLabel.size
-	
 	var modifier_position = Vector2.ZERO;
-	modifier_position.x = lerp(score_position.x, limit_position.y, randf_range(0.1, 0.9))
-	modifier_position.y = lerp(score_position.y, limit_position.y, randf_range(0.1, 0.9))
+	modifier_position.x = score_position.x + %ScoreLabel.size.x * randf_range(0.1, 0.9);
+	modifier_position.y = score_position.y + %ScoreLabel.size.y * randf_range(0.5, 0.9);
 	
 	add_child(modifier_label);
 	modifier_label.global_position = modifier_position
