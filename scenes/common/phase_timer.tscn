@@ -1,0 +1,82 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqt1bsryg2t3u"]
+
+[ext_resource type="Script" uid="uid://bd86tblkifrn2" path="res://scenes/common/phase_timer.gd" id="1_rbiy4"]
+[ext_resource type="PackedScene" uid="uid://4vffldnl0npg" path="res://scenes/cooking/timer_node.tscn" id="3_flbd7"]
+
+[node name="PhaseTimer" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_rbiy4")
+
+[node name="ProgressBarContainer" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="BackgroundTimerTextureRect" type="TextureRect" parent="ProgressBarContainer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PhaseIndicatorProgressBar" type="TextureProgressBar" parent="ProgressBarContainer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+max_value = 1.0
+step = 0.01
+value = 0.6
+fill_mode = 4
+radial_initial_angle = 45.0
+tint_progress = Color(0.76862746, 0.7882353, 0.13725491, 1)
+
+[node name="CurrentTimerTextureProgressBar" type="TextureProgressBar" parent="ProgressBarContainer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+step = 0.1
+fill_mode = 4
+
+[node name="TimerNode" parent="." instance=ExtResource("3_flbd7")]
+unique_name_in_owner = true
+timer_limits = Array[float]([2.0, 1.5, 0.75, 1.5, 0.5])
+
+[connection signal="phase_started" from="TimerNode" to="." method="_on_timer_node_phase_started"]
+[connection signal="timer_finished" from="TimerNode" to="." method="_on_timer_node_timer_finished"]

@@ -1,3 +1,4 @@
+@tool
 extends Node
 class_name TimerNode
 
@@ -15,17 +16,24 @@ var total_duration := 0.0;
 var current_phase_index := 0;
 var current_phase_duration := 0.0;
 
+func _ready() -> void:
+	_initialiaze.call_deferred();
+
 func _initialiaze() -> void:
-	current_phase_index = 0;
-	current_phase_duration = 0.0;
-	total_duration = 0.0;
 	total_limits = 0.0;
 	for timer_limit in timer_limits:
 		total_limits += timer_limit;
 	
+	reset();
+
+func reset():
+	current_phase_index = 0;
+	current_phase_duration = 0.0;
+	total_duration = 0.0;
+	running = false;
 
 func start_timer() -> void:
-	_initialiaze();
+	reset();
 	running = true;
 	phase_started.emit(0);
 
@@ -49,9 +57,11 @@ func _process(delta: float) -> void:
 		current_phase_index += 1;
 		phase_started.emit(current_phase_index);
 
-func set_limits( phases :Array[TimerPhaseResource] ) -> void:
+func set_limits( phases :Array[PhaseTimerSegmentResource] ) -> void:
 	timer_limits.clear();
 	for phase in phases:
+		if phase == null:
+			continue
 		timer_limits.push_back(phase.duration);
 	
 	_initialiaze();

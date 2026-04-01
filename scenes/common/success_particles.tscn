@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://d0o4t5a6xpjba"]
 
-[ext_resource type="Texture2D" uid="uid://717ms3gldrpy" path="res://assets/graphics/sprites/placeholder_particles.png" id="1_2663n"]
+[ext_resource type="Texture2D" uid="uid://717ms3gldrpy" path="res://assets/graphics/particles/placeholder_particles.png" id="1_2663n"]
 [ext_resource type="Script" uid="uid://cxylggs24e6yl" path="res://scenes/common/custom_particle_system.gd" id="2_5qwuq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5qwuq"]

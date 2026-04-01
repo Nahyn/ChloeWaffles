@@ -1,11 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://vkrwd8ahcav0"]
+[gd_scene load_steps=9 format=3 uid="uid://vkrwd8ahcav0"]
 
 [ext_resource type="Script" uid="uid://6suk3ccyicjx" path="res://scenes/cooking/reception_screen.gd" id="1_subv2"]
-[ext_resource type="Texture2D" uid="uid://bvryeta3lfcs" path="res://assets/graphics/ui/maquette_client.png" id="2_if8lj"]
+[ext_resource type="Texture2D" uid="uid://0s5q077j8s3r" path="res://assets/graphics/backgrounds/ReceptionBackground.png" id="2_ifesg"]
+[ext_resource type="Texture2D" uid="uid://oixvotcipimm" path="res://assets/graphics/backgrounds/Floor.png" id="3_01s2h"]
+[ext_resource type="Texture2D" uid="uid://cr64oyj5vuf1o" path="res://assets/graphics/ui/UpArrow.png" id="3_ifesg"]
+[ext_resource type="Texture2D" uid="uid://kc5p3byyxc5r" path="res://assets/graphics/sprites/Chloe.png" id="4_4iy8a"]
+[ext_resource type="PackedScene" uid="uid://bco0i0j17hgvv" path="res://scenes/common/selected_item_control.tscn" id="6_1rwiq"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_if8lj"]
-width = 150
-height = 200
+[sub_resource type="Curve2D" id="Curve2D_01s2h"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2170, -1, 0, 0, 0, 0, 860, 0)
+}
+point_count = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rwiq"]
+atlas = ExtResource("3_01s2h")
+region = Rect2(0, 0, 0, 200)
 
 [node name="ReceptionScreen" type="Control"]
 layout_mode = 3
@@ -16,7 +26,48 @@ script = ExtResource("1_subv2")
 layout_mode = 1
 offset_right = 1920.0
 offset_bottom = 1080.0
-texture = ExtResource("2_if8lj")
+texture = ExtResource("2_ifesg")
+
+[node name="ClientContainer" type="Control" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="ClientWaitingLine" type="Path2D" parent="TextureRect/ClientContainer"]
+unique_name_in_owner = true
+y_sort_enabled = true
+curve = SubResource("Curve2D_01s2h")
+
+[node name="ReceptionCountertopTextureRect" type="TextureRect" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -100.0
+offset_right = 960.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = SubResource("AtlasTexture_1rwiq")
+
+[node name="Chloe" type="TextureRect" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -110.0
+offset_top = -998.0
+offset_right = 668.0
+grow_vertical = 0
+texture = ExtResource("4_4iy8a")
 
 [node name="GoDownButton" type="TextureButton" parent="TextureRect"]
 layout_mode = 1
@@ -25,10 +76,23 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -150.0
-offset_top = -200.0
+offset_left = -1770.0
+offset_top = -64.0
+offset_right = -1409.0
 grow_horizontal = 0
 grow_vertical = 0
-texture_normal = SubResource("NoiseTexture2D_if8lj")
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_ifesg")
+flip_v = true
+
+[node name="Button" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_right = 124.0
+offset_bottom = 31.0
+text = "SPAWN CLIENT"
+
+[node name="SelectedItemControl" parent="." instance=ExtResource("6_1rwiq")]
+layout_mode = 1
 
 [connection signal="pressed" from="TextureRect/GoDownButton" to="." method="_on_go_down_button_pressed"]
+[connection signal="pressed" from="TextureRect/Button" to="." method="_on_button_pressed"]

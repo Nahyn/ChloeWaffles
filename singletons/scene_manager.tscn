@@ -1,0 +1,278 @@
+[gd_scene load_steps=7 format=3 uid="uid://3n7o26l3p8c4"]
+
+[ext_resource type="Script" uid="uid://bn1vmst4a4edb" path="res://singletons/scene_manager.gd" id="1_qmatr"]
+[ext_resource type="Texture2D" uid="uid://lh3506asecg4" path="res://assets/graphics/ui/screen_changing_border.png" id="2_x27wh"]
+
+[sub_resource type="Animation" id="Animation_tfo8q"]
+resource_name = "fade_in"
+length = 0.7
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DropoutColorRect/ColorScreenC:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(2200, -0.25, 0, 0.06666667, -1157.7067, 0, -0.100004226, 78.00354, 0, 0),
+"times": PackedFloat32Array(0.2, 0.50000423)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DropoutColorRect/ColorScreenB:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(2200, -0.25, 0, 0.06666667, -1157.7067, 0, -0.100004226, 78.00354, 0, 0),
+"times": PackedFloat32Array(0.1, 0.4)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DropoutColorRect/ColorScreenA:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(2200, -0.25, 0, 0.06666667, -1157.7067, 0, -0.100004226, 78.00354, 0, 0),
+"times": PackedFloat32Array(0, 0.30000424)
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DropoutColorRect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_x27wh"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DropoutColorRect/ColorScreenC:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DropoutColorRect/ColorScreenB:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DropoutColorRect/ColorScreenA:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DropoutColorRect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_3nfl0"]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DropoutColorRect/ColorScreenC:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.06666667, -1157.7067, -2200, -0.100004226, 78.00354, 0, 0),
+"times": PackedFloat32Array(0, 0.30000424)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DropoutColorRect/ColorScreenB:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.06666667, -1157.7067, -2200, -0.100004226, 78.00354, 0, 0),
+"times": PackedFloat32Array(0.1, 0.4)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DropoutColorRect/ColorScreenA:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.06666667, -1157.7067, -2200, -0.100004226, 78.00354, 0, 0),
+"times": PackedFloat32Array(0.2, 0.50000423)
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DropoutColorRect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b5b1m"]
+_data = {
+&"RESET": SubResource("Animation_x27wh"),
+&"fade_in": SubResource("Animation_tfo8q"),
+&"fade_out": SubResource("Animation_3nfl0")
+}
+
+[node name="SceneManager" type="Node"]
+script = ExtResource("1_qmatr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DropoutColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.003921569)
+
+[node name="ColorScreenA" type="ColorRect" parent="CanvasLayer/DropoutColorRect"]
+modulate = Color(0.23137255, 0.105882354, 0.23529412, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -0.0014648438
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftBorder" type="TextureRect" parent="CanvasLayer/DropoutColorRect/ColorScreenA"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -540.0
+offset_bottom = 540.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("2_x27wh")
+
+[node name="RightBorder" type="TextureRect" parent="CanvasLayer/DropoutColorRect/ColorScreenA"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -540.0
+offset_bottom = 540.0
+grow_vertical = 2
+texture = ExtResource("2_x27wh")
+flip_h = true
+
+[node name="ColorScreenB" type="ColorRect" parent="CanvasLayer/DropoutColorRect"]
+modulate = Color(0.8980392, 0.13725491, 0.39607844, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -0.00390625
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftBorder" type="TextureRect" parent="CanvasLayer/DropoutColorRect/ColorScreenB"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -540.0
+offset_bottom = 540.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("2_x27wh")
+
+[node name="RightBorder" type="TextureRect" parent="CanvasLayer/DropoutColorRect/ColorScreenB"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -540.0
+offset_bottom = 540.0
+grow_vertical = 2
+texture = ExtResource("2_x27wh")
+flip_h = true
+
+[node name="ColorScreenC" type="ColorRect" parent="CanvasLayer/DropoutColorRect"]
+modulate = Color(0.9098039, 0.5176471, 0.5294118, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -0.0034179688
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftBorder" type="TextureRect" parent="CanvasLayer/DropoutColorRect/ColorScreenC"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -540.0
+offset_bottom = 540.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("2_x27wh")
+
+[node name="RightBorder" type="TextureRect" parent="CanvasLayer/DropoutColorRect/ColorScreenC"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -540.0
+offset_bottom = 540.0
+grow_vertical = 2
+texture = ExtResource("2_x27wh")
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+libraries = {
+&"": SubResource("AnimationLibrary_b5b1m")
+}

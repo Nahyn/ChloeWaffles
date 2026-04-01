@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqew4rliwbsio"]
+[gd_scene load_steps=4 format=3 uid="uid://bqew4rliwbsio"]
 
 [ext_resource type="Script" uid="uid://brack5hlj1ylo" path="res://scenes/test_dialog.gd" id="1_3t068"]
 [ext_resource type="Texture2D" uid="uid://ctgmas5s20r1x" path="res://assets/graphics/ui/maquette_dialog.png" id="1_lht00"]
 [ext_resource type="Resource" uid="uid://ctgngshouurxo" path="res://dialogic/timelines/TEST_TIMELINE.dtl" id="2_qajk8"]
-[ext_resource type="Resource" uid="uid://detralr8dbq63" path="res://dialogic/characters/test_character_a.dch" id="3_xqq3v"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -14,7 +13,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3t068")
 dialogic_timeline = ExtResource("2_qajk8")
-chloe_character = ExtResource("3_xqq3v")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1

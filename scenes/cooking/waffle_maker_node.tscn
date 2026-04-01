@@ -1,57 +1,217 @@
-[gd_scene load_steps=16 format=3 uid="uid://ffnih233dw26"]
+[gd_scene load_steps=25 format=3 uid="uid://ffnih233dw26"]
 
-[ext_resource type="PackedScene" uid="uid://4vffldnl0npg" path="res://scenes/cooking/timer_node.tscn" id="1_2oisx"]
 [ext_resource type="Script" uid="uid://cttkfud632l7d" path="res://scenes/cooking/waffle_maker_node.gd" id="1_8f2cu"]
 [ext_resource type="AudioStream" uid="uid://7qpmrt2a5jvq" path="res://assets/audio/blip_3.wav" id="2_k48uc"]
-[ext_resource type="Texture2D" uid="uid://376ftl0ub1pm" path="res://assets/graphics/sprites/placehold_waffle.png" id="2_kgxka"]
 [ext_resource type="AudioStream" uid="uid://cjq4ufydai2pe" path="res://assets/audio/blip_2.wav" id="2_kvmcp"]
-[ext_resource type="Script" uid="uid://cwgpi5udd0f8m" path="res://assets/resources/timer_phase.gd" id="2_rdp6q"]
-[ext_resource type="Texture2D" uid="uid://di1grpgl6u5ob" path="res://assets/graphics/sprites/placeholder_waffle_timer.png" id="3_kek2y"]
+[ext_resource type="Script" uid="uid://cwgpi5udd0f8m" path="res://assets/resources/phase_timer_segment.gd" id="2_rdp6q"]
+[ext_resource type="Texture2D" uid="uid://di1grpgl6u5ob" path="res://assets/graphics/ui/placeholder_waffle_timer.png" id="3_kek2y"]
+[ext_resource type="Texture2D" uid="uid://uhig6l5ws4cv" path="res://assets/graphics/decor/WaffleMakerOpen.png" id="5_k48uc"]
+[ext_resource type="PackedScene" uid="uid://dqt1bsryg2t3u" path="res://scenes/common/phase_timer.tscn" id="6_2vgjh"]
+[ext_resource type="Texture2D" uid="uid://dviokks881yko" path="res://assets/graphics/decor/WaffleMakerCloser.png" id="8_2vgjh"]
 
-[sub_resource type="Resource" id="Resource_kvmcp"]
-script = ExtResource("2_rdp6q")
-duration = 3.0
-tint = Color(0.74509805, 0, 0, 1)
-multiplier = 0.0
-metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5f6qq"]
+load_path = "res://.godot/imported/placeholder_particles.png-a66621bd46d64e223f03bfe9bc31d424.ctex"
 
-[sub_resource type="Resource" id="Resource_k48uc"]
-script = ExtResource("2_rdp6q")
-duration = 2.0
-tint = Color(0.79607844, 1, 0.2509804, 1)
-multiplier = 0.7
-metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1ivf"]
+atlas = SubResource("CompressedTexture2D_5f6qq")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="Curve" id="Curve_acr5o"]
+_data = [Vector2(0, 0), 0.0, 9.018726, 0, 0, Vector2(0.62790704, 0.8764045), 2.604787, 2.604787, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_5f6qq"]
+offsets = PackedFloat32Array(0, 0.7671233, 1)
+colors = PackedColorArray(0.9805202, 0.9049517, 0.98918647, 1, 0.9805202, 0.9049517, 0.98918647, 1, 1, 1, 1, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k48uc"]
+atlas = ExtResource("3_kek2y")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vgjh"]
+atlas = ExtResource("3_kek2y")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqea7"]
+atlas = ExtResource("3_kek2y")
+region = Rect2(200, 0, 200, 200)
 
 [sub_resource type="Resource" id="Resource_2vgjh"]
 script = ExtResource("2_rdp6q")
-duration = 1.0
-multiplier = 1.5
+duration = 4.0
+tint = Color(0.6666667, 0.05490196, 0.011764706, 1)
+multiplier = 0.0
 metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
 
 [sub_resource type="Resource" id="Resource_kqea7"]
 script = ExtResource("2_rdp6q")
-duration = 1.5
-tint = Color(0, 1, 0.1882353, 1)
-multiplier = 1.0
+duration = 2.0
+tint = Color(0.9254902, 0.6156863, 0.2627451, 1)
+multiplier = 0.7
 metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
 
 [sub_resource type="Resource" id="Resource_i7v5h"]
 script = ExtResource("2_rdp6q")
-duration = 1.0
-tint = Color(1, 0.5411765, 0, 1)
+duration = 1.5
+tint = Color(0, 0.7254902, 0.07058824, 1)
+multiplier = 1.2
 metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rdp6q"]
-atlas = ExtResource("3_kek2y")
-region = Rect2(0, 0, 200, 200)
+[sub_resource type="Resource" id="Resource_3ennm"]
+script = ExtResource("2_rdp6q")
+duration = 2.0
+tint = Color(0.9254902, 0.6156863, 0.2627451, 1)
+multiplier = 0.7
+metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kvmcp"]
-atlas = ExtResource("3_kek2y")
-region = Rect2(400, 0, 200, 200)
+[sub_resource type="Resource" id="Resource_8rjf0"]
+script = ExtResource("2_rdp6q")
+duration = 1.0
+tint = Color(0.6666667, 0.05490196, 0.011764706, 1)
+multiplier = 0.0
+metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k48uc"]
-atlas = ExtResource("3_kek2y")
-region = Rect2(200, 0, 200, 200)
+[sub_resource type="Animation" id="Animation_3ennm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_k48uc")]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:scale:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_i7v5h"]
+resource_name = "close"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("5_k48uc"), ExtResource("8_2vgjh")]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2),
+"points": PackedFloat32Array(1, -0.15, 0, 0.15, 0, 1, -0.013333334, 0, 0.03666667, 0, 0.95, -0.011666669, 0, 0.025000002, 0, 1, -0.050000004, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.08, 0.15, 0.3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2),
+"points": PackedFloat32Array(1, -0.15, 0, 0.15, 0, 1, -0.013333334, 0, 0.03666667, 0, 0.95, -0.011666669, 0, 0.025000002, 0, 1, -0.050000004, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.08, 0.15, 0.3)
+}
+
+[sub_resource type="Animation" id="Animation_kqea7"]
+resource_name = "open"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("8_2vgjh"), ExtResource("5_k48uc")]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.1, -0.004335229, -0.05, -0.050000004, 0.0034906587, 0.03333333, -0.0023271055, 0.034906585, -0.06449945, -0.0014366545, 0.057088092, 0.0001575388, 0, -0.06666668, -0.000235874, 0, 0),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.26666668)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(2, 2, 2, 0),
+"points": PackedFloat32Array(1, 0, 0, 0.083333336, 0, 1, -0.046666667, 0, 0.03666667, 0, 1.05, -0.0033333353, 0, 0.03333333, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.28, 0.3, 0.4)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:scale:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(2, 2, 2, 0),
+"points": PackedFloat32Array(1, 0, 0, 0.083333336, 0, 1, -0.046666667, 0, 0.03666667, 0, 1.05, -0.0033333353, 0, 0.03333333, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.28, 0.3, 0.4)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8rjf0"]
+_data = {
+&"RESET": SubResource("Animation_3ennm"),
+&"close": SubResource("Animation_i7v5h"),
+&"open": SubResource("Animation_kqea7")
+}
 
 [node name="WaffleMakerNode" type="Control"]
 layout_mode = 3
@@ -65,9 +225,9 @@ grow_vertical = 2
 script = ExtResource("1_8f2cu")
 SUCCESS_SOUND = ExtResource("2_k48uc")
 FAILURE_SOUND = ExtResource("2_kvmcp")
-phases = Array[ExtResource("2_rdp6q")]([SubResource("Resource_kvmcp"), SubResource("Resource_k48uc"), SubResource("Resource_2vgjh"), SubResource("Resource_kqea7"), SubResource("Resource_i7v5h")])
 
 [node name="TextureRect" type="TextureRect" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -80,86 +240,51 @@ offset_right = 150.0
 offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_kgxka")
+texture = ExtResource("5_k48uc")
 
-[node name="TimerPhasesContainer" type="Control" parent="TextureRect"]
+[node name="FailureParticles" type="CPUParticles2D" parent="TextureRect"]
+position = Vector2(260, 400)
+emitting = false
+amount = 10
+texture = SubResource("AtlasTexture_u1ivf")
+lifetime = 2.0
+lifetime_randomness = 0.2
+emission_shape = 4
+emission_points = PackedVector2Array(-200, -150, 200, -150, 200, 150, -200, 150)
+emission_colors = PackedColorArray()
+direction = Vector2(0, 1)
+spread = 180.0
+gravity = Vector2(0, -100)
+initial_velocity_min = 75.0
+initial_velocity_max = 100.0
+angular_velocity_min = -45.0
+angular_velocity_max = 45.0
+angle_min = -45.0
+angle_max = 45.0
+scale_amount_min = 0.5
+scale_amount_max = 1.5
+scale_amount_curve = SubResource("Curve_acr5o")
+color_ramp = SubResource("Gradient_5f6qq")
+hue_variation_min = -0.37
+hue_variation_max = 0.35
+
+[node name="PhaseTimer" parent="." instance=ExtResource("6_2vgjh")]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="BackgroundTimerTextureRect" type="TextureRect" parent="TextureRect/TimerPhasesContainer"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -100.0
-offset_right = 100.0
-offset_bottom = 100.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = SubResource("AtlasTexture_rdp6q")
-
-[node name="PhaseIndicatorProgressBar" type="TextureProgressBar" parent="TextureRect/TimerPhasesContainer"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -100.0
-offset_right = 100.0
-offset_bottom = 100.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-max_value = 1.0
-step = 0.01
-value = 0.6
-fill_mode = 4
-radial_initial_angle = 45.0
-texture_progress = SubResource("AtlasTexture_kvmcp")
-tint_progress = Color(0.76862746, 0.7882353, 0.13725491, 1)
-
-[node name="CurrentTimerTextureProgressBar" type="TextureProgressBar" parent="TextureRect/TimerPhasesContainer"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -100.0
-offset_right = 100.0
-offset_bottom = 100.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-max_value = 1.0
-step = 0.01
-fill_mode = 4
-texture_over = SubResource("AtlasTexture_k48uc")
-texture_progress = SubResource("AtlasTexture_kvmcp")
-
-[node name="TimerNode" parent="." instance=ExtResource("1_2oisx")]
-timer_limits = Array[float]([2.0, 1.5, 0.75, 1.5, 0.5])
+background_texture = SubResource("AtlasTexture_k48uc")
+progress_texture = SubResource("AtlasTexture_2vgjh")
+over_texture = SubResource("AtlasTexture_kqea7")
+phases = Array[ExtResource("2_rdp6q")]([SubResource("Resource_2vgjh"), SubResource("Resource_kqea7"), SubResource("Resource_i7v5h"), SubResource("Resource_3ennm"), SubResource("Resource_8rjf0")])
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 bus = &"SFX"
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8rjf0")
+}
+
 [connection signal="gui_input" from="TextureRect" to="." method="_on_texture_rect_gui_input"]
-[connection signal="phase_started" from="TimerNode" to="." method="_on_timer_node_phase_started"]
-[connection signal="timer_finished" from="TimerNode" to="." method="_on_timer_node_timer_finished"]
+[connection signal="finished" from="TextureRect/FailureParticles" to="TextureRect/FailureParticles" method="_on_finished"]
+[connection signal="failed" from="PhaseTimer" to="." method="_on_timer_phases_container_failed"]
+[connection signal="phase_started" from="PhaseTimer" to="." method="_on_timer_phases_container_phase_started"]

@@ -2,7 +2,7 @@ extends Control
 class_name DialogScene
 
 @export var dialogic_timeline :DialogicTimeline;
-@export var chloe_character :DialogicCharacter;
+const CHLOE_DIALOGIC_CHARACTER :DialogicCharacter = preload("uid://dfjn53vas77fa")
 
 func _ready() -> void:
 	Dialogic.Text.about_to_show_text.connect(_on_about_to_show_text)
@@ -25,6 +25,6 @@ func _on_character_portrait_changed( _info :Dictionary ) -> void:
 
 func _on_character_joined( _info :Dictionary ) -> void:
 	prints("_on_character_joined")
-	if _info["character"] == chloe_character:
+	if _info["character"] == CHLOE_DIALOGIC_CHARACTER:
 		var node = _info["node"] as Node2D;
 		node.z_index = 100;

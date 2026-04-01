@@ -16,12 +16,16 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 [autoload]
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+CookingManager="*res://singletons/cooking_manager.tscn"
+EventManager="*res://singletons/event_manager.tscn"
+SceneManager="*res://singletons/scene_manager.tscn"
 
 [dialogic]
 
 directories/dch_directory={
-"test_character_a": "res://dialogic/characters/test_character_a.dch",
-"test_character_b": "res://dialogic/characters/test_character_b.dch"
+"chloe": "res://dialogic/characters/chloe.dch",
+"dodo": "res://dialogic/characters/dodo.dch",
+"ruben": "res://dialogic/characters/ruben.dch"
 }
 directories/dtl_directory={
 "TEST_TIMELINE": "res://dialogic/timelines/TEST_TIMELINE.dtl"

@@ -1,0 +1,218 @@
+[gd_scene load_steps=21 format=3 uid="uid://wcecrj3i8y8j"]
+
+[ext_resource type="Script" uid="uid://d2mhnid2o33od" path="res://scenes/reception/character_node.gd" id="1_hnbpa"]
+[ext_resource type="Texture2D" uid="uid://dqqhk7246vt26" path="res://assets/graphics/decor/place_holder_character.png" id="1_s5xa1"]
+[ext_resource type="Texture2D" uid="uid://717ms3gldrpy" path="res://assets/graphics/particles/placeholder_particles.png" id="2_arm1n"]
+[ext_resource type="Resource" uid="uid://bqsq8s3yro622" path="res://assets/resources/characters/ruben_character.tres" id="2_w5yg0"]
+[ext_resource type="PackedScene" uid="uid://dqt1bsryg2t3u" path="res://scenes/common/phase_timer.tscn" id="4_4vrxq"]
+[ext_resource type="PackedScene" uid="uid://c4ktetgyfxye6" path="res://scenes/waffle/waffle_node.tscn" id="4_dords"]
+[ext_resource type="Texture2D" uid="uid://di1grpgl6u5ob" path="res://assets/graphics/ui/placeholder_waffle_timer.png" id="5_row61"]
+[ext_resource type="Script" uid="uid://cwgpi5udd0f8m" path="res://assets/resources/phase_timer_segment.gd" id="6_row61"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnbpa"]
+atlas = ExtResource("2_arm1n")
+region = Rect2(0, 50, 50, 50)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_br68c"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+texture = SubResource("AtlasTexture_hnbpa")
+texture_margin_left = 11.0
+texture_margin_top = 16.0
+texture_margin_right = 15.0
+texture_margin_bottom = 17.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dords"]
+load_path = "res://.godot/imported/placeholder_waffle_timer.png-52360ff73dacf159dd35fd88b9ca4c8f.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5yg0"]
+atlas = SubResource("CompressedTexture2D_dords")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gxkfs"]
+load_path = "res://.godot/imported/placeholder_waffle_timer.png-52360ff73dacf159dd35fd88b9ca4c8f.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfsoq"]
+atlas = SubResource("CompressedTexture2D_gxkfs")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v32ci"]
+atlas = ExtResource("5_row61")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="Resource" id="Resource_dords"]
+script = ExtResource("6_row61")
+duration = 3.0
+multiplier = 1.5
+metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
+
+[sub_resource type="Resource" id="Resource_w5yg0"]
+script = ExtResource("6_row61")
+duration = 4.0
+tint = Color(0, 0.8039216, 0.23529412, 1)
+multiplier = 1.0
+metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
+
+[sub_resource type="Resource" id="Resource_gxkfs"]
+script = ExtResource("6_row61")
+duration = 5.0
+tint = Color(1, 0.1882353, 0, 1)
+multiplier = 0.7
+metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxkfs"]
+atlas = ExtResource("2_arm1n")
+region = Rect2(0, 50, 50, 50)
+
+[sub_resource type="Curve" id="Curve_w5yg0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.54651165, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="CharacterNode" type="Control"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_hnbpa")
+bubble_movement_range = 10.0
+character_resource = ExtResource("2_w5yg0")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -224.5
+offset_top = -800.0
+offset_right = 224.5
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_s5xa1")
+
+[node name="BubbleAnchor" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -932.0
+offset_bottom = -932.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BubblePositionner" type="Control" parent="BubbleAnchor"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ThoughBubble" type="PanelContainer" parent="BubbleAnchor/BubblePositionner"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_br68c")
+
+[node name="Control" type="Control" parent="BubbleAnchor/BubblePositionner/ThoughBubble"]
+layout_mode = 2
+
+[node name="WafflePositionner" type="Control" parent="BubbleAnchor/BubblePositionner/ThoughBubble/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+
+[node name="WaffleNode" parent="BubbleAnchor/BubblePositionner/ThoughBubble/Control/WafflePositionner" instance=ExtResource("4_dords")]
+unique_name_in_owner = true
+
+[node name="QuestionPositionner" type="Control" parent="BubbleAnchor/BubblePositionner/ThoughBubble/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="BubbleAnchor/BubblePositionner/ThoughBubble/Control/QuestionPositionner"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.22411707, 0.21358234, 0.20903912, 1)
+theme_override_font_sizes/font_size = 128
+text = "?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PhaseTimer" parent="BubbleAnchor/BubblePositionner/ThoughBubble/Control" instance=ExtResource("4_4vrxq")]
+unique_name_in_owner = true
+z_index = 2
+layout_mode = 1
+background_texture = SubResource("AtlasTexture_w5yg0")
+progress_texture = SubResource("AtlasTexture_qfsoq")
+over_texture = SubResource("AtlasTexture_v32ci")
+phases = Array[ExtResource("6_row61")]([SubResource("Resource_dords"), SubResource("Resource_w5yg0"), SubResource("Resource_gxkfs")])
+
+[node name="PomfParticles" type="CPUParticles2D" parent="BubbleAnchor/BubblePositionner"]
+unique_name_in_owner = true
+emitting = false
+amount = 25
+texture = SubResource("AtlasTexture_gxkfs")
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.4
+emission_shape = 1
+emission_sphere_radius = 75.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_w5yg0")
+
+[connection signal="gui_input" from="TextureRect" to="." method="_on_texture_rect_gui_input"]
+[connection signal="failed" from="BubbleAnchor/BubblePositionner/ThoughBubble/Control/PhaseTimer" to="." method="_on_phase_timer_failed"]

@@ -6,12 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://b25ho275xyvjj" path="res://assets/graphics/backgrounds/PreparationTable.png" id="3_gs004"]
 [ext_resource type="PackedScene" uid="uid://dnv6nclbviscm" path="res://scenes/waffle/ingredient_stockpile_node.tscn" id="3_kk2ym"]
 [ext_resource type="Texture2D" uid="uid://cgu0kx3beu3ow" path="res://assets/graphics/decor/Trash.png" id="3_lbf8c"]
-[ext_resource type="Resource" uid="uid://buj2sh0tj8hxx" path="res://assets/resources/ingredients/fruit_banana.tres" id="4_gs004"]
-[ext_resource type="Resource" uid="uid://df1k3gluind2a" path="res://assets/resources/ingredients/waffle_base.tres" id="5_amxae"]
-[ext_resource type="Resource" uid="uid://do3h8hal75hjg" path="res://assets/resources/ingredients/topping_chantilly.tres" id="6_lbf8c"]
+[ext_resource type="Resource" uid="uid://buj2sh0tj8hxx" path="res://assets/resources/ingredients/diced_banana.tres" id="4_gs004"]
+[ext_resource type="Resource" uid="uid://df1k3gluind2a" path="res://assets/resources/ingredients/glutenfree_waffle.tres" id="5_amxae"]
+[ext_resource type="Resource" uid="uid://do3h8hal75hjg" path="res://assets/resources/ingredients/maple_syrup.tres" id="6_lbf8c"]
 [ext_resource type="Texture2D" uid="uid://djtwfv7tmawl2" path="res://assets/graphics/decor/Bell.png" id="6_m1pp8"]
 [ext_resource type="Texture2D" uid="uid://bs4g3usq2u0o0" path="res://assets/graphics/decor/CuttingBoard.png" id="7_o8bv7"]
-[ext_resource type="Resource" uid="uid://mbeqc8t5a68o" path="res://assets/resources/ingredients/decoration_chocolate_chips.tres" id="7_yaapy"]
+[ext_resource type="Resource" uid="uid://mbeqc8t5a68o" path="res://assets/resources/ingredients/sliced_almonds.tres" id="7_yaapy"]
 [ext_resource type="Texture2D" uid="uid://cr64oyj5vuf1o" path="res://assets/graphics/ui/UpArrow.png" id="9_amxae"]
 [ext_resource type="Texture2D" uid="uid://bcrbx4wpdnpen" path="res://assets/graphics/ui/SideArrow.png" id="10_lbf8c"]
 [ext_resource type="Texture2D" uid="uid://0bn1wc3ivwh7" path="res://assets/graphics/decor/Plate.png" id="12_yaapy"]
@@ -34,9 +34,8 @@
 [ext_resource type="Texture2D" uid="uid://c6ntqggfidog7" path="res://assets/graphics/decor/placehold_topping.png" id="29_g3hhf"]
 [ext_resource type="Texture2D" uid="uid://b3231dp8gfny0" path="res://assets/graphics/decor/placehold_decoration.png" id="31_4kp5d"]
 
-[sub_resource type="Resource" id="Resource_o8bv7"]
+[sub_resource type="Resource" id="Resource_3x82c"]
 script = ExtResource("23_buwbn")
-name = "Box"
 stockpile_texture = ExtResource("24_8sx7e")
 metadata/_custom_type_script = "uid://dk1xqcc4ajqe5"
 
@@ -49,7 +48,6 @@ script = ExtResource("1_50xx8")
 layout_mode = 1
 offset_right = 1920.0
 offset_bottom = 1080.0
-mouse_filter = 2
 texture = ExtResource("2_gs004")
 
 [node name="Trash" type="TextureRect" parent="Background"]
@@ -66,7 +64,7 @@ grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("3_lbf8c")
 
-[node name="Table" type="TextureRect" parent="Background"]
+[node name="TextureRect" type="TextureRect" parent="Background"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -101,7 +99,6 @@ offset_left = 692.0
 offset_top = 61.0
 offset_right = 874.0
 offset_bottom = 247.0
-mouse_default_cursor_shape = 2
 texture = ExtResource("6_m1pp8")
 
 [node name="CuttingBoard" type="TextureRect" parent="Background"]
@@ -132,7 +129,6 @@ offset_right = 149.0
 offset_bottom = 194.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
 
 [node name="WafflePositionner" type="Control" parent="Background/WaffleAnchor"]
 unique_name_in_owner = true
@@ -144,7 +140,6 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
 
 [node name="GoUpButton" type="TextureButton" parent="Background"]
 layout_mode = 0
@@ -167,7 +162,6 @@ mouse_default_cursor_shape = 2
 texture_normal = ExtResource("10_lbf8c")
 
 [node name="MaquetteCuisine" type="TextureRect" parent="Background"]
-visible = false
 modulate = Color(1, 1, 1, 0.4117647)
 layout_mode = 1
 anchors_preset = 15
@@ -180,7 +174,6 @@ texture = ExtResource("2_50xx8")
 
 [node name="SauceHoldersContainer" type="Control" parent="Background"]
 anchors_preset = 0
-mouse_filter = 2
 
 [node name="SauceHolders1" type="TextureRect" parent="Background/SauceHoldersContainer"]
 layout_mode = 0
@@ -223,7 +216,6 @@ texture = ExtResource("16_2iqi4")
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-mouse_filter = 2
 
 [node name="DecorationsHolders1" type="TextureRect" parent="Background/DecorationHoldersContainer"]
 layout_mode = 0
@@ -280,7 +272,6 @@ texture = ExtResource("21_56tl4")
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-mouse_filter = 2
 
 [node name="FruitsHolders1" type="TextureRect" parent="Background/FruitHoldersContainer"]
 layout_mode = 0
@@ -343,7 +334,7 @@ anchor_left = 1.0
 anchor_right = 1.0
 grow_horizontal = 0
 texture = ExtResource("24_8sx7e")
-ingredient = SubResource("Resource_o8bv7")
+ingredient = SubResource("Resource_3x82c")
 
 [node name="WaffleStockpile" parent="Background/StockpileContainer" instance=ExtResource("3_kk2ym")]
 layout_mode = 1
@@ -364,7 +355,3 @@ ingredient = ExtResource("5_amxae")
 [connection signal="gui_input" from="Background/Bell" to="." method="_on_bell_gui_input"]
 [connection signal="pressed" from="Background/GoUpButton" to="." method="_on_go_up_button_pressed"]
 [connection signal="pressed" from="Background/GoRightButton" to="." method="_on_go_right_button_pressed"]
-[connection signal="clicked" from="Background/SauceHoldersContainer/SauceHolders1/MapleSyrupStockpile" to="." method="_on_stockpile_clicked"]
-[connection signal="clicked" from="Background/DecorationHoldersContainer/DecorationsHolders1/SlicedAlmondStockpile" to="." method="_on_stockpile_clicked"]
-[connection signal="clicked" from="Background/FruitHoldersContainer/FruitsHolders1/BananaStockpile" to="." method="_on_stockpile_clicked"]
-[connection signal="clicked" from="Background/StockpileContainer/BoxStockpileNode" to="." method="_on_stockpile_clicked"]

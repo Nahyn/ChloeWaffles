@@ -2,23 +2,8 @@
 
 [ext_resource type="Script" uid="uid://1o4rpg1cuquf" path="res://scenes/waffle/ingredient_stockpile_node.gd" id="1_ekwl2"]
 
-[node name="IngredientStockpileNode" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="IngredientStockpileNode" type="TextureRect"]
+mouse_default_cursor_shape = 2
 script = ExtResource("1_ekwl2")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-
-[connection signal="gui_input" from="PanelContainer/TextureRect" to="." method="_on_texture_rect_gui_input"]
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

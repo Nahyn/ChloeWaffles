@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh6owkg3wqome"]
+
+[ext_resource type="Script" uid="uid://clk2bjjp55qj8" path="res://singletons/cooking_manager.gd" id="1_wop0m"]
+
+[node name="CookingManager" type="Node"]
+script = ExtResource("1_wop0m")

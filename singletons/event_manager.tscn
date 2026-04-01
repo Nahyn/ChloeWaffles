@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5vj7lp75e5gx"]
+
+[ext_resource type="Script" uid="uid://b0vf4va07vehc" path="res://singletons/event_manager.gd" id="1_85ce1"]
+
+[node name="EventManager" type="Node"]
+script = ExtResource("1_85ce1")
