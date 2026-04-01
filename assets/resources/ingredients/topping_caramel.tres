@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="IngredientResource" load_steps=3 format=3 uid="uid://cvwktnd6y1tbb"]
+
+[ext_resource type="Texture2D" uid="uid://c6ntqggfidog7" path="res://assets/graphics/decor/placehold_topping.png" id="1_38msb"]
+[ext_resource type="Script" uid="uid://dk1xqcc4ajqe5" path="res://assets/resources/ingredients/ingredient_resource.gd" id="2_3f2qf"]
+
+[resource]
+script = ExtResource("2_3f2qf")
+category = 3
+name = "Caramel sauce"
+sprite_texture = ExtResource("1_38msb")
+icon_texture = ExtResource("1_38msb")
+metadata/_custom_type_script = "uid://dk1xqcc4ajqe5"
