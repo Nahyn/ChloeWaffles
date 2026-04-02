@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=4 format=3 uid="uid://cvduiai0d28i2"]
+
+[ext_resource type="Script" uid="uid://bo4xmsdnp75nv" path="res://assets/resources/characters/character_resource.gd" id="1_gv4e3"]
+[ext_resource type="Texture2D" uid="uid://cbnsa4ju3lrgf" path="res://assets/graphics/sprites/Alpha.png" id="2_gv4e3"]
+[ext_resource type="Script" uid="uid://dk1xqcc4ajqe5" path="res://assets/resources/ingredients/ingredient_resource.gd" id="3_rpr7f"]
+
+[resource]
+script = ExtResource("1_gv4e3")
+name = "Alpha"
+sprite = ExtResource("2_gv4e3")
+usual_order_ingredients = Array[ExtResource("3_rpr7f")]([null, null, null, null, null])
+usual_order_categories = Array[int]([1, 2, 4, 3, 4])
+metadata/_custom_type_script = "uid://bo4xmsdnp75nv"

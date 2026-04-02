@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="IngredientResource" load_steps=4 format=3 uid="uid://b62e540gt4f8c"]
+
+[ext_resource type="Script" uid="uid://dk1xqcc4ajqe5" path="res://assets/resources/ingredients/ingredient_resource.gd" id="1_7er3g"]
+[ext_resource type="Texture2D" uid="uid://buc3d62nr1kbg" path="res://assets/graphics/ingredients/WafflePowderedSugar.png" id="2_k2p0a"]
+[ext_resource type="Texture2D" uid="uid://b51aw8iofqiya" path="res://assets/graphics/ingredients/StockpilePowderedSugar.png" id="3_2bqxw"]
+
+[resource]
+script = ExtResource("1_7er3g")
+category = 4
+name = "Powdered sugar"
+sprite_texture = ExtResource("2_k2p0a")
+selected_texture = ExtResource("2_k2p0a")
+stockpile_texture = ExtResource("3_2bqxw")
+metadata/_custom_type_script = "uid://dk1xqcc4ajqe5"

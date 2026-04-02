@@ -1,12 +1,15 @@
-[gd_resource type="Resource" script_class="IngredientResource" load_steps=3 format=3 uid="uid://buj2sh0tj8hxx"]
+[gd_resource type="Resource" script_class="IngredientResource" load_steps=5 format=3 uid="uid://buj2sh0tj8hxx"]
 
 [ext_resource type="Script" uid="uid://dk1xqcc4ajqe5" path="res://assets/resources/ingredients/ingredient_resource.gd" id="1_pntab"]
-[ext_resource type="Texture2D" uid="uid://bsyxafvs2rhg" path="res://assets/graphics/decor/placehold_fruit.png" id="1_vnlgx"]
+[ext_resource type="Texture2D" uid="uid://bpfbov41fox5a" path="res://assets/graphics/ingredients/WaffleBananaUncut.png" id="2_wcn7e"]
+[ext_resource type="Texture2D" uid="uid://d1f8pyfgn01t4" path="res://assets/graphics/ingredients/WaffleBananaCut.png" id="3_yeaah"]
+[ext_resource type="Texture2D" uid="uid://bhbeq5a5nlums" path="res://assets/graphics/ingredients/StockpileBanana.png" id="4_yeaah"]
 
 [resource]
 script = ExtResource("1_pntab")
 category = 2
 name = "Banana"
-sprite_texture = ExtResource("1_vnlgx")
-icon_texture = ExtResource("1_vnlgx")
+sprite_texture = ExtResource("3_yeaah")
+selected_texture = ExtResource("2_wcn7e")
+stockpile_texture = ExtResource("4_yeaah")
 metadata/_custom_type_script = "uid://dk1xqcc4ajqe5"

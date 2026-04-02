@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="IngredientResource" load_steps=3 format=3 uid="uid://mbeqc8t5a68o"]
+[gd_resource type="Resource" script_class="IngredientResource" load_steps=4 format=3 uid="uid://mbeqc8t5a68o"]
 
-[ext_resource type="Texture2D" uid="uid://b3231dp8gfny0" path="res://assets/graphics/decor/placehold_decoration.png" id="1_taq2x"]
+[ext_resource type="Texture2D" uid="uid://qp4p2i2agt42" path="res://assets/graphics/ingredients/WaffleChocolateChips.png" id="1_taq2x"]
 [ext_resource type="Script" uid="uid://dk1xqcc4ajqe5" path="res://assets/resources/ingredients/ingredient_resource.gd" id="2_jbnuu"]
+[ext_resource type="Texture2D" uid="uid://bvpxnkb8lqayh" path="res://assets/graphics/ingredients/StockpileChocolateChips.png" id="3_jbnuu"]
 
 [resource]
 script = ExtResource("2_jbnuu")
 category = 4
 name = "Chocolate chips"
 sprite_texture = ExtResource("1_taq2x")
-icon_texture = ExtResource("1_taq2x")
+selected_texture = ExtResource("1_taq2x")
+stockpile_texture = ExtResource("3_jbnuu")
 metadata/_custom_type_script = "uid://dk1xqcc4ajqe5"

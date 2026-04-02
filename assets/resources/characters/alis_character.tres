@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=5 format=3 uid="uid://1c7fpn26w3rt"]
+
+[ext_resource type="Script" uid="uid://bo4xmsdnp75nv" path="res://assets/resources/characters/character_resource.gd" id="1_ckgmd"]
+[ext_resource type="Texture2D" uid="uid://blgaudhvyraws" path="res://assets/graphics/sprites/Alis.png" id="2_a6re2"]
+[ext_resource type="Script" uid="uid://dk1xqcc4ajqe5" path="res://assets/resources/ingredients/ingredient_resource.gd" id="3_7mr1t"]
+[ext_resource type="Resource" uid="uid://d3xi0174b2hs1" path="res://assets/resources/ingredients/waffle_matcha.tres" id="4_7mr1t"]
+
+[resource]
+script = ExtResource("1_ckgmd")
+name = "Alis"
+sprite = ExtResource("2_a6re2")
+usual_order_ingredients = Array[ExtResource("3_7mr1t")]([ExtResource("4_7mr1t"), null, null])
+usual_order_categories = Array[int]([1, 2, 3])
+metadata/_custom_type_script = "uid://bo4xmsdnp75nv"

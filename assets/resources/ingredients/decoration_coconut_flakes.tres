@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="IngredientResource" load_steps=3 format=3 uid="uid://dqb0ffljt0gk8"]
+[gd_resource type="Resource" script_class="IngredientResource" load_steps=4 format=3 uid="uid://dqb0ffljt0gk8"]
 
-[ext_resource type="Texture2D" uid="uid://b3231dp8gfny0" path="res://assets/graphics/decor/placehold_decoration.png" id="1_si68y"]
 [ext_resource type="Script" uid="uid://dk1xqcc4ajqe5" path="res://assets/resources/ingredients/ingredient_resource.gd" id="2_bh83k"]
+[ext_resource type="Texture2D" uid="uid://dh120ad2rub8k" path="res://assets/graphics/ingredients/WaffleCoconutChunks.png" id="2_si68y"]
+[ext_resource type="Texture2D" uid="uid://cg2x1n5ti4klt" path="res://assets/graphics/ingredients/StockpileCoconutChunks.png" id="3_bh83k"]
 
 [resource]
 script = ExtResource("2_bh83k")
 category = 4
 name = "Coconut flakes"
-sprite_texture = ExtResource("1_si68y")
-icon_texture = ExtResource("1_si68y")
+sprite_texture = ExtResource("2_si68y")
+selected_texture = ExtResource("2_si68y")
+stockpile_texture = ExtResource("3_bh83k")
 metadata/_custom_type_script = "uid://dk1xqcc4ajqe5"

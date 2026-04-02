@@ -1,12 +1,13 @@
-[gd_resource type="Resource" script_class="IngredientResource" load_steps=3 format=3 uid="uid://67delmfvixbv"]
+[gd_resource type="Resource" script_class="IngredientResource" load_steps=4 format=3 uid="uid://67delmfvixbv"]
 
-[ext_resource type="Texture2D" uid="uid://c6ntqggfidog7" path="res://assets/graphics/decor/placehold_topping.png" id="1_ntfuu"]
 [ext_resource type="Script" uid="uid://dk1xqcc4ajqe5" path="res://assets/resources/ingredients/ingredient_resource.gd" id="2_nmj32"]
+[ext_resource type="Texture2D" uid="uid://cvwoldl083dj6" path="res://assets/graphics/ingredients/WaffleMatchaSauce.png" id="2_ntfuu"]
+[ext_resource type="Texture2D" uid="uid://dhd25pvs47ts4" path="res://assets/graphics/ingredients/StockpileMatchaSauce.png" id="3_nmj32"]
 
 [resource]
 script = ExtResource("2_nmj32")
 category = 3
 name = "Matcha coulis"
-sprite_texture = ExtResource("1_ntfuu")
-icon_texture = ExtResource("1_ntfuu")
+sprite_texture = ExtResource("2_ntfuu")
+stockpile_texture = ExtResource("3_nmj32")
 metadata/_custom_type_script = "uid://dk1xqcc4ajqe5"

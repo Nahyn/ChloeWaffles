@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="IngredientResource" load_steps=3 format=3 uid="uid://d3o40elolsvwp"]
+[gd_resource type="Resource" script_class="IngredientResource" load_steps=4 format=3 uid="uid://d3o40elolsvwp"]
 
-[ext_resource type="Texture2D" uid="uid://b3231dp8gfny0" path="res://assets/graphics/decor/placehold_decoration.png" id="1_wfmsg"]
 [ext_resource type="Script" uid="uid://dk1xqcc4ajqe5" path="res://assets/resources/ingredients/ingredient_resource.gd" id="2_2s482"]
+[ext_resource type="Texture2D" uid="uid://700ctxylxtg5" path="res://assets/graphics/ingredients/WaffleMarshmallows.png" id="2_wfmsg"]
+[ext_resource type="Texture2D" uid="uid://cvogennb4tdjk" path="res://assets/graphics/ingredients/StockpileMarshmallows.png" id="3_2s482"]
 
 [resource]
 script = ExtResource("2_2s482")
 category = 4
 name = "Mini-marshmallow"
-sprite_texture = ExtResource("1_wfmsg")
-icon_texture = ExtResource("1_wfmsg")
+sprite_texture = ExtResource("2_wfmsg")
+selected_texture = ExtResource("2_wfmsg")
+stockpile_texture = ExtResource("3_2s482")
 metadata/_custom_type_script = "uid://dk1xqcc4ajqe5"

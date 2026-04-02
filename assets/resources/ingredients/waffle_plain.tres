@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="WaffleIngredientResource" load_steps=5 format=3 uid="uid://dtrukfpdja7cn"]
+
+[ext_resource type="Script" uid="uid://dl31d5fmg74yr" path="res://assets/resources/ingredients/waffle_ingredient_resource.gd" id="1_uox8d"]
+[ext_resource type="Texture2D" uid="uid://b1v3ymwihyi3x" path="res://assets/graphics/ingredients/BatterPlain.png" id="1_w4eey"]
+[ext_resource type="Texture2D" uid="uid://bcmq0mfwx3bmu" path="res://assets/graphics/ingredients/WafflePlain.png" id="3_e2bnq"]
+[ext_resource type="Texture2D" uid="uid://bh2t5febyubcy" path="res://assets/graphics/ingredients/WafflePlainCooked.png" id="4_008a5"]
+
+[resource]
+script = ExtResource("1_uox8d")
+batter_texture = ExtResource("1_w4eey")
+category = 1
+name = "Plain waffle"
+sprite_texture = ExtResource("3_e2bnq")
+selected_texture = ExtResource("3_e2bnq")
+stockpile_texture = ExtResource("4_008a5")
+metadata/_custom_type_script = "uid://dl31d5fmg74yr"

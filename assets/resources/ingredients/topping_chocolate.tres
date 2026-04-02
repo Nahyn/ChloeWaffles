@@ -1,12 +1,13 @@
-[gd_resource type="Resource" script_class="IngredientResource" load_steps=3 format=3 uid="uid://cgc0tyd6cason"]
+[gd_resource type="Resource" script_class="IngredientResource" load_steps=4 format=3 uid="uid://cgc0tyd6cason"]
 
-[ext_resource type="Texture2D" uid="uid://c6ntqggfidog7" path="res://assets/graphics/decor/placehold_topping.png" id="1_s8ibi"]
 [ext_resource type="Script" uid="uid://dk1xqcc4ajqe5" path="res://assets/resources/ingredients/ingredient_resource.gd" id="2_b1sdy"]
+[ext_resource type="Texture2D" uid="uid://e3gdxbejplfa" path="res://assets/graphics/ingredients/WaffleChocolateSauce.png" id="2_s8ibi"]
+[ext_resource type="Texture2D" uid="uid://c78p0ggevoq4t" path="res://assets/graphics/ingredients/StockpileChocolateSauce.png" id="3_b1sdy"]
 
 [resource]
 script = ExtResource("2_b1sdy")
 category = 3
 name = "Chocolate sauce"
-sprite_texture = ExtResource("1_s8ibi")
-icon_texture = ExtResource("1_s8ibi")
+sprite_texture = ExtResource("2_s8ibi")
+stockpile_texture = ExtResource("3_b1sdy")
 metadata/_custom_type_script = "uid://dk1xqcc4ajqe5"

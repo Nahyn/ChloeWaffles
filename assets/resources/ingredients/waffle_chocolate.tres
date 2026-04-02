@@ -1,12 +1,16 @@
-[gd_resource type="Resource" script_class="IngredientResource" load_steps=3 format=3 uid="uid://bicqqnsi1j2j7"]
+[gd_resource type="Resource" script_class="WaffleIngredientResource" load_steps=5 format=3 uid="uid://dl6u3q2t2e82l"]
 
-[ext_resource type="Texture2D" uid="uid://376ftl0ub1pm" path="res://assets/graphics/decor/placehold_waffle.png" id="1_dv2vg"]
-[ext_resource type="Script" uid="uid://dk1xqcc4ajqe5" path="res://assets/resources/ingredients/ingredient_resource.gd" id="2_v5ebt"]
+[ext_resource type="Script" uid="uid://dl31d5fmg74yr" path="res://assets/resources/ingredients/waffle_ingredient_resource.gd" id="1_d2ufd"]
+[ext_resource type="Texture2D" uid="uid://bp7ubl7q87gja" path="res://assets/graphics/ingredients/BatterChocolate.png" id="1_yjawl"]
+[ext_resource type="Texture2D" uid="uid://3gro5bn0pffx" path="res://assets/graphics/ingredients/WaffleChocolate.png" id="3_j61yw"]
+[ext_resource type="Texture2D" uid="uid://chciitf75ek12" path="res://assets/graphics/ingredients/WaffleChocolateCooked.png" id="4_ekpfu"]
 
 [resource]
-script = ExtResource("2_v5ebt")
+script = ExtResource("1_d2ufd")
+batter_texture = ExtResource("1_yjawl")
 category = 1
-name = "Chocolate Waffle"
-sprite_texture = ExtResource("1_dv2vg")
-icon_texture = ExtResource("1_dv2vg")
-metadata/_custom_type_script = "uid://dk1xqcc4ajqe5"
+name = "Chocolate waffle"
+sprite_texture = ExtResource("3_j61yw")
+selected_texture = ExtResource("3_j61yw")
+stockpile_texture = ExtResource("4_ekpfu")
+metadata/_custom_type_script = "uid://dl31d5fmg74yr"

@@ -1,12 +1,13 @@
-[gd_resource type="Resource" script_class="IngredientResource" load_steps=3 format=3 uid="uid://cc8hfrij5srvg"]
+[gd_resource type="Resource" script_class="IngredientResource" load_steps=4 format=3 uid="uid://cc8hfrij5srvg"]
 
-[ext_resource type="Texture2D" uid="uid://c6ntqggfidog7" path="res://assets/graphics/decor/placehold_topping.png" id="1_2miiu"]
+[ext_resource type="Texture2D" uid="uid://c87egvv3la2vg" path="res://assets/graphics/ingredients/WaffleStrawberrySauce.png" id="2_2miiu"]
 [ext_resource type="Script" uid="uid://dk1xqcc4ajqe5" path="res://assets/resources/ingredients/ingredient_resource.gd" id="2_3gnim"]
+[ext_resource type="Texture2D" uid="uid://bnc5ok1q5xbkv" path="res://assets/graphics/ingredients/StockpileStrawberrySauce.png" id="3_3gnim"]
 
 [resource]
 script = ExtResource("2_3gnim")
 category = 3
 name = "Strawberry sauce"
-sprite_texture = ExtResource("1_2miiu")
-icon_texture = ExtResource("1_2miiu")
+sprite_texture = ExtResource("2_2miiu")
+stockpile_texture = ExtResource("3_3gnim")
 metadata/_custom_type_script = "uid://dk1xqcc4ajqe5"

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="IngredientResource" load_steps=5 format=3 uid="uid://cwdvvh2xikw66"]
+
+[ext_resource type="Script" uid="uid://dk1xqcc4ajqe5" path="res://assets/resources/ingredients/ingredient_resource.gd" id="1_7ywm7"]
+[ext_resource type="Texture2D" uid="uid://c6kcdnffijqkh" path="res://assets/graphics/ingredients/WaffleBlueberriesUncut.png" id="2_7ahus"]
+[ext_resource type="Texture2D" uid="uid://bi0fbru6m0v7u" path="res://assets/graphics/ingredients/WaffleBlueberriesCut.png" id="3_jjxqc"]
+[ext_resource type="Texture2D" uid="uid://bra56p5n8g3mq" path="res://assets/graphics/ingredients/StockpileBlueberries.png" id="4_7ahus"]
+
+[resource]
+script = ExtResource("1_7ywm7")
+category = 2
+name = "Blueberries"
+sprite_texture = ExtResource("3_jjxqc")
+selected_texture = ExtResource("2_7ahus")
+stockpile_texture = ExtResource("4_7ahus")
+metadata/_custom_type_script = "uid://dk1xqcc4ajqe5"

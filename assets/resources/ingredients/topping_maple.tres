@@ -1,12 +1,13 @@
-[gd_resource type="Resource" script_class="IngredientResource" load_steps=3 format=3 uid="uid://f6porltb1r4f"]
+[gd_resource type="Resource" script_class="IngredientResource" load_steps=4 format=3 uid="uid://f6porltb1r4f"]
 
-[ext_resource type="Texture2D" uid="uid://c6ntqggfidog7" path="res://assets/graphics/decor/placehold_topping.png" id="1_hasgr"]
 [ext_resource type="Script" uid="uid://dk1xqcc4ajqe5" path="res://assets/resources/ingredients/ingredient_resource.gd" id="2_5q0dx"]
+[ext_resource type="Texture2D" uid="uid://cbxjdel8shhrn" path="res://assets/graphics/ingredients/WaffleMapleSyrup.png" id="2_hasgr"]
+[ext_resource type="Texture2D" uid="uid://bgn652odux2y5" path="res://assets/graphics/ingredients/StockpileMapleSyrup.png" id="3_5q0dx"]
 
 [resource]
 script = ExtResource("2_5q0dx")
 category = 3
 name = "Maple syrup"
-sprite_texture = ExtResource("1_hasgr")
-icon_texture = ExtResource("1_hasgr")
+sprite_texture = ExtResource("2_hasgr")
+stockpile_texture = ExtResource("3_5q0dx")
 metadata/_custom_type_script = "uid://dk1xqcc4ajqe5"

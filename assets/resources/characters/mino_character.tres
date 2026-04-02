@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=4 format=3 uid="uid://cngsp34xr661c"]
+
+[ext_resource type="Script" uid="uid://bo4xmsdnp75nv" path="res://assets/resources/characters/character_resource.gd" id="1_v30gv"]
+[ext_resource type="Texture2D" uid="uid://b10o5eobbvoxm" path="res://assets/graphics/sprites/Mino.png" id="2_v30gv"]
+[ext_resource type="Script" uid="uid://dk1xqcc4ajqe5" path="res://assets/resources/ingredients/ingredient_resource.gd" id="3_4v0xr"]
+
+[resource]
+script = ExtResource("1_v30gv")
+name = "Mino"
+sprite = ExtResource("2_v30gv")
+usual_order_categories = Array[int]([1, 2, 4, 3, 4])
+metadata/_custom_type_script = "uid://bo4xmsdnp75nv"
