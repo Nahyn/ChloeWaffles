@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://da5la3275mqn8"]
+[gd_scene load_steps=63 format=3 uid="uid://da5la3275mqn8"]
 
 [ext_resource type="Script" uid="uid://ffamaol6cauv" path="res://scenes/cooking/assembly_screen.gd" id="1_50xx8"]
 [ext_resource type="Texture2D" uid="uid://c82q4guqfsboh" path="res://assets/graphics/ui/maquette_cuisine.png" id="2_50xx8"]
@@ -7,38 +7,69 @@
 [ext_resource type="PackedScene" uid="uid://dnv6nclbviscm" path="res://scenes/waffle/ingredient_stockpile_node.tscn" id="3_kk2ym"]
 [ext_resource type="Texture2D" uid="uid://cgu0kx3beu3ow" path="res://assets/graphics/decor/Trash.png" id="3_lbf8c"]
 [ext_resource type="Resource" uid="uid://buj2sh0tj8hxx" path="res://assets/resources/ingredients/fruit_banana.tres" id="4_gs004"]
-[ext_resource type="Resource" uid="uid://df1k3gluind2a" path="res://assets/resources/ingredients/waffle_base.tres" id="5_amxae"]
-[ext_resource type="Resource" uid="uid://do3h8hal75hjg" path="res://assets/resources/ingredients/topping_chantilly.tres" id="6_lbf8c"]
+[ext_resource type="Resource" uid="uid://do3h8hal75hjg" path="res://assets/resources/ingredients/topping_whipped_cream.tres" id="6_lbf8c"]
 [ext_resource type="Texture2D" uid="uid://djtwfv7tmawl2" path="res://assets/graphics/decor/Bell.png" id="6_m1pp8"]
 [ext_resource type="Texture2D" uid="uid://bs4g3usq2u0o0" path="res://assets/graphics/decor/CuttingBoard.png" id="7_o8bv7"]
 [ext_resource type="Resource" uid="uid://mbeqc8t5a68o" path="res://assets/resources/ingredients/decoration_chocolate_chips.tres" id="7_yaapy"]
 [ext_resource type="Texture2D" uid="uid://cr64oyj5vuf1o" path="res://assets/graphics/ui/UpArrow.png" id="9_amxae"]
 [ext_resource type="Texture2D" uid="uid://bcrbx4wpdnpen" path="res://assets/graphics/ui/SideArrow.png" id="10_lbf8c"]
-[ext_resource type="Texture2D" uid="uid://0bn1wc3ivwh7" path="res://assets/graphics/decor/Plate.png" id="12_yaapy"]
+[ext_resource type="Texture2D" uid="uid://b1st85p1cxi57" path="res://assets/graphics/ingredients/StockpileCaramelSauce.png" id="13_q113f"]
+[ext_resource type="Resource" uid="uid://cvwktnd6y1tbb" path="res://assets/resources/ingredients/topping_caramel.tres" id="14_4l6lh"]
 [ext_resource type="Texture2D" uid="uid://c1xshrdm2uhfu" path="res://assets/graphics/decor/SauceHolders1.png" id="14_38ht8"]
 [ext_resource type="Texture2D" uid="uid://c0xducsmy382y" path="res://assets/graphics/decor/SauceHolders2.png" id="15_m1pp8"]
 [ext_resource type="Texture2D" uid="uid://cu5b5j62d8t10" path="res://assets/graphics/decor/SauceHolders3.png" id="16_2iqi4"]
+[ext_resource type="Texture2D" uid="uid://bgn652odux2y5" path="res://assets/graphics/ingredients/StockpileMapleSyrup.png" id="16_divfm"]
+[ext_resource type="Resource" uid="uid://cgc0tyd6cason" path="res://assets/resources/ingredients/topping_chocolate.tres" id="16_q25sa"]
 [ext_resource type="Texture2D" uid="uid://c221mcbesofj2" path="res://assets/graphics/decor/DecorationsHolders1.png" id="17_buwbn"]
+[ext_resource type="Resource" uid="uid://f6porltb1r4f" path="res://assets/resources/ingredients/topping_maple.tres" id="17_fdoi6"]
 [ext_resource type="Texture2D" uid="uid://pvxh0psyoyhu" path="res://assets/graphics/decor/DecorationsHolders2.png" id="18_8sx7e"]
+[ext_resource type="Texture2D" uid="uid://bnc5ok1q5xbkv" path="res://assets/graphics/ingredients/StockpileStrawberrySauce.png" id="18_g3wjy"]
 [ext_resource type="Texture2D" uid="uid://dmndbkrq4mr5c" path="res://assets/graphics/decor/DecorationsHolders3.png" id="19_3x82c"]
+[ext_resource type="Resource" uid="uid://cc8hfrij5srvg" path="res://assets/resources/ingredients/topping_strawberry.tres" id="19_ljf7h"]
 [ext_resource type="Texture2D" uid="uid://1s7r6j2oso6c" path="res://assets/graphics/decor/DecorationsHolders4.png" id="20_mo6cj"]
+[ext_resource type="Resource" uid="uid://dpuxd80flr3ho" path="res://assets/resources/ingredients/decoration_pistachio_flakes.tres" id="20_oy4jn"]
+[ext_resource type="Texture2D" uid="uid://c1b1uik6pr2sm" path="res://assets/graphics/ingredients/StockpileWhippedCream.png" id="20_wwhs3"]
 [ext_resource type="Texture2D" uid="uid://cn1ilwujslg0a" path="res://assets/graphics/decor/DecorationsHolders5.png" id="21_56tl4"]
 [ext_resource type="Texture2D" uid="uid://dc1j0wjk3pcsx" path="res://assets/graphics/decor/FruitsHolders1.png" id="22_o8bv7"]
+[ext_resource type="Texture2D" uid="uid://dhd25pvs47ts4" path="res://assets/graphics/ingredients/StockpileMatchaSauce.png" id="22_o86v0"]
+[ext_resource type="Resource" uid="uid://67delmfvixbv" path="res://assets/resources/ingredients/topping_matcha.tres" id="23_7l0yc"]
 [ext_resource type="Script" uid="uid://dk1xqcc4ajqe5" path="res://assets/resources/ingredients/ingredient_resource.gd" id="23_buwbn"]
 [ext_resource type="Texture2D" uid="uid://58rbnsqyjfao" path="res://assets/graphics/decor/FruitsHolders2.png" id="23_g3hhf"]
 [ext_resource type="Texture2D" uid="uid://bf1bm1whw5f81" path="res://assets/graphics/decor/FruitsHolders3.png" id="24_4kp5d"]
 [ext_resource type="Texture2D" uid="uid://cwx2u6pbtxx8e" path="res://assets/graphics/decor/Containers.png" id="24_8sx7e"]
-[ext_resource type="Texture2D" uid="uid://bsyxafvs2rhg" path="res://assets/graphics/decor/placehold_fruit.png" id="25_56tl4"]
+[ext_resource type="Texture2D" uid="uid://c78p0ggevoq4t" path="res://assets/graphics/ingredients/StockpileChocolateSauce.png" id="24_h4otg"]
 [ext_resource type="Texture2D" uid="uid://cwjjj4v7upeo1" path="res://assets/graphics/decor/FruitsHolders4.png" id="25_oy4jn"]
-[ext_resource type="Texture2D" uid="uid://376ftl0ub1pm" path="res://assets/graphics/decor/placehold_waffle.png" id="27_o8bv7"]
-[ext_resource type="Texture2D" uid="uid://c6ntqggfidog7" path="res://assets/graphics/decor/placehold_topping.png" id="29_g3hhf"]
-[ext_resource type="Texture2D" uid="uid://b3231dp8gfny0" path="res://assets/graphics/decor/placehold_decoration.png" id="31_4kp5d"]
+[ext_resource type="Texture2D" uid="uid://bvpxnkb8lqayh" path="res://assets/graphics/ingredients/StockpileChocolateChips.png" id="28_r08et"]
+[ext_resource type="Resource" uid="uid://cds2w3m16vfnn" path="res://assets/resources/ingredients/fruit_strawberry.tres" id="28_tlalm"]
+[ext_resource type="Texture2D" uid="uid://bjsabtdoq70km" path="res://assets/graphics/ingredients/StockpilePistachios.png" id="30_qo865"]
+[ext_resource type="Texture2D" uid="uid://cg2x1n5ti4klt" path="res://assets/graphics/ingredients/StockpileCoconutChunks.png" id="30_tqkvi"]
+[ext_resource type="Resource" uid="uid://dqb0ffljt0gk8" path="res://assets/resources/ingredients/decoration_coconut_flakes.tres" id="31_6rym1"]
+[ext_resource type="Texture2D" uid="uid://cvogennb4tdjk" path="res://assets/graphics/ingredients/StockpileMarshmallows.png" id="35_cq66e"]
+[ext_resource type="Resource" uid="uid://d3o40elolsvwp" path="res://assets/resources/ingredients/decoration_marshmallow.tres" id="36_r7bvb"]
+[ext_resource type="Texture2D" uid="uid://bhbeq5a5nlums" path="res://assets/graphics/ingredients/StockpileBanana.png" id="37_tckk3"]
+[ext_resource type="Texture2D" uid="uid://dblauqepwk8y6" path="res://assets/graphics/ingredients/StockpilePartySprinkles.png" id="38_uxej7"]
+[ext_resource type="Resource" uid="uid://dt2d3lirdtt8d" path="res://assets/resources/ingredients/decoration_party_sprinkles.tres" id="39_mtx1b"]
+[ext_resource type="Texture2D" uid="uid://csxekt8aofg41" path="res://assets/graphics/ingredients/StockpileStrawberry.png" id="39_yccp0"]
+[ext_resource type="Texture2D" uid="uid://brq2wf14o6y0k" path="res://assets/graphics/ingredients/StockpilePeanuts.png" id="40_8ijef"]
+[ext_resource type="Resource" uid="uid://dapcf14x3l8uw" path="res://assets/resources/ingredients/decoration_peanuts_flakes.tres" id="41_25uoj"]
+[ext_resource type="Texture2D" uid="uid://b51aw8iofqiya" path="res://assets/graphics/ingredients/StockpilePowderedSugar.png" id="43_tyjns"]
+[ext_resource type="Resource" uid="uid://b62e540gt4f8c" path="res://assets/resources/ingredients/decoration_powdered_sugar.tres" id="44_ia14j"]
+[ext_resource type="Texture2D" uid="uid://bra56p5n8g3mq" path="res://assets/graphics/ingredients/StockpileBlueberries.png" id="49_env80"]
+[ext_resource type="Resource" uid="uid://cwdvvh2xikw66" path="res://assets/resources/ingredients/fruit_blueberry.tres" id="50_2puwv"]
+[ext_resource type="Texture2D" uid="uid://kv3vbgoy3s5t" path="res://assets/graphics/ingredients/StockpileCherries.png" id="51_k8xbv"]
+[ext_resource type="Resource" uid="uid://bwk23l5wwlfm1" path="res://assets/resources/ingredients/fruit_cherry.tres" id="52_6kjeo"]
+[ext_resource type="Texture2D" uid="uid://bbslcroyvacc" path="res://assets/graphics/ingredients/StockpileRaspberry.png" id="54_iwhkj"]
+[ext_resource type="Resource" uid="uid://cc5idw53n876u" path="res://assets/resources/ingredients/fruit_raspberry.tres" id="55_y1o2h"]
 
 [sub_resource type="Resource" id="Resource_o8bv7"]
 script = ExtResource("23_buwbn")
 name = "Box"
 stockpile_texture = ExtResource("24_8sx7e")
 metadata/_custom_type_script = "uid://dk1xqcc4ajqe5"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yccp0"]
+atlas = ExtResource("3_lbf8c")
+region = Rect2(0, 268, 0, 108)
 
 [node name="AssemblyScreen" type="Control"]
 layout_mode = 3
@@ -51,20 +82,6 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 2
 texture = ExtResource("2_gs004")
-
-[node name="Trash" type="TextureRect" parent="Background"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1225.0
-offset_top = -376.0
-offset_right = -483.0
-grow_horizontal = 0
-grow_vertical = 0
-texture = ExtResource("3_lbf8c")
 
 [node name="Table" type="TextureRect" parent="Background"]
 layout_mode = 1
@@ -79,21 +96,6 @@ grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("3_gs004")
 stretch_mode = 2
-
-[node name="Plate" type="TextureRect" parent="Background"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -357.0
-offset_top = -404.0
-offset_right = 207.0
-offset_bottom = -42.0
-grow_horizontal = 0
-grow_vertical = 0
-texture = ExtResource("12_yaapy")
 
 [node name="Bell" type="TextureRect" parent="Background"]
 layout_mode = 0
@@ -189,21 +191,14 @@ offset_right = 628.0
 offset_bottom = 181.0
 texture = ExtResource("14_38ht8")
 
-[node name="MapleSyrupStockpile" parent="Background/SauceHoldersContainer/SauceHolders1" instance=ExtResource("3_kk2ym")]
+[node name="CaramelSauceStockpile" parent="Background/SauceHoldersContainer/SauceHolders1" instance=ExtResource("3_kk2ym")]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -358.0
-offset_top = -230.5
-offset_right = -58.0
-offset_bottom = 69.5
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("29_g3hhf")
-ingredient = ExtResource("6_lbf8c")
+offset_left = 177.0
+offset_top = -121.5
+offset_right = 334.0
+offset_bottom = 171.5
+texture = ExtResource("13_q113f")
+ingredient = ExtResource("14_4l6lh")
 
 [node name="SauceHolders2" type="TextureRect" parent="Background/SauceHoldersContainer"]
 layout_mode = 0
@@ -211,6 +206,51 @@ offset_top = 162.0
 offset_right = 628.0
 offset_bottom = 323.0
 texture = ExtResource("15_m1pp8")
+
+[node name="MapleSyrupStockpile" parent="Background/SauceHoldersContainer/SauceHolders2" instance=ExtResource("3_kk2ym")]
+layout_mode = 1
+offset_left = -332.0
+offset_top = -133.5
+offset_right = -175.0
+offset_bottom = 159.5
+texture = ExtResource("16_divfm")
+ingredient = ExtResource("17_fdoi6")
+
+[node name="StrawberrySauceStockpile" parent="Background/SauceHoldersContainer/SauceHolders2" instance=ExtResource("3_kk2ym")]
+layout_mode = 1
+offset_left = -207.0
+offset_top = -90.5
+offset_right = -50.0
+offset_bottom = 202.5
+texture = ExtResource("18_g3wjy")
+ingredient = ExtResource("19_ljf7h")
+
+[node name="WhippedCreamStockpile" parent="Background/SauceHoldersContainer/SauceHolders2" instance=ExtResource("3_kk2ym")]
+layout_mode = 1
+offset_left = -101.0
+offset_top = -121.5
+offset_right = 56.0
+offset_bottom = 171.5
+texture = ExtResource("20_wwhs3")
+ingredient = ExtResource("6_lbf8c")
+
+[node name="MatchaSauceStockpile" parent="Background/SauceHoldersContainer/SauceHolders2" instance=ExtResource("3_kk2ym")]
+layout_mode = 1
+offset_left = 21.0
+offset_top = -85.5
+offset_right = 178.0
+offset_bottom = 207.5
+texture = ExtResource("22_o86v0")
+ingredient = ExtResource("23_7l0yc")
+
+[node name="ChocolateSauceStockpile" parent="Background/SauceHoldersContainer/SauceHolders2" instance=ExtResource("3_kk2ym")]
+layout_mode = 1
+offset_left = 136.0
+offset_top = -90.5
+offset_right = 293.0
+offset_bottom = 202.5
+texture = ExtResource("24_h4otg")
+ingredient = ExtResource("16_q25sa")
 
 [node name="SauceHolders3" type="TextureRect" parent="Background/SauceHoldersContainer"]
 layout_mode = 0
@@ -232,21 +272,23 @@ offset_right = 617.0
 offset_bottom = 400.0
 texture = ExtResource("17_buwbn")
 
-[node name="SlicedAlmondStockpile" parent="Background/DecorationHoldersContainer/DecorationsHolders1" instance=ExtResource("3_kk2ym")]
+[node name="DecoChocolateStockpile" parent="Background/DecorationHoldersContainer/DecorationsHolders1" instance=ExtResource("3_kk2ym")]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -308.5
-offset_top = -215.0
-offset_right = -8.5
-offset_bottom = 85.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("31_4kp5d")
+offset_left = -324.5
+offset_top = -29.0
+offset_right = 13.5
+offset_bottom = 127.0
+texture = ExtResource("28_r08et")
 ingredient = ExtResource("7_yaapy")
+
+[node name="DecoCoconutStockpile" parent="Background/DecorationHoldersContainer/DecorationsHolders1" instance=ExtResource("3_kk2ym")]
+layout_mode = 1
+offset_left = -13.5
+offset_top = -39.0
+offset_right = 324.5
+offset_bottom = 117.0
+texture = ExtResource("30_tqkvi")
+ingredient = ExtResource("31_6rym1")
 
 [node name="DecorationsHolders2" type="TextureRect" parent="Background/DecorationHoldersContainer"]
 layout_mode = 0
@@ -255,6 +297,24 @@ offset_right = 618.0
 offset_bottom = 527.0
 texture = ExtResource("18_8sx7e")
 
+[node name="DecoPistachioStockpile" parent="Background/DecorationHoldersContainer/DecorationsHolders2" instance=ExtResource("3_kk2ym")]
+layout_mode = 1
+offset_left = -321.0
+offset_top = -53.5
+offset_right = 17.0
+offset_bottom = 102.5
+texture = ExtResource("30_qo865")
+ingredient = ExtResource("20_oy4jn")
+
+[node name="DecoMarshmallowStockpile" parent="Background/DecorationHoldersContainer/DecorationsHolders2" instance=ExtResource("3_kk2ym")]
+layout_mode = 1
+offset_left = -24.0
+offset_top = -39.5
+offset_right = 314.0
+offset_bottom = 116.5
+texture = ExtResource("35_cq66e")
+ingredient = ExtResource("36_r7bvb")
+
 [node name="DecorationsHolders3" type="TextureRect" parent="Background/DecorationHoldersContainer"]
 layout_mode = 0
 offset_top = 471.0
@@ -262,12 +322,39 @@ offset_right = 618.0
 offset_bottom = 580.0
 texture = ExtResource("19_3x82c")
 
+[node name="DecoPartySprinklesStockpile" parent="Background/DecorationHoldersContainer/DecorationsHolders3" instance=ExtResource("3_kk2ym")]
+layout_mode = 1
+offset_left = -326.0
+offset_top = -30.5
+offset_right = 12.0
+offset_bottom = 125.5
+texture = ExtResource("38_uxej7")
+ingredient = ExtResource("39_mtx1b")
+
+[node name="DecoPeanutsStockpile" parent="Background/DecorationHoldersContainer/DecorationsHolders3" instance=ExtResource("3_kk2ym")]
+layout_mode = 1
+offset_left = -14.0
+offset_top = -30.5
+offset_right = 324.0
+offset_bottom = 125.5
+texture = ExtResource("40_8ijef")
+ingredient = ExtResource("41_25uoj")
+
 [node name="DecorationsHolders4" type="TextureRect" parent="Background/DecorationHoldersContainer"]
 layout_mode = 0
 offset_top = 561.0
 offset_right = 620.0
 offset_bottom = 677.0
 texture = ExtResource("20_mo6cj")
+
+[node name="DecoPowderedSugarStockpile" parent="Background/DecorationHoldersContainer/DecorationsHolders4" instance=ExtResource("3_kk2ym")]
+layout_mode = 1
+offset_left = -15.0
+offset_top = -25.0
+offset_right = 323.0
+offset_bottom = 131.0
+texture = ExtResource("43_tyjns")
+ingredient = ExtResource("44_ia14j")
 
 [node name="DecorationsHolders5" type="TextureRect" parent="Background/DecorationHoldersContainer"]
 layout_mode = 0
@@ -291,19 +378,30 @@ texture = ExtResource("22_o8bv7")
 
 [node name="BananaStockpile" parent="Background/FruitHoldersContainer/FruitsHolders1" instance=ExtResource("3_kk2ym")]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -158.0
-offset_top = -216.5
-offset_right = 142.0
-offset_bottom = 83.5
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("25_56tl4")
+offset_left = -320.0
+offset_top = -73.5
+offset_right = -114.0
+offset_bottom = 115.5
+texture = ExtResource("37_tckk3")
 ingredient = ExtResource("4_gs004")
+
+[node name="BlueberryStockpile" parent="Background/FruitHoldersContainer/FruitsHolders1" instance=ExtResource("3_kk2ym")]
+layout_mode = 1
+offset_left = -116.0
+offset_top = -73.5
+offset_right = 90.0
+offset_bottom = 115.5
+texture = ExtResource("49_env80")
+ingredient = ExtResource("50_2puwv")
+
+[node name="CherryStockpile" parent="Background/FruitHoldersContainer/FruitsHolders1" instance=ExtResource("3_kk2ym")]
+layout_mode = 1
+offset_left = 97.0
+offset_top = -66.5
+offset_right = 303.0
+offset_bottom = 122.5
+texture = ExtResource("51_k8xbv")
+ingredient = ExtResource("52_6kjeo")
 
 [node name="FruitsHolders2" type="TextureRect" parent="Background/FruitHoldersContainer"]
 layout_mode = 0
@@ -311,6 +409,24 @@ offset_top = 802.0
 offset_right = 615.0
 offset_bottom = 929.0
 texture = ExtResource("23_g3hhf")
+
+[node name="RaspberryStockpile" parent="Background/FruitHoldersContainer/FruitsHolders2" instance=ExtResource("3_kk2ym")]
+layout_mode = 1
+offset_left = -313.5
+offset_top = -44.5
+offset_right = -107.5
+offset_bottom = 144.5
+texture = ExtResource("54_iwhkj")
+ingredient = ExtResource("55_y1o2h")
+
+[node name="StrawberryStockpile" parent="Background/FruitHoldersContainer/FruitsHolders2" instance=ExtResource("3_kk2ym")]
+layout_mode = 1
+offset_left = -113.5
+offset_top = -44.5
+offset_right = 92.5
+offset_bottom = 144.5
+texture = ExtResource("39_yccp0")
+ingredient = ExtResource("28_tlalm")
 
 [node name="FruitsHolders3" type="TextureRect" parent="Background/FruitHoldersContainer"]
 layout_mode = 0
@@ -340,31 +456,63 @@ mouse_filter = 2
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
+anchor_top = 0.0
 anchor_right = 1.0
+anchor_bottom = 0.0
 grow_horizontal = 0
+grow_vertical = 1
 texture = ExtResource("24_8sx7e")
 ingredient = SubResource("Resource_o8bv7")
 
-[node name="WaffleStockpile" parent="Background/StockpileContainer" instance=ExtResource("3_kk2ym")]
+[node name="Trashcan" type="TextureRect" parent="Background"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 898.0
-offset_top = 315.0
-offset_right = 898.0
-offset_bottom = 315.0
+anchor_bottom = 1.0
+offset_left = -268.0
+offset_top = -108.0
+offset_right = 474.0
 grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("27_o8bv7")
-ingredient = ExtResource("5_amxae")
+grow_vertical = 0
+texture = SubResource("AtlasTexture_yccp0")
+
+[node name="TrashcanContainer" type="Control" parent="Background"]
+clip_children = 2
+z_index = 200
+clip_contents = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -332.0
+offset_top = -108.0
+offset_right = 528.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [connection signal="gui_input" from="Background/Bell" to="." method="_on_bell_gui_input"]
 [connection signal="pressed" from="Background/GoUpButton" to="." method="_on_go_up_button_pressed"]
 [connection signal="pressed" from="Background/GoRightButton" to="." method="_on_go_right_button_pressed"]
-[connection signal="clicked" from="Background/SauceHoldersContainer/SauceHolders1/MapleSyrupStockpile" to="." method="_on_stockpile_clicked"]
-[connection signal="clicked" from="Background/DecorationHoldersContainer/DecorationsHolders1/SlicedAlmondStockpile" to="." method="_on_stockpile_clicked"]
+[connection signal="clicked" from="Background/SauceHoldersContainer/SauceHolders1/CaramelSauceStockpile" to="." method="_on_stockpile_clicked"]
+[connection signal="clicked" from="Background/SauceHoldersContainer/SauceHolders2/MapleSyrupStockpile" to="." method="_on_stockpile_clicked"]
+[connection signal="clicked" from="Background/SauceHoldersContainer/SauceHolders2/StrawberrySauceStockpile" to="." method="_on_stockpile_clicked"]
+[connection signal="clicked" from="Background/SauceHoldersContainer/SauceHolders2/WhippedCreamStockpile" to="." method="_on_stockpile_clicked"]
+[connection signal="clicked" from="Background/SauceHoldersContainer/SauceHolders2/MatchaSauceStockpile" to="." method="_on_stockpile_clicked"]
+[connection signal="clicked" from="Background/SauceHoldersContainer/SauceHolders2/ChocolateSauceStockpile" to="." method="_on_stockpile_clicked"]
+[connection signal="clicked" from="Background/DecorationHoldersContainer/DecorationsHolders1/DecoChocolateStockpile" to="." method="_on_stockpile_clicked"]
+[connection signal="clicked" from="Background/DecorationHoldersContainer/DecorationsHolders1/DecoCoconutStockpile" to="." method="_on_stockpile_clicked"]
+[connection signal="clicked" from="Background/DecorationHoldersContainer/DecorationsHolders2/DecoPistachioStockpile" to="." method="_on_stockpile_clicked"]
+[connection signal="clicked" from="Background/DecorationHoldersContainer/DecorationsHolders2/DecoMarshmallowStockpile" to="." method="_on_stockpile_clicked"]
+[connection signal="clicked" from="Background/DecorationHoldersContainer/DecorationsHolders3/DecoPartySprinklesStockpile" to="." method="_on_stockpile_clicked"]
+[connection signal="clicked" from="Background/DecorationHoldersContainer/DecorationsHolders3/DecoPeanutsStockpile" to="." method="_on_stockpile_clicked"]
 [connection signal="clicked" from="Background/FruitHoldersContainer/FruitsHolders1/BananaStockpile" to="." method="_on_stockpile_clicked"]
+[connection signal="clicked" from="Background/FruitHoldersContainer/FruitsHolders1/BlueberryStockpile" to="." method="_on_stockpile_clicked"]
+[connection signal="clicked" from="Background/FruitHoldersContainer/FruitsHolders1/CherryStockpile" to="." method="_on_stockpile_clicked"]
+[connection signal="clicked" from="Background/FruitHoldersContainer/FruitsHolders2/RaspberryStockpile" to="." method="_on_stockpile_clicked"]
+[connection signal="clicked" from="Background/FruitHoldersContainer/FruitsHolders2/StrawberryStockpile" to="." method="_on_stockpile_clicked"]
 [connection signal="clicked" from="Background/StockpileContainer/BoxStockpileNode" to="." method="_on_stockpile_clicked"]
+[connection signal="gui_input" from="Background/TrashcanContainer" to="." method="_on_trashcan_container_gui_input"]

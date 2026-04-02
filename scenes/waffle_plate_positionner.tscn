@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://bssyjce6345co"]
+
+[ext_resource type="Texture2D" uid="uid://0bn1wc3ivwh7" path="res://assets/graphics/decor/Plate.png" id="1_c0c4q"]
+[ext_resource type="Script" uid="uid://bqocal15ttttp" path="res://scenes/waffle_plate_positionner.gd" id="1_uyib7"]
+
+[node name="WafflePlateNode" type="Node2D"]
+script = ExtResource("1_uyib7")
+
+[node name="Plate" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -282.0
+offset_top = -181.0
+offset_right = 282.0
+offset_bottom = 181.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_c0c4q")
+
+[node name="StockpileContainer" type="Control" parent="Plate"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -283.5
+offset_top = -362.0
+offset_right = -283.5
+offset_bottom = -362.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+
+[connection signal="gui_input" from="Plate" to="." method="_on_plate_gui_input"]
+[connection signal="mouse_entered" from="Plate" to="." method="_on_plate_mouse_entered"]
+[connection signal="mouse_exited" from="Plate" to="." method="_on_plate_mouse_exited"]
+[connection signal="child_order_changed" from="Plate/StockpileContainer" to="." method="_on_stockpile_container_child_order_changed"]

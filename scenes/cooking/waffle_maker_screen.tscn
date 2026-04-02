@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://8yr8up7q8j3f"]
+[gd_scene load_steps=7 format=3 uid="uid://8yr8up7q8j3f"]
 
 [ext_resource type="Script" uid="uid://ctyafadh78ilv" path="res://scenes/cooking/waffle_maker_screen.gd" id="1_dajco"]
 [ext_resource type="PackedScene" uid="uid://ffnih233dw26" path="res://scenes/cooking/waffle_maker_node.tscn" id="2_arua5"]
 [ext_resource type="Texture2D" uid="uid://b2yf8ypes3xyp" path="res://assets/graphics/backgrounds/WaffleMakerTable.png" id="2_jpqmb"]
 [ext_resource type="Texture2D" uid="uid://oixvotcipimm" path="res://assets/graphics/backgrounds/Floor.png" id="2_swr3c"]
 [ext_resource type="Texture2D" uid="uid://bcrbx4wpdnpen" path="res://assets/graphics/ui/SideArrow.png" id="4_swr3c"]
+[ext_resource type="PackedScene" uid="uid://de411klrjqr0j" path="res://scenes/waffle/batter_squeezer.tscn" id="7_gmbw3"]
 
 [node name="WaffleMakerScreen" type="Control"]
 layout_mode = 3
@@ -83,4 +84,26 @@ mouse_default_cursor_shape = 2
 texture_normal = ExtResource("4_swr3c")
 flip_h = true
 
+[node name="BatterSqueezer" parent="." node_paths=PackedStringArray("waffle_maker_target") instance=ExtResource("7_gmbw3")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 549.0
+offset_right = 764.0
+grow_horizontal = 1
+waffle_maker_target = NodePath("../TextureRect/WaffleMakerContainers/WaffleMakerNode")
+
+[node name="BatterSqueezer2" parent="." node_paths=PackedStringArray("waffle_maker_target") instance=ExtResource("7_gmbw3")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 1201.0
+offset_right = 1416.0
+grow_horizontal = 1
+waffle_maker_target = NodePath("../TextureRect/WaffleMakerContainers/WaffleMakerNode2")
+
+[connection signal="waffle_finished" from="TextureRect/WaffleMakerContainers/WaffleMakerNode" to="." method="_on_waffle_finished"]
+[connection signal="waffle_finished" from="TextureRect/WaffleMakerContainers/WaffleMakerNode2" to="." method="_on_waffle_finished"]
 [connection signal="pressed" from="TextureRect/GoLeftButton" to="." method="_on_go_left_button_pressed"]

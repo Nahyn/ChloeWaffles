@@ -1,7 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://wcecrj3i8y8j"]
+[gd_scene load_steps=20 format=3 uid="uid://wcecrj3i8y8j"]
 
 [ext_resource type="Script" uid="uid://d2mhnid2o33od" path="res://scenes/reception/character_node.gd" id="1_hnbpa"]
-[ext_resource type="Texture2D" uid="uid://dqqhk7246vt26" path="res://assets/graphics/decor/place_holder_character.png" id="1_s5xa1"]
 [ext_resource type="Texture2D" uid="uid://717ms3gldrpy" path="res://assets/graphics/particles/placeholder_particles.png" id="2_arm1n"]
 [ext_resource type="Resource" uid="uid://bqsq8s3yro622" path="res://assets/resources/characters/ruben_character.tres" id="2_w5yg0"]
 [ext_resource type="PackedScene" uid="uid://dqt1bsryg2t3u" path="res://scenes/common/phase_timer.tscn" id="4_4vrxq"]
@@ -97,7 +96,6 @@ offset_top = -800.0
 offset_right = 224.5
 grow_horizontal = 2
 grow_vertical = 0
-texture = ExtResource("1_s5xa1")
 
 [node name="BubbleAnchor" type="Control" parent="."]
 layout_mode = 1

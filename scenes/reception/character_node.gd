@@ -1,8 +1,6 @@
 extends Control
 class_name CharacterNode
 
-signal clicked( character_node :CharacterNode );
-
 @onready var texture_rect: TextureRect = $TextureRect
 
 @onready var bubble_positionner: Control = %BubblePositionner
@@ -30,6 +28,9 @@ func generate_new_bubble_position() -> void:
 	bubble_movement_tween.set_ease(Tween.EASE_IN_OUT);
 	bubble_movement_tween.tween_property(%BubblePositionner, "position", bubble_target_position, bubble_movement_duration);
 
+func get_ordered_waffle() -> WaffleNode:
+	return %WaffleNode
+
 func generate_waffle() -> void:
 	if character_resource == null:
 		return
@@ -44,6 +45,9 @@ func _arrived() -> void:
 		texture_rect.texture = character_resource.sprite
 	generate_waffle();
 	phase_timer.start_timer();
+
+func has_order_visible() -> bool:
+	return %WaffleNode.visible;
 
 func show_order() -> void:
 	%QuestionPositionner.visible = false;
@@ -61,4 +65,4 @@ func _on_phase_timer_failed() -> void:
 
 func _on_texture_rect_gui_input(event: InputEvent) -> void:
 	if EventManager.is_event_left_click(event):
-		clicked.emit(self);
+		EventManager.client_clicked.emit(self)

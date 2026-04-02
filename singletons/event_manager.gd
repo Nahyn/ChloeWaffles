@@ -1,8 +1,12 @@
 extends Node
 
 signal screen_moved()
+signal bell_clicked()
 signal waffle_clicked( waffle_node :WaffleNode )
 signal stockpile_clicked( stockpile :IngredientStockpileNode )
+signal client_clicked( character_node :CharacterNode )
+
+signal trash_clicked()
 
 signal waffle_trashed( ingredients :Array[IngredientResource] )
 signal client_served( ingredients :Array[IngredientResource], modifiers :Array[float] )

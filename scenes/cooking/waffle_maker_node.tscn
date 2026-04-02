@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ffnih233dw26"]
+[gd_scene load_steps=26 format=3 uid="uid://ffnih233dw26"]
 
 [ext_resource type="Script" uid="uid://cttkfud632l7d" path="res://scenes/cooking/waffle_maker_node.gd" id="1_8f2cu"]
 [ext_resource type="AudioStream" uid="uid://7qpmrt2a5jvq" path="res://assets/audio/blip_3.wav" id="2_k48uc"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cwgpi5udd0f8m" path="res://assets/resources/phase_timer_segment.gd" id="2_rdp6q"]
 [ext_resource type="Texture2D" uid="uid://di1grpgl6u5ob" path="res://assets/graphics/ui/placeholder_waffle_timer.png" id="3_kek2y"]
 [ext_resource type="Texture2D" uid="uid://uhig6l5ws4cv" path="res://assets/graphics/decor/WaffleMakerOpen.png" id="5_k48uc"]
+[ext_resource type="PackedScene" uid="uid://dnv6nclbviscm" path="res://scenes/waffle/ingredient_stockpile_node.tscn" id="5_kqea7"]
 [ext_resource type="PackedScene" uid="uid://dqt1bsryg2t3u" path="res://scenes/common/phase_timer.tscn" id="6_2vgjh"]
 [ext_resource type="Texture2D" uid="uid://dviokks881yko" path="res://assets/graphics/decor/WaffleMakerCloser.png" id="8_2vgjh"]
 
@@ -39,14 +40,14 @@ region = Rect2(200, 0, 200, 200)
 [sub_resource type="Resource" id="Resource_2vgjh"]
 script = ExtResource("2_rdp6q")
 duration = 4.0
-tint = Color(0.6666667, 0.05490196, 0.011764706, 1)
+tint = Color(0.6666667, 0.05490196, 0.011764706, 0.003921569)
 multiplier = 0.0
 metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
 
 [sub_resource type="Resource" id="Resource_kqea7"]
 script = ExtResource("2_rdp6q")
 duration = 2.0
-tint = Color(0.9254902, 0.6156863, 0.2627451, 1)
+tint = Color(0.9254902, 0.7764706, 0.2627451, 1)
 multiplier = 0.7
 metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
 
@@ -60,15 +61,14 @@ metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
 [sub_resource type="Resource" id="Resource_3ennm"]
 script = ExtResource("2_rdp6q")
 duration = 2.0
-tint = Color(0.9254902, 0.6156863, 0.2627451, 1)
+tint = Color(0.9254902, 0.7764706, 0.2627451, 1)
 multiplier = 0.7
 metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
 
 [sub_resource type="Resource" id="Resource_8rjf0"]
 script = ExtResource("2_rdp6q")
 duration = 1.0
-tint = Color(0.6666667, 0.05490196, 0.011764706, 1)
-multiplier = 0.0
+tint = Color(0.8784314, 0.15294118, 0.011764706, 1)
 metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
 
 [sub_resource type="Animation" id="Animation_3ennm"]
@@ -267,6 +267,23 @@ scale_amount_curve = SubResource("Curve_acr5o")
 color_ramp = SubResource("Gradient_5f6qq")
 hue_variation_min = -0.37
 hue_variation_max = 0.35
+
+[node name="BatterPositionner" type="Control" parent="TextureRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -99.0
+offset_bottom = -99.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WaffleStockpile" parent="TextureRect/BatterPositionner" instance=ExtResource("5_kqea7")]
+unique_name_in_owner = true
+layout_mode = 1
 
 [node name="PhaseTimer" parent="." instance=ExtResource("6_2vgjh")]
 unique_name_in_owner = true

@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://de411klrjqr0j"]
+
+[ext_resource type="Texture2D" uid="uid://d3kcxc653k716" path="res://assets/graphics/ingredients/BatterSqueezer.png" id="1_bj2rp"]
+[ext_resource type="Texture2D" uid="uid://nf7251kpgtmo" path="res://assets/graphics/ingredients/BatterSqueezerChocolate.png" id="2_f41l3"]
+[ext_resource type="Script" uid="uid://sql0mh34i7bh" path="res://scenes/waffle/batter_squeezer.gd" id="2_tdgxi"]
+[ext_resource type="Texture2D" uid="uid://b728jq8o55a6y" path="res://assets/graphics/ingredients/BatterSqueezerMatcha.png" id="3_tdgxi"]
+[ext_resource type="Texture2D" uid="uid://cedo0bwa52lqy" path="res://assets/graphics/ingredients/BatterSqueezerPlain.png" id="4_bc1k0"]
+
+[node name="BatterSqueezer" type="TextureRect"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -107.5
+offset_right = 107.5
+offset_bottom = 270.0
+grow_horizontal = 2
+texture = ExtResource("1_bj2rp")
+script = ExtResource("2_tdgxi")
+
+[node name="BatterSqueezerChocolate" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 36.0
+offset_right = 150.0
+offset_bottom = 182.0
+mouse_default_cursor_shape = 2
+texture = ExtResource("2_f41l3")
+
+[node name="BatterSqueezerMatcha" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 24.0
+offset_right = 209.0
+offset_bottom = 177.0
+mouse_default_cursor_shape = 2
+texture = ExtResource("3_tdgxi")
+
+[node name="BatterSqueezerPlain" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 22.0
+offset_right = 68.0
+offset_bottom = 176.0
+mouse_default_cursor_shape = 2
+texture = ExtResource("4_bc1k0")
+
+[connection signal="gui_input" from="BatterSqueezerChocolate" to="." method="_on_batter_squeezer_chocolate_gui_input"]
+[connection signal="gui_input" from="BatterSqueezerMatcha" to="." method="_on_batter_squeezer_matcha_gui_input"]
+[connection signal="gui_input" from="BatterSqueezerPlain" to="." method="_on_batter_squeezer_plain_gui_input"]

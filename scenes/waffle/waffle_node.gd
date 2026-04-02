@@ -1,30 +1,20 @@
 extends Node2D
 class_name WaffleNode
 
-signal clicked( waffle_node :WaffleNode )
+const INGREDIENT_NODE = preload("uid://c88woq5hpjjb2")
 
-@onready var ingredient_sprite_container: CanvasGroup = $IngredientSpriteContainer
+@onready var ingredient_container: CanvasGroup = $IngredientSpriteContainer
 @export var ingredient_margin := -40.0;
-@export var ingredients :Array[IngredientResource] = []
-@export var quality_multiplers :Array[float] = []
 
 @onready var container_inside: Sprite2D = %ContainerInside
 @onready var container_outside: Sprite2D = %ContainerOutside
 
 var sent_to_reception := false;
 
-func _init(new_ingredients :Array[IngredientResource] = []) -> void:
-	if new_ingredients.size() > 0:
-		create_from_ingredients.call_deferred(new_ingredients);
-
-func _ready() -> void:
-	if ingredients != null:
-		create_from_ingredients.call_deferred(ingredients.duplicate());
-
 func get_waffle_ADN() -> String:
 	var adn := "";
 	
-	for ingredient in ingredients:
+	for ingredient in get_ingredients():
 		adn += "_" + ingredient.name
 	
 	return adn;
@@ -32,55 +22,76 @@ func get_waffle_ADN() -> String:
 func get_waffle_composition() -> Dictionary[IngredientResource, int]:
 	var composition :Dictionary[IngredientResource, int] = {};
 	
-	for ingredient in ingredients:
+	for ingredient in get_ingredients():
 		if not composition.has(ingredient):
 			composition[ingredient] = 0
 		composition[ingredient] += 1;
 	
 	return composition;
 
-func create_from_ingredients( new_ingredients :Array[IngredientResource] ) -> void:
-	if ingredient_sprite_container == null:
+func make_passable() -> void:
+	%Control.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+func get_ingredients() -> Array[IngredientResource]:
+	var ingredient_list :Array[IngredientResource] = []
+	
+	for layer in ingredient_container.get_children():
+		layer = layer as IngredientNode;
+		if layer == null:
+			continue
+		ingredient_list.push_back(layer.ingredient);
+	
+	return ingredient_list;
+
+func get_multipliers() -> Array[float]:
+	var ingredient_list :Array[float] = []
+	
+	for layer in ingredient_container.get_children():
+		layer = layer as IngredientNode;
+		if layer == null:
+			continue
+		ingredient_list.push_back(layer.multiplier);
+	
+	return ingredient_list;
+
+func is_empty_box() -> bool:
+	return (ingredient_container.get_child_count() == 2);
+
+func create_from_ingredients( ingredient_list :Array[IngredientResource], multiplier_list :Array[float] ) -> void:
+	if ingredient_container == null:
 		return
 	
-	ingredients.clear();
-	
-	for ingredient_resource in new_ingredients:
-		add_ingredient(ingredient_resource);
-	
-	_update_sprites()
+	for index in ingredient_list.size():
+		add_ingredient(ingredient_list[index], multiplier_list[index]);
 
-func add_ingredient( ingredient :IngredientResource, refresh_display :bool = true ) -> bool:
-	var last_ingredient_category :CookingManager.CATEGORIES
-	if ingredients.size() == 0 and ingredient.category != CookingManager.CATEGORIES.WAFFLE:
+func add_ingredient( ingredient :IngredientResource, multiplier :float ) -> bool:
+	# ONLY waffles can be added if the box is empty
+	if is_empty_box() and ingredient.category != CookingManager.CATEGORIES.WAFFLE:
 		return false;
 	
-	if ingredients.size() > 0:
-		last_ingredient_category = ingredients[ingredients.size() -1].category
-		if last_ingredient_category == ingredient.category:
-			return false;
-	ingredients.push_back(ingredient);
+	# Waffle can ONLY be added if there is nothing in the box
+	if ingredient.category == CookingManager.CATEGORIES.WAFFLE and not is_empty_box():
+		return false;
 	
-	if refresh_display:
-		_update_sprites.call_deferred();
+	var ingredient_node := INGREDIENT_NODE.instantiate() as IngredientNode
+	ingredient_node.ingredient = ingredient;
+	ingredient_node.multiplier = multiplier;
+	add_ingredient_node(ingredient_node);
+	
 	return true;
 
-func _update_sprites() -> void:
-	if ingredient_sprite_container == null:
-		return
-	
-	for ingredient_sprite in ingredient_sprite_container.get_children():
-		if [container_inside, container_outside].has(ingredient_sprite):
-			continue;
-		ingredient_sprite.queue_free();
-	
-	for ingredient_index in ingredients.size():
-		var ingredient_resource :IngredientResource = ingredients[ingredient_index]
-		var tmp_ingredient_sprite := Sprite2D.new();
-		tmp_ingredient_sprite.texture = ingredient_resource.sprite_texture;
-		ingredient_sprite_container.add_child(tmp_ingredient_sprite);
-		tmp_ingredient_sprite.position.y = ingredient_index * ingredient_margin;
+func add_ingredient_node(ingredient_node :IngredientNode) -> void:
+	ingredient_container.add_child(ingredient_node);
+	container_outside.move_to_front()
+	_update_y_positions.call_deferred()
+
+func _update_y_positions() -> void:
+	for layer in ingredient_container.get_children():
+		layer = layer as IngredientNode;
+		if layer == null:
+			continue
+		layer.position.y = (layer.get_index()-1) * ingredient_margin;
 
 func _on_control_gui_input(event: InputEvent) -> void:
 	if EventManager.is_event_left_click(event):
-		clicked.emit(self);
+		EventManager.waffle_clicked.emit(self)

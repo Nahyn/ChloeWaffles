@@ -4,45 +4,43 @@ class_name ReceptionScreen
 signal go_screen_down()
 signal client_clicked( client :CharacterNode )
 
+@onready var client_spawn_timer: Timer = $Timer
+@export var time_until_next_client := Vector2(1.0, 5.0);
+
 const CHARACTER_NODE = preload("uid://wcecrj3i8y8j")
 @export var max_client := 3
 @export var client_movement_duration := Vector2(1.0, 2.0);
 @export var daily_client_count = 5;
 
-var CLIENTS :Array[CharacterResource] = [
-	load("uid://bqsq8s3yro622"),
-	load("uid://v4eaqn28ydoa"),
+var CLIENTS_PATHS :Array[String] = [
+	"res://assets/resources/characters/alis_character.tres",
+	"res://assets/resources/characters/alpha_character.tres",
+	"res://assets/resources/characters/dodo_character.tres",
+	"res://assets/resources/characters/juniper_character.tres",
+	"res://assets/resources/characters/mino_character.tres",
+	"res://assets/resources/characters/nael_character.tres",
+	"res://assets/resources/characters/ruben_character.tres",
 ]
 
 var client_movement_tween :Tween
-var daily_clients :Array[CharacterResource] = [
-	load("uid://bqsq8s3yro622"),
-	load("uid://v4eaqn28ydoa"),
-	load("uid://bqsq8s3yro622"),
-	load("uid://v4eaqn28ydoa"),
-	load("uid://bqsq8s3yro622"),
-	load("uid://v4eaqn28ydoa"),
-	load("uid://bqsq8s3yro622"),
-];
+var daily_clients :Array[CharacterResource] = [];
 
 func _ready() -> void:
 	generate_daily_clients.call_deferred()
+	set_timer_until_next_client()
+
+func set_timer_until_next_client() -> void:
+	client_spawn_timer.start( randf_range( time_until_next_client.x, time_until_next_client.y ) );
 
 func generate_daily_clients() -> void:
-	var possible_clients :Array[CharacterResource] = CLIENTS.duplicate();
+	var possible_client_paths :Array[String] = CLIENTS_PATHS.duplicate();
 	
-	for index in daily_client_count:
-		var valid_client :CharacterResource
+	while (daily_client_count < daily_clients.size()) and (not possible_client_paths.is_empty()):
+		var test_client_path = possible_client_paths.pick_random()
+		possible_client_paths.erase(test_client_path);
 		
-		while (valid_client == null) and (not possible_clients.is_empty()):
-			var test_client = possible_clients.pick_random()
-			possible_clients.erase(test_client);
-			if not daily_clients.has(test_client):
-				valid_client = test_client
-		
-		if valid_client == null:
-			break;
-		daily_clients.push_back(valid_client);
+		var client_resource := load(test_client_path);
+		daily_clients.push_back(client_resource);
 
 func spawn_next_client() -> void:
 	if daily_clients.is_empty():
@@ -78,3 +76,7 @@ func _on_go_down_button_pressed() -> void:
 
 func _on_button_pressed() -> void:
 	spawn_next_client()
+
+
+func _on_client_spawn_timer_timeout() -> void:
+	pass # Replace with function body.

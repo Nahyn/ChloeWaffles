@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://rdb07suh3iem" path="res://scenes/game_sceen.gd" id="1_oxd8y"]
 [ext_resource type="PackedScene" uid="uid://vkrwd8ahcav0" path="res://scenes/cooking/reception_screen.tscn" id="2_oxd8y"]
 [ext_resource type="PackedScene" uid="uid://8yr8up7q8j3f" path="res://scenes/cooking/waffle_maker_screen.tscn" id="3_18c7x"]
-[ext_resource type="PackedScene" uid="uid://bssyjce6345co" path="res://scenes/waffle_plate_positionner.tscn" id="5_i4cry"]
+[ext_resource type="Texture2D" uid="uid://0bn1wc3ivwh7" path="res://assets/graphics/decor/Plate.png" id="5_18c7x"]
 [ext_resource type="PackedScene" uid="uid://bco0i0j17hgvv" path="res://scenes/common/selected_item_control.tscn" id="6_i4cry"]
 
 [sub_resource type="Curve2D" id="Curve2D_18c7x"]
@@ -13,27 +13,22 @@ _data = {
 }
 point_count = 2
 
-[node name="GameSceen" type="Node2D" node_paths=PackedStringArray("reception_waffle_slots")]
+[node name="GameSceen" type="Node2D"]
 script = ExtResource("1_oxd8y")
-reception_waffle_slots = [NodePath("WaffleSentPositionner/Path2D/PathFollow2D/ReceptionWaffleSlot 1"), NodePath("WaffleSentPositionner/Path2D/PathFollow2D2/ReceptionWaffleSlot 2"), NodePath("WaffleSentPositionner/Path2D/PathFollow2D3/ReceptionWaffleSlot 3"), NodePath("WaffleSentPositionner/Path2D/PathFollow2D4/ReceptionWaffleSlot 4"), NodePath("WaffleSentPositionner/Path2D/PathFollow2D5/ReceptionWaffleSlot 5")]
 
 [node name="ReceptionScreenPositionner" type="Node2D" parent="."]
 
 [node name="ReceptionScreen" parent="ReceptionScreenPositionner" instance=ExtResource("2_oxd8y")]
-unique_name_in_owner = true
 
 [node name="AssemblyScreenPositionner" type="Node2D" parent="."]
 position = Vector2(0, 1080)
 
 [node name="AssemblyScreen" parent="AssemblyScreenPositionner" instance=ExtResource("1_i2ygs")]
-unique_name_in_owner = true
 
 [node name="WafflerMakerScreenPositionner" type="Node2D" parent="."]
 position = Vector2(1920, 1080)
 
-[node name="WaffleMakerScreen" parent="WafflerMakerScreenPositionner" node_paths=PackedStringArray("waffle_plate") instance=ExtResource("3_18c7x")]
-unique_name_in_owner = true
-waffle_plate = NodePath("../../WafflePlate")
+[node name="WaffleMakerScreen" parent="WafflerMakerScreenPositionner" instance=ExtResource("3_18c7x")]
 
 [node name="WaffleSentPositionner" type="Node2D" parent="."]
 position = Vector2(812, 1008)
@@ -44,7 +39,7 @@ curve = SubResource("Curve2D_18c7x")
 [node name="PathFollow2D" type="PathFollow2D" parent="WaffleSentPositionner/Path2D"]
 position = Vector2(0, -20)
 
-[node name="ReceptionWaffleSlot 1" type="Control" parent="WaffleSentPositionner/Path2D/PathFollow2D"]
+[node name="Control" type="Control" parent="WaffleSentPositionner/Path2D/PathFollow2D"]
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -61,7 +56,7 @@ grow_vertical = 0
 position = Vector2(249.99966, -20)
 progress = 250.0
 
-[node name="ReceptionWaffleSlot 2" type="Control" parent="WaffleSentPositionner/Path2D/PathFollow2D2"]
+[node name="Control2" type="Control" parent="WaffleSentPositionner/Path2D/PathFollow2D2"]
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -78,7 +73,7 @@ grow_vertical = 0
 position = Vector2(500, -19.999998)
 progress = 500.0
 
-[node name="ReceptionWaffleSlot 3" type="Control" parent="WaffleSentPositionner/Path2D/PathFollow2D3"]
+[node name="Control3" type="Control" parent="WaffleSentPositionner/Path2D/PathFollow2D3"]
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -95,7 +90,7 @@ grow_vertical = 0
 position = Vector2(750.00037, -20)
 progress = 750.0
 
-[node name="ReceptionWaffleSlot 4" type="Control" parent="WaffleSentPositionner/Path2D/PathFollow2D4"]
+[node name="Control4" type="Control" parent="WaffleSentPositionner/Path2D/PathFollow2D4"]
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -112,7 +107,7 @@ grow_vertical = 0
 position = Vector2(1000, -20)
 progress = 1000.0
 
-[node name="ReceptionWaffleSlot 5" type="Control" parent="WaffleSentPositionner/Path2D/PathFollow2D5"]
+[node name="Control5" type="Control" parent="WaffleSentPositionner/Path2D/PathFollow2D5"]
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -125,9 +120,23 @@ offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="WafflePlate" parent="." instance=ExtResource("5_i4cry")]
-unique_name_in_owner = true
-position = Vector2(1920, 2009)
+[node name="WafflePlatePositionner" type="Node2D" parent="."]
+visible = false
+position = Vector2(1891, 2073)
+
+[node name="Plate" type="TextureRect" parent="WafflePlatePositionner"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -328.0
+offset_top = -316.0
+offset_right = 236.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("5_18c7x")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
@@ -190,5 +199,5 @@ color = Color(0.43137255, 1, 0.4627451, 0.78431374)
 [connection signal="go_screen_down" from="ReceptionScreenPositionner/ReceptionScreen" to="." method="camera_down"]
 [connection signal="go_screen_right" from="AssemblyScreenPositionner/AssemblyScreen" to="." method="camera_right"]
 [connection signal="go_screen_up" from="AssemblyScreenPositionner/AssemblyScreen" to="." method="camera_up"]
+[connection signal="waffle_clicked" from="AssemblyScreenPositionner/AssemblyScreen" to="." method="_on_assembly_screen_waffle_clicked"]
 [connection signal="go_screen_left" from="WafflerMakerScreenPositionner/WaffleMakerScreen" to="." method="camera_left"]
-[connection signal="plate_clicked" from="WafflePlate" to="." method="_on_waffle_plate_clicked"]

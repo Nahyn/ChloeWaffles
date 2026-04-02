@@ -1,4 +1,7 @@
 extends Control
+class_name WaffleMakerNode
+
+const WAFFLE_BURNED = preload("uid://ccvaarlbw0asy")
 
 @export var SUCCESS_SOUND :AudioStream
 @export var FAILURE_SOUND :AudioStream
@@ -8,13 +11,13 @@ const FAILURE_PARTICLES = preload("uid://bc3448o1tiw3d")
 const SUCCESS_PARTICLES = preload("uid://d0o4t5a6xpjba")
 @onready var failure_particles: CPUParticles2D = $TextureRect/FailureParticles
 
+signal waffle_finished(ingredient_resource :IngredientResource, multiplier :float)
 signal on_failure()
-signal on_opened( ingredient_resource :IngredientResource, multiplier :float )
-signal on_success( ingredient_resource :IngredientResource, multiplier :float )
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @onready var phase_timer: PhaseTimer = %PhaseTimer
+
 
 var current_ingredient_resource :IngredientResource
 var current_phase :PhaseTimerSegmentResource;
@@ -25,49 +28,71 @@ func _ready() -> void:
 func _initialiaze() -> void:
 	if failure_particles == null:
 		return
+	%WaffleStockpile.visible = false;
 	failure_particles.emitting = false;
 	phase_timer.visible = false;
 	phase_timer.reset();
 
-func toggle_timer() -> void:
+func toggle_lid() -> void:
 	if phase_timer.is_running() or phase_timer.has_failed:
 		open_lid();
-		phase_timer.reset();
-	else:
+	elif %WaffleStockpile.is_batter():
 		close_lid();
 
 func _on_failure() -> void:
 	on_failure.emit()
 	failure_particles.emitting = true;
 
-func _on_success() -> void:
-	on_success.emit(current_ingredient_resource, current_phase.multiplier)
 
+func put_batter( waffle_ingredient :WaffleIngredientResource ) -> void:
+	if %WaffleStockpile.visible == true:
+		return;
+	%WaffleStockpile.visible = true;
+	%WaffleStockpile.ingredient = waffle_ingredient;
+	%WaffleStockpile.texture = waffle_ingredient.batter_texture;
+	
+	phase_timer.reset();
+
+func hide_waffle() -> void:
+	%WaffleStockpile.visible = false;
 
 func open_lid() -> void:
 	animation_player.play("open");
 	phase_timer.visible = false;
-	var phase_multiplier := current_phase.multiplier;
+	phase_timer.stop_timer()
+	
+	%WaffleStockpile.visible = true;
+	var waffle_multiplier = %WaffleStockpile.multiplier
+	
+	if %WaffleStockpile.is_batter():
+		return
 	
 	var tmp_particles := SUCCESS_PARTICLES.instantiate() as CustomParticleSystem
 	var tmp_sound := SUCCESS_SOUND
 	if phase_timer.has_failed:
+		%WaffleStockpile.ingredient = WAFFLE_BURNED
 		tmp_particles = FAILURE_PARTICLES.instantiate() as CustomParticleSystem
 		tmp_sound = FAILURE_SOUND
-		phase_multiplier = -2.0
-	
+		waffle_multiplier = -2.0
 	failure_particles.emitting = false;
-	on_opened.emit(current_ingredient_resource, phase_multiplier);
 	
 	tmp_particles.global_position = phase_timer.global_position - global_position
 	add_child(tmp_particles)
 	audio_stream_player_2d.stream = tmp_sound;
 	audio_stream_player_2d.play();
+	
+	await animation_player.animation_finished
+	waffle_finished.emit(%WaffleStockpile.ingredient, waffle_multiplier);
+	%WaffleStockpile.visible = false;
 
 
 func close_lid() -> void:
+	if %WaffleStockpile.visible == false:
+		return
+	
 	animation_player.play("close")
 	phase_timer.visible = true;
+	%WaffleStockpile.visible = false;
 	phase_timer.start_timer();
 
 func _on_texture_rect_gui_input(event: InputEvent) -> void:
@@ -76,13 +101,16 @@ func _on_texture_rect_gui_input(event: InputEvent) -> void:
 	
 	event = event as InputEventMouseButton
 	if event.button_index == MOUSE_BUTTON_LEFT:
-		toggle_timer()
+		toggle_lid()
 
 
 func _on_timer_phases_container_phase_started(phase: PhaseTimerSegmentResource) -> void:
 	current_phase = phase;
+	if phase.multiplier > 0:
+		%WaffleStockpile.texture = %WaffleStockpile.ingredient.stockpile_texture
 
 func _on_timer_phases_container_failed() -> void:
 	on_failure.emit()
 	phase_timer.visible = false;
 	failure_particles.emitting = true;
+	EventManager.waffle_burnt.emit()

@@ -33,7 +33,6 @@ func reset():
 	running = false;
 
 func start_timer() -> void:
-	reset();
 	running = true;
 	phase_started.emit(0);
 

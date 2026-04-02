@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c88woq5hpjjb2"]
+
+[ext_resource type="Script" uid="uid://dwi8w3jseo837" path="res://scenes/waffle/ingredient_node.gd" id="1_lio63"]
+
+[node name="IngredientNode" type="Sprite2D"]
+script = ExtResource("1_lio63")

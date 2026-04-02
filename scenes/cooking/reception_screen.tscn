@@ -9,7 +9,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_01s2h"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 2170, -1, 0, 0, 0, 0, 860, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 2170, -1, 0, 0, 0, 0, 950, 0)
 }
 point_count = 2
 
@@ -93,6 +93,8 @@ text = "SPAWN CLIENT"
 
 [node name="SelectedItemControl" parent="." instance=ExtResource("6_1rwiq")]
 layout_mode = 1
+
+[node name="ClientSpawnTimer" type="Timer" parent="."]
 
 [connection signal="pressed" from="TextureRect/GoDownButton" to="." method="_on_go_down_button_pressed"]
 [connection signal="pressed" from="TextureRect/Button" to="." method="_on_button_pressed"]

@@ -13,9 +13,8 @@ _data = {
 }
 point_count = 2
 
-[node name="GameSceen" type="Node2D" node_paths=PackedStringArray("reception_waffle_slots")]
+[node name="GameSceen" type="Node2D"]
 script = ExtResource("1_oxd8y")
-reception_waffle_slots = [NodePath("WaffleSentPositionner/Path2D/PathFollow2D/ReceptionWaffleSlot 1"), NodePath("WaffleSentPositionner/Path2D/PathFollow2D2/ReceptionWaffleSlot 2"), NodePath("WaffleSentPositionner/Path2D/PathFollow2D3/ReceptionWaffleSlot 3"), NodePath("WaffleSentPositionner/Path2D/PathFollow2D4/ReceptionWaffleSlot 4"), NodePath("WaffleSentPositionner/Path2D/PathFollow2D5/ReceptionWaffleSlot 5")]
 
 [node name="ReceptionScreenPositionner" type="Node2D" parent="."]
 
@@ -44,7 +43,7 @@ curve = SubResource("Curve2D_18c7x")
 [node name="PathFollow2D" type="PathFollow2D" parent="WaffleSentPositionner/Path2D"]
 position = Vector2(0, -20)
 
-[node name="ReceptionWaffleSlot 1" type="Control" parent="WaffleSentPositionner/Path2D/PathFollow2D"]
+[node name="Control" type="Control" parent="WaffleSentPositionner/Path2D/PathFollow2D"]
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -61,7 +60,7 @@ grow_vertical = 0
 position = Vector2(249.99966, -20)
 progress = 250.0
 
-[node name="ReceptionWaffleSlot 2" type="Control" parent="WaffleSentPositionner/Path2D/PathFollow2D2"]
+[node name="Control2" type="Control" parent="WaffleSentPositionner/Path2D/PathFollow2D2"]
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -78,7 +77,7 @@ grow_vertical = 0
 position = Vector2(500, -19.999998)
 progress = 500.0
 
-[node name="ReceptionWaffleSlot 3" type="Control" parent="WaffleSentPositionner/Path2D/PathFollow2D3"]
+[node name="Control3" type="Control" parent="WaffleSentPositionner/Path2D/PathFollow2D3"]
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -95,7 +94,7 @@ grow_vertical = 0
 position = Vector2(750.00037, -20)
 progress = 750.0
 
-[node name="ReceptionWaffleSlot 4" type="Control" parent="WaffleSentPositionner/Path2D/PathFollow2D4"]
+[node name="Control4" type="Control" parent="WaffleSentPositionner/Path2D/PathFollow2D4"]
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -112,7 +111,7 @@ grow_vertical = 0
 position = Vector2(1000, -20)
 progress = 1000.0
 
-[node name="ReceptionWaffleSlot 5" type="Control" parent="WaffleSentPositionner/Path2D/PathFollow2D5"]
+[node name="Control5" type="Control" parent="WaffleSentPositionner/Path2D/PathFollow2D5"]
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
