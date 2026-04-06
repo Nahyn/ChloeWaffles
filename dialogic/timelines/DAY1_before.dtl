@@ -1,0 +1,22 @@
+join chloe leftmost
+chloe (player/talking): Nice, how's the apron fitting? Not too tight?
+chloe (player/neutral): ...
+chloe (player/talking): Still not very talkative, huh. That's fine.
+chloe (player/neutral): Anyways. Like the boss said, i'll be the one in charge of your training.
+chloe (player/talking): Let's get over this very quickly then.
+chloe (client/neutral): You're gonna be making orders for the clients that come to our shop.
+chloe (player/talking): First, you take their order, then you cook the batter, then you put whatever shit they ask on their waffle.
+chloe (player/neutral): Simple as that.
+audio "res://assets/audio/EntranceBell.mp3"
+[wait_input]
+join dodo rightmost
+\dodo (neutral): Sis, you've forgot... Oh.
+\dodo (surprised): H-Hi...
+chloe (client/smile): Dodo? What's up?
+\dodo (annoyed): You forgot this at home.
+chloe (client/happy): Oooh, the caramel sauce. Thanks for getting it for me baby bro.
+chloe (client/smile): Since you're here, do you want a free waffle? It'll be a good tutorial for our new recrue here.
+\dodo (surprised): ... I don't mind, but aren't you going to get in trouble for giving out free stuff?
+chloe (client/smile): I'm not getting paid by the waffle, who cares.
+\dodo (happy): Alright then...
+\dodo (happy): I'd like to order one waffle, please.

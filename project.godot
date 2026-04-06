@@ -10,8 +10,10 @@ config_version=5
 
 [application]
 
-config/name="ChloeWaffle"
+config/name="MyNewJobAtTheLocalWafflePlace"
+run/main_scene="uid://r3xh8jymh848"
 config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/bg_color=Color(0.21960784, 0.101960786, 0.20784314, 1)
 
 [autoload]
 
@@ -19,6 +21,7 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 CookingManager="*res://singletons/cooking_manager.tscn"
 EventManager="*res://singletons/event_manager.tscn"
 SceneManager="*res://singletons/scene_manager.tscn"
+GameplayController="*res://singletons/gameplay_controller.tscn"
 
 [dialogic]
 
@@ -28,7 +31,8 @@ directories/dch_directory={
 "ruben": "res://dialogic/characters/ruben.dch"
 }
 directories/dtl_directory={
-"TEST_TIMELINE": "res://dialogic/timelines/TEST_TIMELINE.dtl"
+"DAY1_after": "res://dialogic/timelines/DAY1_after.dtl",
+"DAY1_before": "res://dialogic/timelines/DAY1_before.dtl"
 }
 layout/style_directory={
 "": "res://dialogic/styles/vn_style.tres",
@@ -93,6 +97,10 @@ folder_colors={
 "res://scenes/": "teal",
 "res://singletons/": "teal"
 }
+
+[gui]
+
+theme/custom="uid://c6wms3iajkqtv"
 
 [input]
 

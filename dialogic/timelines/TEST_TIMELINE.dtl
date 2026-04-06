@@ -1,7 +1,0 @@
-join chloe leftmost [animation="Instant In"]
-join ruben rightmost [animation="Instant In"]
-[wait_input]
-chloe: Test de dialogue par perso A
-ruben: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a tincidunt neque. Integer justo nulla, convallis nec efficitur a, malesuada quis enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-[wait_input]
-chloe: oké

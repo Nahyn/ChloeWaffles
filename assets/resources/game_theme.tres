@@ -1,0 +1,25 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://c6wms3iajkqtv"]
+
+[ext_resource type="FontFile" uid="uid://dewhtf78f64h8" path="res://assets/graphics/Adorable.otf" id="1_xx3rh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fw6af"]
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.5921569, 0.5647059, 0.54509807, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ebcsm"]
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.8980392, 0.6117647, 0.59607846, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xx3rh"]
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.6745098, 0.4117647, 0.32941177, 1)
+
+[resource]
+default_font = ExtResource("1_xx3rh")
+Button/styles/disabled = SubResource("StyleBoxFlat_fw6af")
+Button/styles/focus = SubResource("StyleBoxFlat_ebcsm")
+Button/styles/hover = SubResource("StyleBoxFlat_ebcsm")
+Button/styles/normal = SubResource("StyleBoxFlat_xx3rh")
