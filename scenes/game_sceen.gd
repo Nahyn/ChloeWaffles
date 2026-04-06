@@ -6,6 +6,7 @@ class_name GameScreen
 var screen_size := Vector2(1920, 1080);
 
 const SCORE_LABEL = preload("uid://dcu1mgvn7ko8r")
+const ORDER_TICKET_NODE = preload("uid://ces0qyrihwyk4")
 
 @export_group("Score by", "score_by")
 @export var score_by_valid_ingredient := 20
@@ -21,6 +22,9 @@ const SCORE_LABEL = preload("uid://dcu1mgvn7ko8r")
 @export var waffle_sending_duration := 0.5;
 @export var reception_waffle_slots :Array[Control] = []
 
+@export var order_ticket_slots :Array[Control] = []
+var order_list : Dictionary[WaffleNode, Control] = {}
+
 var current_time
 var current_score := 0;
 
@@ -28,15 +32,59 @@ var score_objective := 0
 var time_lime := 20
 
 func _ready() -> void:
-	EventManager.client_served.connect(_on_client_served)
 	EventManager.client_missed.connect(_on_client_missed)
 	EventManager.client_clicked.connect(_on_client_clicked)
+	EventManager.client_leaving.connect(_on_client_leaving)
 	EventManager.trash_clicked.connect(_on_trash_clicked)
 	EventManager.waffle_trashed.connect(_on_waffle_trashed)
 	EventManager.bell_clicked.connect(_on_bell_clicked)
 	EventManager.waffle_burnt.connect(_on_waffle_burnt)
 	EventManager.waffle_clicked.connect(_on_waffle_clicked)
 	EventManager.stockpile_clicked.connect(_on_stockpile_clicked)
+	EventManager.last_client_leaving.connect(_on_last_client_leaving)
+	
+	%SuccessScreen.visible = false;
+	%GameOverScreen.visible = false;
+			
+	for ticket_slot in order_ticket_slots:
+		clear_ticket_slot(ticket_slot)
+
+func clear_ticket_slot( ticket_slot :Control ) -> void:
+	for child in ticket_slot.get_children():
+		child.queue_free()
+
+func get_free_ticket_slot() -> Control:
+	var free_slot :Control
+	
+	for slot in order_ticket_slots:
+		if slot.get_child_count() == 0:
+			free_slot = slot;
+			break;
+	
+	return free_slot
+
+func add_order(waffle :WaffleNode, phase_timer :PhaseTimer) -> void:
+	var target_slot = get_free_ticket_slot();
+	
+	if target_slot == null:
+		return;
+	
+	var new_ticket = ORDER_TICKET_NODE.instantiate() as OrderTicketNode
+	new_ticket.initialize_waffle(waffle);
+	new_ticket.initialize_timer(phase_timer);
+	target_slot.add_child(new_ticket);
+	order_list[waffle] = target_slot
+
+func _on_last_client_leaving() -> void:
+	if current_score >= score_objective:
+		%SuccessScreen.visible = true;
+	else:
+		%GameOverScreen.visible = true;
+
+func _remove_order(waffle :WaffleNode) -> void:
+	if order_list.has(waffle):
+		clear_ticket_slot(order_list[waffle])
+		order_list.erase(waffle);
 
 func change_score( _modifier :int ) -> void:
 	current_score += _modifier
@@ -63,18 +111,15 @@ func _input(event: InputEvent) -> void:
 	if EventManager.is_event_right_click(event):
 		unselect_item()
 
-func _on_client_served( _ingredients :Array[IngredientResource], modifiers :Array[float] ) -> void:
-	var waffle_score = 0;
-	
-	
-	current_score += waffle_score;
-	pass
+func _on_client_leaving( client :CharacterNode ) -> void:
+	_remove_order(client.get_ordered_waffle())
 
 func _on_client_clicked( client :CharacterNode ) -> void:
 	var selected_waffle = get_selected_waffle();
 	if selected_waffle == null:
 		if not client.has_order_visible():
 			client.show_order();
+			add_order(client.get_ordered_waffle(), client.phase_timer);
 		return;
 	
 	var client_order = client.get_ordered_waffle()
@@ -258,3 +303,15 @@ func camera_down() -> void:
 	_move_screen( Vector2i(0.0, 1.0) )
 func camera_left() -> void:
 	_move_screen( Vector2i(-1.0, 0.0) )
+
+
+func _on_retry_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_back_to_menu_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_continue_button_pressed() -> void:
+	pass # Replace with function body.

@@ -4,12 +4,21 @@ class_name WaffleNode
 const INGREDIENT_NODE = preload("uid://c88woq5hpjjb2")
 
 @onready var ingredient_container: CanvasGroup = $IngredientSpriteContainer
-@export var ingredient_margin := -40.0;
+@export var box_visible := true;
+@export var ingredient_margin := -40.0:
+	set(margin):
+		ingredient_margin = margin;
+		_update_y_positions.call_deferred()
 
 @onready var container_inside: Sprite2D = %ContainerInside
 @onready var container_outside: Sprite2D = %ContainerOutside
 
 var sent_to_reception := false;
+
+func _ready() -> void:
+	if not %ContainerInside == null:
+		container_inside.visible = box_visible
+		container_outside.visible = box_visible
 
 func get_waffle_ADN() -> String:
 	var adn := "";
@@ -57,12 +66,19 @@ func get_multipliers() -> Array[float]:
 func is_empty_box() -> bool:
 	return (ingredient_container.get_child_count() == 2);
 
-func create_from_ingredients( ingredient_list :Array[IngredientResource], multiplier_list :Array[float] ) -> void:
+func create_from_ingredients( ingredient_list :Array[IngredientResource]) -> void:
 	if ingredient_container == null:
+		create_from_ingredients.call_deferred(ingredient_list);
 		return
 	
+	for layer in ingredient_container.get_children():
+		layer = layer as IngredientNode;
+		if layer == null:
+			continue
+		layer.queue_free()
+	
 	for index in ingredient_list.size():
-		add_ingredient(ingredient_list[index], multiplier_list[index]);
+		add_ingredient(ingredient_list[index], 1.0);
 
 func add_ingredient( ingredient :IngredientResource, multiplier :float ) -> bool:
 	# ONLY waffles can be added if the box is empty

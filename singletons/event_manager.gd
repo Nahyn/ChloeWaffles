@@ -5,6 +5,9 @@ signal bell_clicked()
 signal waffle_clicked( waffle_node :WaffleNode )
 signal stockpile_clicked( stockpile :IngredientStockpileNode )
 signal client_clicked( character_node :CharacterNode )
+signal client_leaving( character_node :CharacterNode )
+
+signal last_client_leaving()
 
 signal trash_clicked()
 

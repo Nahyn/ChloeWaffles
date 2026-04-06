@@ -23,8 +23,6 @@ func _initialiaze() -> void:
 	total_limits = 0.0;
 	for timer_limit in timer_limits:
 		total_limits += timer_limit;
-	
-	reset();
 
 func reset():
 	current_phase_index = 0;
@@ -45,16 +43,15 @@ func _process(delta: float) -> void:
 	
 	var time_increment = delta * speed;
 	total_duration += time_increment;
-	if total_duration >= total_limits:
-		timer_finished.emit();
-		running = false;
-		return;
-	
 	current_phase_duration += time_increment;
 	if current_phase_duration > timer_limits[current_phase_index]:
 		current_phase_duration -= timer_limits[current_phase_index]
 		current_phase_index += 1;
-		phase_started.emit(current_phase_index);
+		if current_phase_index < timer_limits.size():
+			phase_started.emit(current_phase_index);
+		else:
+			timer_finished.emit();
+			running = false;
 
 func set_limits( phases :Array[PhaseTimerSegmentResource] ) -> void:
 	timer_limits.clear();

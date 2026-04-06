@@ -14,7 +14,8 @@ var forced_texture :Texture2D
 
 func _ready() -> void:
 	mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND;
-	gui_input.connect(_on_gui_input)
+	if not gui_input.is_connected(_on_gui_input):
+		gui_input.connect(_on_gui_input)
 	
 	_update_texture.call_deferred()
 

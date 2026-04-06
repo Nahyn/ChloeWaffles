@@ -1,0 +1,102 @@
+[gd_scene load_steps=4 format=3 uid="uid://ces0qyrihwyk4"]
+
+[ext_resource type="Script" uid="uid://br3dwc48etaq3" path="res://scenes/reception/order_ticket_node.gd" id="1_fgul8"]
+[ext_resource type="Texture2D" uid="uid://c4j0yibrs5xsw" path="res://assets/graphics/decor/Ticket.png" id="2_wiq33"]
+[ext_resource type="PackedScene" uid="uid://c4ktetgyfxye6" path="res://scenes/waffle/waffle_node.tscn" id="3_wiq33"]
+
+[node name="OrderTicketNode" type="Control"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+script = ExtResource("1_fgul8")
+
+[node name="ContainerMask" type="Control" parent="."]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(324, 300)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -152.0
+offset_right = 152.0
+offset_bottom = 300.0
+grow_horizontal = 2
+
+[node name="Shadow" type="TextureRect" parent="ContainerMask"]
+modulate = Color(0, 0, 0, 0.11764706)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_top = -1003.0
+offset_right = 152.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.03, 1.005)
+pivot_offset = Vector2(152, 1003)
+mouse_default_cursor_shape = 2
+texture = ExtResource("2_wiq33")
+
+[node name="Ticket" type="TextureRect" parent="ContainerMask"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_top = -1013.0
+offset_right = 152.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+texture = ExtResource("2_wiq33")
+stretch_mode = 4
+
+[node name="TimerPositionner" type="Control" parent="ContainerMask/Ticket"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 152.0
+offset_top = -146.0
+offset_right = 152.0
+offset_bottom = -146.0
+grow_vertical = 0
+scale = Vector2(1.5199988, 1.5199988)
+
+[node name="WafflePositionner" type="Control" parent="ContainerMask/Ticket"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -146.0
+offset_bottom = -146.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="WaffleNode" parent="ContainerMask/Ticket/WafflePositionner" instance=ExtResource("3_wiq33")]
+unique_name_in_owner = true
+scale = Vector2(0.5, 0.5)
+box_visible = false
+
+[node name="Overlay" type="Control" parent="ContainerMask/Ticket"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+
+[connection signal="mouse_entered" from="ContainerMask/Ticket/Overlay" to="." method="_on_overlay_mouse_entered"]
+[connection signal="mouse_exited" from="ContainerMask/Ticket/Overlay" to="." method="_on_overlay_mouse_exited"]

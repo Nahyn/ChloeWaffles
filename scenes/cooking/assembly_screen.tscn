@@ -107,6 +107,7 @@ mouse_default_cursor_shape = 2
 texture = ExtResource("6_m1pp8")
 
 [node name="CuttingBoard" type="TextureRect" parent="Background"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

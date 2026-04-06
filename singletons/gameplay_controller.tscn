@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://by6a76xlfn7iy"]
+
+[ext_resource type="Script" uid="uid://dcswmhbdi3jhv" path="res://singletons/gameplay_controller.gd" id="1_hi4td"]
+
+[node name="GameplayController" type="Node"]
+script = ExtResource("1_hi4td")

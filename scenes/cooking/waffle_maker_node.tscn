@@ -39,14 +39,14 @@ region = Rect2(200, 0, 200, 200)
 
 [sub_resource type="Resource" id="Resource_2vgjh"]
 script = ExtResource("2_rdp6q")
-duration = 4.0
+duration = 2.0
 tint = Color(0.6666667, 0.05490196, 0.011764706, 0.003921569)
 multiplier = 0.0
 metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
 
 [sub_resource type="Resource" id="Resource_kqea7"]
 script = ExtResource("2_rdp6q")
-duration = 2.0
+duration = 3.0
 tint = Color(0.9254902, 0.7764706, 0.2627451, 1)
 multiplier = 0.7
 metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
@@ -67,7 +67,7 @@ metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
 
 [sub_resource type="Resource" id="Resource_8rjf0"]
 script = ExtResource("2_rdp6q")
-duration = 1.0
+duration = 2.0
 tint = Color(0.8784314, 0.15294118, 0.011764706, 1)
 metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
 

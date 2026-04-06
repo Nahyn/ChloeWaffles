@@ -47,12 +47,20 @@ func _update_textures() -> void:
 	current_timer_texture_progress_bar.texture_progress = progress_texture
 	current_timer_texture_progress_bar.texture_over = over_texture
 
+func copy_timer( phase_timer :PhaseTimer ) -> void:
+	prints("copy_timer", name)
+	phases.clear()
+	for phase in phase_timer.phases:
+		phases.push_back(phase)
+	
+	for timer_attribute in ["running", "current_phase_duration", "current_phase_index", "total_duration"]:
+		timer_node[timer_attribute] = phase_timer.timer_node[timer_attribute]
+
 func _initialize() -> void:
 	if progress_bar_container == null or phases.size() == 0:
 		return
-	
 	_update_textures();
-	reset();
+	prints("_initialize", name)
 	for progress_bar in progress_bar_container.get_children():
 		if [background_timer_texture_rect, phase_indicator_progress_bar, current_timer_texture_progress_bar].has(progress_bar):
 			continue;
@@ -90,10 +98,12 @@ func reset() -> void:
 	timer_node.reset();
 
 func start_timer() -> void:
+	prints("start_timer", name)
 	current_timer_texture_progress_bar.value = 0.0;
 	timer_node.start_timer();
 
 func stop_timer() -> void:
+	prints("stop_timer", name)
 	timer_node.pause_timer();
 	current_timer_texture_progress_bar.value = 0.0;
 

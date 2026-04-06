@@ -13,17 +13,14 @@ _data = {
 }
 point_count = 2
 
-[node name="GameSceen" type="Node2D" node_paths=PackedStringArray("reception_waffle_slots", "order_ticket_slots")]
+[node name="GameSceen" type="Node2D" node_paths=PackedStringArray("reception_waffle_slots")]
 script = ExtResource("1_oxd8y")
 reception_waffle_slots = [NodePath("WaffleSentPositionner/Path2D/PathFollow2D/ReceptionWaffleSlot 1"), NodePath("WaffleSentPositionner/Path2D/PathFollow2D2/ReceptionWaffleSlot 2"), NodePath("WaffleSentPositionner/Path2D/PathFollow2D3/ReceptionWaffleSlot 3"), NodePath("WaffleSentPositionner/Path2D/PathFollow2D4/ReceptionWaffleSlot 4"), NodePath("WaffleSentPositionner/Path2D/PathFollow2D5/ReceptionWaffleSlot 5")]
-order_ticket_slots = [NodePath("TicketContainer/TicketContainerClipper/OrderPositionner_1"), NodePath("TicketContainer/TicketContainerClipper/OrderPositionner_2"), NodePath("TicketContainer/TicketContainerClipper/OrderPositionner_3")]
 
 [node name="ReceptionScreenPositionner" type="Node2D" parent="."]
 
 [node name="ReceptionScreen" parent="ReceptionScreenPositionner" instance=ExtResource("2_oxd8y")]
 unique_name_in_owner = true
-time_until_next_client = Vector2(0, 3)
-daily_client_count = 2
 
 [node name="AssemblyScreenPositionner" type="Node2D" parent="."]
 position = Vector2(0, 1080)
@@ -132,45 +129,6 @@ grow_vertical = 0
 unique_name_in_owner = true
 position = Vector2(1920, 2009)
 
-[node name="TicketContainer" type="Node2D" parent="."]
-position = Vector2(0, 1080)
-
-[node name="TicketContainerClipper" type="Control" parent="TicketContainer"]
-clip_contents = true
-custom_minimum_size = Vector2(1920, 1080)
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-mouse_filter = 2
-
-[node name="OrderPositionner_1" type="Control" parent="TicketContainer/TicketContainerClipper"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 50.0
-offset_right = 50.0
-grow_horizontal = 2
-
-[node name="OrderPositionner_2" type="Control" parent="TicketContainer/TicketContainerClipper"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 227.0
-offset_right = 227.0
-grow_horizontal = 2
-
-[node name="OrderPositionner_3" type="Control" parent="TicketContainer/TicketContainerClipper"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 445.0
-offset_right = 445.0
-grow_horizontal = 2
-
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(960, 540)
@@ -209,49 +167,6 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SuccessScreen" type="ColorRect" parent="CanvasLayer"]
-unique_name_in_owner = true
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.43137255, 1, 0.4627451, 0.78431374)
-
-[node name="Label" type="Label" parent="CanvasLayer/SuccessScreen"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -367.0
-offset_top = -87.5
-offset_right = 367.0
-offset_bottom = 87.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 128
-text = "You won !"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ContinueButton" type="Button" parent="CanvasLayer/SuccessScreen"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -79.0
-offset_top = 138.0
-offset_right = 79.0
-offset_bottom = 169.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Back to main menu"
-
 [node name="GameOverScreen" type="ColorRect" parent="CanvasLayer"]
 unique_name_in_owner = true
 visible = false
@@ -262,54 +177,18 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.3372549, 0, 0, 0.78431374)
 
-[node name="Label" type="Label" parent="CanvasLayer/GameOverScreen"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -367.0
-offset_top = -87.5
-offset_right = 367.0
-offset_bottom = 87.5
+[node name="SuccessScreen" type="ColorRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 128
-text = "You lost"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameOverScreen"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_top = 152.0
-offset_bottom = 152.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="BackToMenuButton" type="Button" parent="CanvasLayer/GameOverScreen/HBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Back to main menu"
-
-[node name="RetryButton" type="Button" parent="CanvasLayer/GameOverScreen/HBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Retry"
+color = Color(0.43137255, 1, 0.4627451, 0.78431374)
 
 [connection signal="go_screen_down" from="ReceptionScreenPositionner/ReceptionScreen" to="." method="camera_down"]
 [connection signal="go_screen_right" from="AssemblyScreenPositionner/AssemblyScreen" to="." method="camera_right"]
 [connection signal="go_screen_up" from="AssemblyScreenPositionner/AssemblyScreen" to="." method="camera_up"]
 [connection signal="go_screen_left" from="WafflerMakerScreenPositionner/WaffleMakerScreen" to="." method="camera_left"]
 [connection signal="plate_clicked" from="WafflePlate" to="." method="_on_waffle_plate_clicked"]
-[connection signal="pressed" from="CanvasLayer/SuccessScreen/ContinueButton" to="." method="_on_continue_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/GameOverScreen/HBoxContainer/BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/GameOverScreen/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]

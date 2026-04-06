@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dqt1bsryg2t3u"]
 
 [ext_resource type="Script" uid="uid://bd86tblkifrn2" path="res://scenes/common/phase_timer.gd" id="1_rbiy4"]
-[ext_resource type="PackedScene" uid="uid://4vffldnl0npg" path="res://scenes/cooking/timer_node.tscn" id="3_flbd7"]
+[ext_resource type="PackedScene" uid="uid://4vffldnl0npg" path="res://scenes/common/timer_node.tscn" id="3_flbd7"]
 
 [node name="PhaseTimer" type="Control"]
 layout_mode = 3

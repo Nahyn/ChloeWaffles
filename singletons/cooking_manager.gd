@@ -22,7 +22,6 @@ var _ingredients_dumplist :Array[IngredientResource] = [
 	load("uid://67delmfvixbv"),
 	load("uid://cc8hfrij5srvg"),
 	load("uid://do3h8hal75hjg"),
-	load("uid://ccvaarlbw0asy"),
 	load("uid://dl6u3q2t2e82l"),
 	load("uid://d3xi0174b2hs1"),
 	load("uid://dtrukfpdja7cn"),

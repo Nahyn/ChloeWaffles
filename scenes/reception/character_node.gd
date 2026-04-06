@@ -54,6 +54,7 @@ func show_order() -> void:
 	%WaffleNode.visible = true;
 
 func _leaving() -> void:
+	EventManager.client_leaving.emit(self);
 	%ThoughBubble.visible = false;
 	%PomfParticles.emitting = true;
 	await %PomfParticles.finished;
