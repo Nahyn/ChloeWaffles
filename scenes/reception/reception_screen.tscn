@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://vkrwd8ahcav0"]
 
-[ext_resource type="Script" uid="uid://6suk3ccyicjx" path="res://scenes/cooking/reception_screen.gd" id="1_subv2"]
+[ext_resource type="Script" uid="uid://6suk3ccyicjx" path="res://scenes/reception/reception_screen.gd" id="1_subv2"]
 [ext_resource type="Texture2D" uid="uid://0s5q077j8s3r" path="res://assets/graphics/backgrounds/ReceptionBackground.png" id="2_ifesg"]
 [ext_resource type="Texture2D" uid="uid://oixvotcipimm" path="res://assets/graphics/backgrounds/Floor.png" id="3_01s2h"]
 [ext_resource type="Texture2D" uid="uid://cr64oyj5vuf1o" path="res://assets/graphics/ui/UpArrow.png" id="3_ifesg"]

@@ -25,9 +25,9 @@ var client_movement_tween :Tween
 var daily_clients :Array[CharacterResource] = [];
 var visible_clients :Array[CharacterNode] = [];
 
-func _ready() -> void:
+func start() -> void:
 	generate_daily_clients.call_deferred()
-	set_timer_until_next_client()
+	set_timer_until_next_client.call_deferred()
 
 func generate_daily_clients() -> void:
 	var possible_clients :Array[CharacterResource] = CLIENTS_PATHS.duplicate();

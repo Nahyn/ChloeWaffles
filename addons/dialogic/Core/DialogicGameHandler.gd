@@ -85,6 +85,7 @@ signal dialogic_resumed
 signal timeline_started
 ## Emitted when the timeline ends.
 ## This can be a timeline ending or [method end_timeline] being called.
+signal timeline_ending
 signal timeline_ended
 ## Emitted when an event starts being executed.
 ## The event may not have finished executing yet.
@@ -267,9 +268,11 @@ func end_timeline(skip_ending := false) -> void:
 	if not skip_ending and dialog_ending_timeline and current_timeline != dialog_ending_timeline:
 		start(dialog_ending_timeline)
 		return
-
+	timeline_ending.emit()
+	
+	await get_tree().create_timer(0.7).timeout
+	
 	await clear(ClearFlags.TIMELINE_INFO_ONLY)
-
 	if Styles.has_active_layout_node() and Styles.get_layout_node().is_inside_tree():
 		match ProjectSettings.get_setting('dialogic/layout/end_behaviour', 0):
 			0:
@@ -277,7 +280,6 @@ func end_timeline(skip_ending := false) -> void:
 				Styles.get_layout_node().queue_free()
 			1:
 				Styles.get_layout_node().hide()
-
 	timeline_ended.emit()
 
 
@@ -310,7 +312,7 @@ func handle_event(event_index:int) -> void:
 		await dialogic_resumed
 
 	if event_index >= len(current_timeline_events):
-		end_timeline()
+		end_timeline(true)
 		return
 
 	# TODO: Check if necessary. This should be impossible.

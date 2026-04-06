@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://da5la3275mqn8" path="res://scenes/cooking/assembly_screen.tscn" id="1_i2ygs"]
 [ext_resource type="Script" uid="uid://rdb07suh3iem" path="res://scenes/game_sceen.gd" id="1_oxd8y"]
-[ext_resource type="PackedScene" uid="uid://vkrwd8ahcav0" path="res://scenes/cooking/reception_screen.tscn" id="2_oxd8y"]
+[ext_resource type="PackedScene" uid="uid://vkrwd8ahcav0" path="res://scenes/reception/reception_screen.tscn" id="2_oxd8y"]
 [ext_resource type="PackedScene" uid="uid://8yr8up7q8j3f" path="res://scenes/cooking/waffle_maker_screen.tscn" id="3_18c7x"]
-[ext_resource type="PackedScene" uid="uid://bssyjce6345co" path="res://scenes/waffle_plate_positionner.tscn" id="5_i4cry"]
+[ext_resource type="PackedScene" uid="uid://bssyjce6345co" path="res://scenes/waffle/waffle_plate_positionner.tscn" id="5_i4cry"]
 [ext_resource type="PackedScene" uid="uid://bco0i0j17hgvv" path="res://scenes/common/selected_item_control.tscn" id="6_i4cry"]
 
 [sub_resource type="Curve2D" id="Curve2D_18c7x"]
@@ -204,6 +204,9 @@ offset_left = -21.5
 offset_right = 21.5
 offset_bottom = 23.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.9764706, 0.9647059, 1)
+theme_override_colors/font_outline_color = Color(0.84313726, 0, 0.40784314, 1)
+theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 64
 text = "0"
 horizontal_alignment = 1
@@ -250,7 +253,7 @@ offset_right = 79.0
 offset_bottom = 169.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Back to main menu"
+text = "Continue"
 
 [node name="GameOverScreen" type="ColorRect" parent="CanvasLayer"]
 unique_name_in_owner = true

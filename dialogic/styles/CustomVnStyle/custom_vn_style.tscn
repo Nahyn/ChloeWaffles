@@ -1,7 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://4p3p4lci7b6i"]
+[gd_scene load_steps=29 format=3 uid="uid://4p3p4lci7b6i"]
 
 [ext_resource type="Script" uid="uid://yivwmkfwrvfr" path="res://addons/dialogic/Modules/DefaultLayoutParts/Base_Default/default_layout_base.gd" id="1_ifsho"]
 [ext_resource type="PackedScene" uid="uid://c1k5m0w3r40xf" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_FullBackground/full_background_layer.tscn" id="2_kq02u"]
+[ext_resource type="Texture2D" uid="uid://0s5q077j8s3r" path="res://assets/graphics/backgrounds/ReceptionBackground.png" id="3_bbm5t"]
 [ext_resource type="Script" uid="uid://d0ptqnbudhkyj" path="res://addons/dialogic/Modules/Character/node_portrait_container.gd" id="4_0uh6p"]
 [ext_resource type="Script" uid="uid://cx1i44s2olq2d" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Portraits/vn_portrait_layer.gd" id="5_bbm5t"]
 [ext_resource type="Texture2D" uid="uid://oixvotcipimm" path="res://assets/graphics/backgrounds/Floor.png" id="5_i6cxo"]
@@ -222,6 +223,12 @@ script = ExtResource("1_ifsho")
 [node name="BackgroundLayer" parent="." instance=ExtResource("2_kq02u")]
 apply_overrides_on_ready = true
 
+[node name="TextureRect" type="TextureRect" parent="BackgroundLayer"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_bbm5t")
+
 [node name="VN_PortraitLayer" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -333,13 +340,13 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("9_7650x")
 text_use_global_size = false
-text_size = 64
+text_size = 28
 text_use_global_color = false
 text_custom_color = Color(0.11119685, 0.11119684, 0.11119684, 1)
 box_panel = "uid://bc6rfsrvfuo55"
 box_color_use_global = false
 box_color_custom = Color(1, 1, 1, 1)
-box_size = Vector2(1100, 300)
+box_size = Vector2(1300, 300)
 name_label_use_global_color = false
 name_label_use_character_color = false
 name_label_custom_color = Color(0.11119685, 0.11119684, 0.11119684, 1)
@@ -348,7 +355,7 @@ name_label_custom_font_size = 24
 name_label_box_panel = "uid://bc6rfsrvfuo55"
 name_label_box_use_global_color = false
 name_label_box_modulate = Color(1, 1, 1, 1)
-name_label_box_offset = Vector2(-20, -30)
+name_label_box_offset = Vector2(-30, -40)
 apply_overrides_on_ready = true
 
 [node name="Animations" type="AnimationPlayer" parent="VN_TextboxLayer"]

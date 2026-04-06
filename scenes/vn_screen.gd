@@ -2,13 +2,12 @@ extends Control
 class_name DialogScene
 
 @export var dialogic_timeline :DialogicTimeline;
-const CHLOE_DIALOGIC_CHARACTER :DialogicCharacter = preload("uid://dfjn53vas77fa")
+const CHLOE_DIALOGIC_CHARACTER :DialogicCharacter = preload("res://dialogic/characters/chloe.dch")
 
 func _ready() -> void:
 	Dialogic.Text.about_to_show_text.connect(_on_about_to_show_text)
 	Dialogic.Portraits.character_joined.connect(_on_character_joined)
 	Dialogic.Portraits.character_portrait_changed.connect(_on_character_portrait_changed)
-	start_timeline.call_deferred();
 
 func start_timeline() -> void:
 	Dialogic.start(dialogic_timeline);

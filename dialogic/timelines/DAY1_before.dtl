@@ -8,7 +8,7 @@ chloe (client/neutral): You're gonna be making orders for the clients that come 
 chloe (player/talking): First, you take their order, then you cook the batter, then you put whatever shit they ask on their waffle.
 chloe (player/neutral): Simple as that.
 audio "res://assets/audio/EntranceBell.mp3"
-[wait_input]
+[wait time="0.7"]
 join dodo rightmost
 \dodo (neutral): Sis, you've forgot... Oh.
 \dodo (surprised): H-Hi...

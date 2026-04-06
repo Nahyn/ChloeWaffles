@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bssyjce6345co"]
 
 [ext_resource type="Texture2D" uid="uid://0bn1wc3ivwh7" path="res://assets/graphics/decor/Plate.png" id="1_c0c4q"]
-[ext_resource type="Script" uid="uid://bqocal15ttttp" path="res://scenes/waffle_plate_positionner.gd" id="1_uyib7"]
+[ext_resource type="Script" uid="uid://bqocal15ttttp" path="res://scenes/waffle/waffle_plate_positionner.gd" id="1_uyib7"]
 
 [node name="WafflePlateNode" type="Node2D"]
 script = ExtResource("1_uyib7")

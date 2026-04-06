@@ -49,6 +49,14 @@ func _ready() -> void:
 	for ticket_slot in order_ticket_slots:
 		clear_ticket_slot(ticket_slot)
 
+func initialize( gameplay_data :GameplayDayResouce ) -> void:
+	score_objective = gameplay_data.day_score;
+	var reception_screen = (%ReceptionScreen as ReceptionScreen);
+	if gameplay_data.forced_first_clients != null:
+		reception_screen.daily_clients = gameplay_data.forced_first_clients;
+	reception_screen.daily_client_count = gameplay_data.day_client_count;
+	reception_screen.start.call_deferred();
+
 func clear_ticket_slot( ticket_slot :Control ) -> void:
 	for child in ticket_slot.get_children():
 		child.queue_free()
@@ -305,13 +313,11 @@ func camera_left() -> void:
 	_move_screen( Vector2i(-1.0, 0.0) )
 
 
-func _on_retry_button_pressed() -> void:
-	pass # Replace with function body.
+func _on_continue_button_pressed() -> void:
+	GameplayController.next_screen()
 
+func _on_retry_button_pressed() -> void:
+	GameplayController.retry_gameplay()
 
 func _on_back_to_menu_button_pressed() -> void:
-	pass # Replace with function body.
-
-
-func _on_continue_button_pressed() -> void:
-	pass # Replace with function body.
+	SceneManager.go_to_main_menu()

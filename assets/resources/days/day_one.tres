@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="DayResource" load_steps=8 format=3 uid="uid://bgpj2qyl7fo2h"]
+
+[ext_resource type="Script" uid="uid://dndxqaw7tjgso" path="res://assets/resources/days/day_resource.gd" id="1_5nfj7"]
+[ext_resource type="Resource" uid="uid://44ff5ikfe1mc" path="res://dialogic/timelines/DAY1_after.dtl" id="1_pc0hv"]
+[ext_resource type="Script" uid="uid://bo4xmsdnp75nv" path="res://assets/resources/characters/character_resource.gd" id="2_kdcko"]
+[ext_resource type="Script" uid="uid://dkpxsj6mmj007" path="res://assets/resources/days/gameplay_day_resource.gd" id="3_kcb03"]
+[ext_resource type="Resource" uid="uid://v4eaqn28ydoa" path="res://assets/resources/characters/dodo_character.tres" id="3_kdcko"]
+[ext_resource type="Resource" uid="uid://bkxgqhm467fj5" path="res://dialogic/timelines/DAY1_before.dtl" id="4_55pg4"]
+
+[sub_resource type="Resource" id="Resource_kcb03"]
+script = ExtResource("3_kcb03")
+forced_first_clients = Array[ExtResource("2_kdcko")]([ExtResource("3_kdcko")])
+metadata/_custom_type_script = "uid://dkpxsj6mmj007"
+
+[resource]
+script = ExtResource("1_5nfj7")
+opening_timeline = ExtResource("4_55pg4")
+closing_timeline = ExtResource("1_pc0hv")
+gameplay_day_data = SubResource("Resource_kcb03")
+metadata/_custom_type_script = "uid://dndxqaw7tjgso"

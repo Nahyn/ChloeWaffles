@@ -17,10 +17,10 @@ boot_splash/bg_color=Color(0.21960784, 0.101960786, 0.20784314, 1)
 
 [autoload]
 
+SceneManager="*res://singletons/scene_manager.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 CookingManager="*res://singletons/cooking_manager.tscn"
 EventManager="*res://singletons/event_manager.tscn"
-SceneManager="*res://singletons/scene_manager.tscn"
 GameplayController="*res://singletons/gameplay_controller.tscn"
 
 [dialogic]
@@ -51,9 +51,9 @@ text/autoadvance_per_character_delay=0.1
 text/autoadvance_ignored_characters_enabled=true
 animations/join_default_length=0.5
 animations/join_default_wait=true
-animations/leave_default_length=0.5
-animations/leave_default_wait=true
-animations/cross_fade_default_length=0.5
+animations/leave_default_length=0.0
+animations/leave_default_wait=false
+animations/cross_fade_default_length=0.0
 choices/autofocus_first=true
 choices/delay=0.2
 choices/reveal_delay=0
@@ -95,7 +95,7 @@ folder_colors={
 "res://assets/resources/": "blue",
 "res://dialogic/": "orange",
 "res://scenes/": "teal",
-"res://singletons/": "teal"
+"res://singletons/": "purple"
 }
 
 [gui]
@@ -107,5 +107,6 @@ theme/custom="uid://c6wms3iajkqtv"
 dialogic_default_action={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
 ]
 }
