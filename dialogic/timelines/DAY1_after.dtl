@@ -6,7 +6,7 @@ chloe (player/smile): Great job, recrue.
 chloe (player/happy): Or maybe not? I wasn't looking, sorry.
 update chloe (client/smile)
 \dodo (happy): I'll be going then, thank you for the waffle.
-\dodo (neutral): Chloé, don't take any ingredients home this time, okay? You always forget them.
+\dodo (neutral): Chloe, don't take any ingredients home this time, okay? You always forget them.
 chloe (yawn): Yaaawnnn...
 \dodo (annoyed): *sigh*
 leave dodo [animation="Fade Out"]
