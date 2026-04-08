@@ -22,6 +22,7 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 CookingManager="*res://singletons/cooking_manager.tscn"
 EventManager="*res://singletons/event_manager.tscn"
 GameplayController="*res://singletons/gameplay_controller.tscn"
+SfxManager="*res://singletons/sfx_manager.tscn"
 
 [dialogic]
 
