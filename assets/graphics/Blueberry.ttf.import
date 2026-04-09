@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bmnv1q5nlhbn2"
-path="res://.godot/imported/Aine.otf-bd129a2a0c98e1dc1f87120e9557fc4b.fontdata"
+uid="uid://dnabcvncli6ql"
+path="res://.godot/imported/Blueberry.ttf-527d78efe17436161baa78c814beb735.fontdata"
 
 [deps]
 
-source_file="res://assets/graphics/Aine.otf"
-dest_files=["res://.godot/imported/Aine.otf-bd129a2a0c98e1dc1f87120e9557fc4b.fontdata"]
+source_file="res://assets/graphics/Blueberry.ttf"
+dest_files=["res://.godot/imported/Blueberry.ttf-527d78efe17436161baa78c814beb735.fontdata"]
 
 [params]
 

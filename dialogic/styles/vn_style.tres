@@ -7,6 +7,9 @@
 [sub_resource type="Resource" id="Resource_rp2b1"]
 script = ExtResource("1_lt86o")
 scene = ExtResource("1_wkg0e")
+overrides = {
+"global_font": "\"res://assets/graphics/Blueberry.ttf\""
+}
 
 [resource]
 script = ExtResource("2_wkg0e")
