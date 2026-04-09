@@ -9,6 +9,7 @@
 [sub_resource type="Resource" id="Resource_m38g6"]
 script = ExtResource("3_0yxnx")
 day_score = 100
+client_delay = Vector2(10, 15)
 metadata/_custom_type_script = "uid://dkpxsj6mmj007"
 
 [node name="GameplayController" type="Node"]
