@@ -1,9 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://r3xh8jymh848"]
+[gd_scene load_steps=20 format=3 uid="uid://r3xh8jymh848"]
 
 [ext_resource type="Script" uid="uid://dyscyryjsa1ys" path="res://scenes/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://0s5q077j8s3r" path="res://assets/graphics/backgrounds/ReceptionBackground.png" id="2_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://dw28fd23t3xew" path="res://assets/graphics/sprites/Chloe_clientSmile.png" id="3_wu84c"]
-[ext_resource type="FontFile" uid="uid://bmnv1q5nlhbn2" path="res://assets/graphics/Aine.otf" id="4_wu84c"]
 [ext_resource type="PackedScene" uid="uid://ccki6dbj7wi3c" path="res://scenes/common/audio_parameters.tscn" id="5_8ln24"]
 [ext_resource type="PackedScene" uid="uid://fbpm404v74e8" path="res://scenes/common/modal_window.tscn" id="5_rtw2f"]
 [ext_resource type="PackedScene" uid="uid://d2s7o7pilkjdt" path="res://scenes/common/credit_line.tscn" id="7_oa1go"]
@@ -290,7 +289,6 @@ pivot_offset = Vector2(587, 25.23)
 theme_override_colors/font_color = Color(1, 0.5764706, 0.7254902, 1)
 theme_override_colors/font_outline_color = Color(0.16078432, 0.12941177, 0.12156863, 1)
 theme_override_constants/outline_size = 20
-theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 24
 text = "As a fastfood worker, I can't believe my senpai can be this cool !"
 horizontal_alignment = 1
@@ -353,6 +351,7 @@ offset_right = 866.0
 offset_bottom = 72.0
 grow_vertical = 0
 scale = Vector2(0.657768, 0.657768)
+mouse_filter = 2
 texture = ExtResource("8_tbmy8")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
@@ -458,7 +457,7 @@ theme_override_styles/separator = SubResource("StyleBoxFlat_tbmy8")
 
 [node name="CreditLine3" parent="CreditsModal/ScrollContainer/CreditContainer/VBoxContainer" instance=ExtResource("7_oa1go")]
 layout_mode = 2
-contributor_name = "Fonts - \"Adorable\" & \"Aine\""
+contributor_name = "Fonts - \"Aine\" & \"Blueberry\""
 resource_name = "Hawtpixel"
 link = "https://hawtpixel.itch.io/hawtpixel-font-firesale"
 
