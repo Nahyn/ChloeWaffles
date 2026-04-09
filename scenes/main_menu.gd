@@ -13,8 +13,8 @@ var current_texture_path :String
 
 func _ready() -> void:
 	randomize_texture.call_deferred()
-	if %AudioParameters != null:
-		%AudioParameters.visible = false;
+	if %AudioParametersModal != null:
+		%AudioParametersModal.visible = false;
 	if %CreditsModal != null:
 		%CreditsModal.visible = false;
 
