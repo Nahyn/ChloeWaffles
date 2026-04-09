@@ -340,10 +340,10 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("9_7650x")
 text_use_global_size = false
-text_size = 28
+text_size = 36
 text_use_global_color = false
 text_custom_color = Color(0.11119685, 0.11119684, 0.11119684, 1)
-box_panel = "uid://bc6rfsrvfuo55"
+box_panel = "uid://d1nrl48m20rjk"
 box_color_use_global = false
 box_color_custom = Color(1, 1, 1, 1)
 box_size = Vector2(1300, 300)
@@ -351,11 +351,11 @@ name_label_use_global_color = false
 name_label_use_character_color = false
 name_label_custom_color = Color(0.11119685, 0.11119684, 0.11119684, 1)
 name_label_use_global_font_size = false
-name_label_custom_font_size = 24
+name_label_custom_font_size = 40
 name_label_box_panel = "uid://bc6rfsrvfuo55"
 name_label_box_use_global_color = false
 name_label_box_modulate = Color(1, 1, 1, 1)
-name_label_box_offset = Vector2(-30, -40)
+name_label_box_offset = Vector2(-30, 0)
 apply_overrides_on_ready = true
 
 [node name="Animations" type="AnimationPlayer" parent="VN_TextboxLayer"]
