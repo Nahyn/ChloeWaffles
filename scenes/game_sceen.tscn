@@ -22,7 +22,7 @@ order_ticket_slots = [NodePath("TicketContainer/TicketContainerClipper/OrderPosi
 
 [node name="ReceptionScreen" parent="ReceptionScreenPositionner" instance=ExtResource("2_oxd8y")]
 unique_name_in_owner = true
-time_until_next_client = Vector2(0, 3)
+client_movement_duration = Vector2(0, 1)
 daily_client_count = 2
 
 [node name="AssemblyScreenPositionner" type="Node2D" parent="."]

@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="CharacterResource" load_steps=4 format=3 uid="uid://bqsq8s3yro622"]
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=5 format=3 uid="uid://bqsq8s3yro622"]
 
 [ext_resource type="Script" uid="uid://bo4xmsdnp75nv" path="res://assets/resources/characters/character_resource.gd" id="1_mwhh3"]
 [ext_resource type="Script" uid="uid://dk1xqcc4ajqe5" path="res://assets/resources/ingredients/ingredient_resource.gd" id="2_a6p3f"]
 [ext_resource type="Texture2D" uid="uid://cbhcf0pnxjnb3" path="res://assets/graphics/sprites/Ruben.png" id="2_koblu"]
+[ext_resource type="Resource" uid="uid://do3h8hal75hjg" path="res://assets/resources/ingredients/topping_whipped_cream.tres" id="4_koblu"]
 
 [resource]
 script = ExtResource("1_mwhh3")
 name = "Ruben"
 sprite = ExtResource("2_koblu")
-usual_order_ingredients = Array[ExtResource("2_a6p3f")]([null, null, null, null, null])
-usual_order_categories = Array[int]([1, 2, 3, 2, 3, 4])
+though_bubble_y = -350
+usual_order_ingredients = Array[ExtResource("2_a6p3f")]([null, ExtResource("4_koblu"), null, null, null, null])
+usual_order_categories = [1, 3, 2, 2, 2, 4]
 metadata/_custom_type_script = "uid://bo4xmsdnp75nv"

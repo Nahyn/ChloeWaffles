@@ -3,8 +3,17 @@ class_name ReceptionScreen
 
 signal go_screen_down()
 
+var chloe_texture_paths :Array[String] = [
+	"res://assets/graphics/sprites/Chloe_clientSmile.png",
+	"res://assets/graphics/sprites/Chloe_clientTalking.png",
+	"res://assets/graphics/sprites/Chloe_playerNeutral.png",
+	"res://assets/graphics/sprites/Chloe_playerSmile.png",
+	"res://assets/graphics/sprites/Chloe_playerTalking.png",
+	"res://assets/graphics/sprites/Chloe_yawn.png",
+];
+
 @onready var client_spawn_timer: Timer = $ClientSpawnTimer
-@export var time_until_next_client := Vector2(4.0, 10.0);
+@export var client_delay := Vector2(4.0, 10.0);
 
 const CHARACTER_NODE = preload("uid://wcecrj3i8y8j");
 @export var max_client := 3
@@ -29,6 +38,9 @@ func start() -> void:
 	generate_daily_clients.call_deferred()
 	set_timer_until_next_client.call_deferred()
 
+func randomise_chloe() -> void:
+	%ChloeTextureRect.texture = load(chloe_texture_paths.pick_random())
+
 func generate_daily_clients() -> void:
 	var possible_clients :Array[CharacterResource] = CLIENTS_PATHS.duplicate();
 	while (daily_client_count > daily_clients.size()) and (not possible_clients.is_empty()):
@@ -42,6 +54,7 @@ func spawn_next_client() -> void:
 	
 	var tmp_character_positionner := PathFollow2D.new()
 	tmp_character_positionner.rotates = false;
+	tmp_character_positionner.y_sort_enabled = true;
 	var tmp_character_node :CharacterNode = CHARACTER_NODE.instantiate() as CharacterNode
 	visible_clients.push_back(tmp_character_node);
 	
@@ -51,13 +64,12 @@ func spawn_next_client() -> void:
 	tmp_character_positionner.tree_exited.connect(_update_client_positions);
 	tmp_character_positionner.add_child(tmp_character_node)
 	%ClientWaitingLine.add_child(tmp_character_positionner);
-	tmp_character_positionner.progress_ratio = 0.0;
+	tmp_character_positionner.progress_ratio = 1.0;
 	
 	_update_client_positions()
 
 func _on_client_leaving( client_node :CharacterNode ) -> void:
 	visible_clients.erase(client_node);
-	prints("erase in visible_clients", visible_clients)
 	
 	if visible_clients.size() == 0 and daily_clients.size() == 0:
 		EventManager.last_client_leaving.emit()
@@ -70,16 +82,15 @@ func _update_client_positions() -> void:
 	client_movement_tween = create_tween();
 	for index in client_positionners.size():
 		var client_positionner = client_positionners[index] as PathFollow2D;
-		client_movement_tween.parallel().tween_property(client_positionner, "progress_ratio", 1.0 - index/float(max_client), randf_range(client_movement_duration.x, client_movement_duration.y))
+		client_movement_tween.parallel().tween_property(client_positionner, "progress_ratio", index/float(max_client), randf_range(client_movement_duration.x, client_movement_duration.y))
 
 func _on_go_down_button_pressed() -> void:
 	go_screen_down.emit();
 
 func set_timer_until_next_client() -> void:
-	prints("set_timer_until_next_client")
 	if client_spawn_timer == null:
 		return;
-	client_spawn_timer.start( randf_range( time_until_next_client.x, time_until_next_client.y ) );
+	client_spawn_timer.start( randf_range( client_delay.x, client_delay.y ) );
 
 func _on_client_spawn_timer_timeout() -> void:
 	spawn_next_client()

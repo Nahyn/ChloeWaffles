@@ -14,6 +14,10 @@ config/name="MyNewJobAtTheLocalWafflePlace"
 run/main_scene="uid://r3xh8jymh848"
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/bg_color=Color(0.21960784, 0.101960786, 0.20784314, 1)
+boot_splash/fullsize=false
+boot_splash/image="uid://rcyjr4i7oswl"
+config/icon="uid://bcmq0mfwx3bmu"
+boot_splash/minimum_display_time=500
 
 [autoload]
 
@@ -22,7 +26,7 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 CookingManager="*res://singletons/cooking_manager.tscn"
 EventManager="*res://singletons/event_manager.tscn"
 GameplayController="*res://singletons/gameplay_controller.tscn"
-SfxManager="*res://singletons/sfx_manager.tscn"
+SoundManager="*res://singletons/sound_manager.tscn"
 
 [dialogic]
 
@@ -64,20 +68,15 @@ save/encryption_on_exports_only=true
 text/autopauses={}
 audio/channel_defaults={
 "": {
-"audio_bus": "",
+"audio_bus": "Sfx",
 "fade_length": 0.0,
 "loop": false,
-"volume": 0.0
-},
-"music": {
-"audio_bus": "",
-"fade_length": 0.0,
-"loop": true,
 "volume": 0.0
 }
 }
 animations/join_default="Instant In"
 animations/leave_default="Instant Out"
+audio/type_sound_bus="Voices"
 
 [display]
 

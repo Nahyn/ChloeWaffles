@@ -1,10 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://ffnih233dw26"]
+[gd_scene load_steps=24 format=3 uid="uid://ffnih233dw26"]
 
 [ext_resource type="Script" uid="uid://cttkfud632l7d" path="res://scenes/cooking/waffle_maker_node.gd" id="1_8f2cu"]
-[ext_resource type="AudioStream" uid="uid://7qpmrt2a5jvq" path="res://assets/audio/blip_3.wav" id="2_k48uc"]
-[ext_resource type="AudioStream" uid="uid://cjq4ufydai2pe" path="res://assets/audio/blip_2.wav" id="2_kvmcp"]
 [ext_resource type="Script" uid="uid://cwgpi5udd0f8m" path="res://assets/resources/phase_timer_segment.gd" id="2_rdp6q"]
-[ext_resource type="Texture2D" uid="uid://di1grpgl6u5ob" path="res://assets/graphics/ui/placeholder_waffle_timer.png" id="3_kek2y"]
+[ext_resource type="Texture2D" uid="uid://b5pp4rigkkksi" path="res://assets/graphics/ui/waffle_timer.png" id="5_2vgjh"]
 [ext_resource type="Texture2D" uid="uid://uhig6l5ws4cv" path="res://assets/graphics/decor/WaffleMakerOpen.png" id="5_k48uc"]
 [ext_resource type="PackedScene" uid="uid://dnv6nclbviscm" path="res://scenes/waffle/ingredient_stockpile_node.tscn" id="5_kqea7"]
 [ext_resource type="PackedScene" uid="uid://dqt1bsryg2t3u" path="res://scenes/common/phase_timer.tscn" id="6_2vgjh"]
@@ -25,49 +23,49 @@ point_count = 3
 offsets = PackedFloat32Array(0, 0.7671233, 1)
 colors = PackedColorArray(0.9805202, 0.9049517, 0.98918647, 1, 0.9805202, 0.9049517, 0.98918647, 1, 1, 1, 1, 0)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k48uc"]
-atlas = ExtResource("3_kek2y")
-region = Rect2(0, 0, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2vgjh"]
-atlas = ExtResource("3_kek2y")
-region = Rect2(400, 0, 200, 200)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_kqea7"]
-atlas = ExtResource("3_kek2y")
-region = Rect2(200, 0, 200, 200)
+atlas = ExtResource("5_2vgjh")
+region = Rect2(0, 74, 0, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7v5h"]
+atlas = ExtResource("5_2vgjh")
+region = Rect2(0, 37, 0, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ennm"]
+atlas = ExtResource("5_2vgjh")
+region = Rect2(0, 0, 0, 37)
 
 [sub_resource type="Resource" id="Resource_2vgjh"]
 script = ExtResource("2_rdp6q")
 duration = 2.0
-tint = Color(0.6666667, 0.05490196, 0.011764706, 0.003921569)
+tint = Color(0.45490196, 0.38431373, 0.38431373, 1)
 multiplier = 0.0
 metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
 
 [sub_resource type="Resource" id="Resource_kqea7"]
 script = ExtResource("2_rdp6q")
-duration = 3.0
-tint = Color(0.9254902, 0.7764706, 0.2627451, 1)
+duration = 4.0
+tint = Color(0.9254902, 0.5686275, 0.2627451, 1)
 multiplier = 0.7
 metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
 
 [sub_resource type="Resource" id="Resource_i7v5h"]
 script = ExtResource("2_rdp6q")
-duration = 1.5
-tint = Color(0, 0.7254902, 0.07058824, 1)
+duration = 3.0
+tint = Color(0.28235295, 0.7137255, 0.19607843, 1)
 multiplier = 1.2
 metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
 
 [sub_resource type="Resource" id="Resource_3ennm"]
 script = ExtResource("2_rdp6q")
-duration = 2.0
-tint = Color(0.9254902, 0.7764706, 0.2627451, 1)
+duration = 1.0
+tint = Color(0.9254902, 0.5686275, 0.2627451, 1)
 multiplier = 0.7
 metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
 
 [sub_resource type="Resource" id="Resource_8rjf0"]
 script = ExtResource("2_rdp6q")
-duration = 2.0
+duration = 5.0
 tint = Color(0.8784314, 0.15294118, 0.011764706, 1)
 metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
 
@@ -223,8 +221,6 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8f2cu")
-SUCCESS_SOUND = ExtResource("2_k48uc")
-FAILURE_SOUND = ExtResource("2_kvmcp")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 unique_name_in_owner = true
@@ -288,9 +284,12 @@ layout_mode = 1
 [node name="PhaseTimer" parent="." instance=ExtResource("6_2vgjh")]
 unique_name_in_owner = true
 layout_mode = 1
-background_texture = SubResource("AtlasTexture_k48uc")
-progress_texture = SubResource("AtlasTexture_2vgjh")
-over_texture = SubResource("AtlasTexture_kqea7")
+offset_top = 98.0
+offset_bottom = 98.0
+progress_fill_mode = 0
+background_texture = SubResource("AtlasTexture_kqea7")
+progress_texture = SubResource("AtlasTexture_i7v5h")
+over_texture = SubResource("AtlasTexture_3ennm")
 phases = Array[ExtResource("2_rdp6q")]([SubResource("Resource_2vgjh"), SubResource("Resource_kqea7"), SubResource("Resource_i7v5h"), SubResource("Resource_3ennm"), SubResource("Resource_8rjf0")])
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

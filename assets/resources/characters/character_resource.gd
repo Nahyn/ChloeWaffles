@@ -4,6 +4,8 @@ class_name CharacterResource
 @export var name := "DEFAULT_CHARACTER_NAME";
 @export var sprite :Texture2D;
 
+@export var though_bubble_y := -950
+
 @export var usual_order_ingredients :Array[IngredientResource] = []
 @export var usual_order_categories :Array[CookingManager.CATEGORIES] = []
 

@@ -13,6 +13,7 @@ const INGREDIENT_NODE = preload("uid://c88woq5hpjjb2")
 @onready var container_inside: Sprite2D = %ContainerInside
 @onready var container_outside: Sprite2D = %ContainerOutside
 
+@export var locked := false;
 var sent_to_reception := false;
 
 func _ready() -> void:
@@ -109,5 +110,5 @@ func _update_y_positions() -> void:
 		layer.position.y = (layer.get_index()-1) * ingredient_margin;
 
 func _on_control_gui_input(event: InputEvent) -> void:
-	if EventManager.is_event_left_click(event):
+	if EventManager.is_event_left_click(event) and not locked:
 		EventManager.waffle_clicked.emit(self)

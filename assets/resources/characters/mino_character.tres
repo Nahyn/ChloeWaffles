@@ -8,5 +8,7 @@
 script = ExtResource("1_v30gv")
 name = "Mino"
 sprite = ExtResource("2_v30gv")
-usual_order_categories = Array[int]([1, 2, 4, 3, 4])
+though_bubble_y = -350
+usual_order_ingredients = Array[ExtResource("3_4v0xr")]([null, null, null, null, null, null])
+usual_order_categories = Array[int]([1, 2, 3, 2, 3, 4])
 metadata/_custom_type_script = "uid://bo4xmsdnp75nv"

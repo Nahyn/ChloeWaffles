@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://bcwqtj1fwi1a5"]
+
+[ext_resource type="Script" uid="uid://dcfca551ewyx4" path="res://scenes/common/audio_parameter_line.gd" id="1_abhsn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rk1iv"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uwx64"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_en4if"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_coml6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3imhg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u7exg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_crkx4"]
+
+[node name="AudioParameterLine" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.5
+offset_top = -15.0
+offset_right = 176.5
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rk1iv")
+script = ExtResource("1_abhsn")
+
+[node name="Control" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TitleCheckBox" type="CheckBox" parent="Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_constants/h_separation = 12
+theme_override_constants/icon_max_width = 48
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxEmpty_uwx64")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_en4if")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_coml6")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_3imhg")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_u7exg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_crkx4")
+text = "Son"
+alignment = 1
+icon_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+
+[node name="ValueLabel" type="Label" parent="Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "100%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="toggled" from="Control/TitleCheckBox" to="." method="_on_title_check_box_toggled"]
+[connection signal="value_changed" from="Control/HSlider" to="." method="_on_h_slider_value_changed"]

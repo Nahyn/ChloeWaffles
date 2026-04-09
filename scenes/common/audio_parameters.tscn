@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccki6dbj7wi3c"]
+
+[ext_resource type="Script" uid="uid://u6v5s3swfkg8" path="res://scenes/common/audio_parameters.gd" id="1_5fowv"]
+[ext_resource type="PackedScene" uid="uid://bcwqtj1fwi1a5" path="res://scenes/common/audio_parameter_line.tscn" id="1_be5ve"]
+
+[node name="AudioParameters" type="VBoxContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -389.0
+offset_top = -126.0
+offset_right = 389.0
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_5fowv")
+
+[node name="MasterParameterLine" parent="." instance=ExtResource("1_be5ve")]
+layout_mode = 2
+
+[node name="MusicParameterLine" parent="." instance=ExtResource("1_be5ve")]
+layout_mode = 2
+audio_bus = 1
+
+[node name="SfxParameterLine" parent="." instance=ExtResource("1_be5ve")]
+layout_mode = 2
+audio_bus = 2
+
+[node name="VoicesParameterLine" parent="." instance=ExtResource("1_be5ve")]
+layout_mode = 2
+audio_bus = 3
+
+[connection signal="volume_changed" from="MasterParameterLine" to="." method="_on_master_parameter_line_volume_changed"]
+[connection signal="volume_changed" from="MusicParameterLine" to="." method="_on_music_parameter_line_volume_changed"]
+[connection signal="volume_changed" from="SfxParameterLine" to="." method="_on_sfx_parameter_line_volume_changed"]
+[connection signal="volume_changed" from="VoicesParameterLine" to="." method="_on_voices_parameter_line_volume_changed"]

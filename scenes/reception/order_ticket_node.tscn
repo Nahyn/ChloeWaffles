@@ -65,12 +65,12 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 152.0
-offset_top = -146.0
-offset_right = 152.0
-offset_bottom = -146.0
+offset_left = 26.86
+offset_top = -163.505
+offset_right = 26.86
+offset_bottom = -163.505
 grow_vertical = 0
-scale = Vector2(1.5199988, 1.5199988)
+scale = Vector2(0.8, 0.8)
 
 [node name="WafflePositionner" type="Control" parent="ContainerMask/Ticket"]
 layout_mode = 1
@@ -79,7 +79,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = 18.0
 offset_top = -146.0
+offset_right = 18.0
 offset_bottom = -146.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -88,6 +90,7 @@ grow_vertical = 0
 unique_name_in_owner = true
 scale = Vector2(0.5, 0.5)
 box_visible = false
+locked = true
 
 [node name="Overlay" type="Control" parent="ContainerMask/Ticket"]
 layout_mode = 1

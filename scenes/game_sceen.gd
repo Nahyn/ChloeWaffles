@@ -52,9 +52,11 @@ func _ready() -> void:
 func initialize( gameplay_data :GameplayDayResouce ) -> void:
 	score_objective = gameplay_data.day_score;
 	var reception_screen = (%ReceptionScreen as ReceptionScreen);
-	if gameplay_data.forced_first_clients != null:
-		reception_screen.daily_clients = gameplay_data.forced_first_clients;
-	reception_screen.daily_client_count = gameplay_data.day_client_count;
+	
+	for reception_attribute in ["daily_clients", "daily_client_count", "client_delay", "client_movement_duration"]:
+		if gameplay_data[reception_attribute] != null:
+			reception_screen[reception_attribute] = gameplay_data[reception_attribute];
+	
 	reception_screen.start.call_deferred();
 
 func clear_ticket_slot( ticket_slot :Control ) -> void:
@@ -281,8 +283,15 @@ func _on_trash_clicked() -> void:
 		_on_waffle_trashed(selected_waffle);
 
 func _move_screen( screen_move :Vector2i ) -> void:
-	camera_2d.position.x += screen_move.x * screen_size.x
-	camera_2d.position.y += screen_move.y * screen_size.y
+	var new_position = camera_2d.position
+	new_position.x += screen_move.x * screen_size.x
+	new_position.y += screen_move.y * screen_size.y
+	
+	prints("new_position", new_position)
+	new_position.x = clamp(new_position.x, 960.0, 1920.0 + 960.0);
+	new_position.y = clamp(new_position.y, 540.0, 1080.0 + 540.0);
+	prints("new_position clamped", new_position)
+	camera_2d.position = new_position
 	EventManager.screen_moved.emit()
 
 
@@ -304,6 +313,7 @@ func _on_waffle_clicked(waffle_node: WaffleNode) -> void:
 
 
 func camera_up() -> void:
+	%ReceptionScreen.randomise_chloe()
 	_move_screen( Vector2i(0.0, -1.0) )
 func camera_right() -> void:
 	_move_screen( Vector2i(1.0, 0.0) )

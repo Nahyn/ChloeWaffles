@@ -15,6 +15,8 @@ func _ready() -> void:
 func select_item( item :Node ) -> void:
 	if has_item():
 		return
+	
+	SoundManager.play_pop_sound(get_global_mouse_position())
 	_selected_item = item
 	
 	_update_graphics()

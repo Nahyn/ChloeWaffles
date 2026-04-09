@@ -13,6 +13,10 @@ var current_texture_path :String
 
 func _ready() -> void:
 	randomize_texture.call_deferred()
+	if %AudioParameters != null:
+		%AudioParameters.visible = false;
+	if %CreditsModal != null:
+		%CreditsModal.visible = false;
 
 func randomize_texture() -> void:
 	var possible_paths = chloe_texture_paths.duplicate()
@@ -32,7 +36,7 @@ func _on_freegame_button_pressed() -> void:
 	GameplayController.start_freegame();
 
 func _on_settings_button_pressed() -> void:
-	pass # Replace with function body.
+	%AudioParametersModal.visible = true;
 
 func _on_credits_button_pressed() -> void:
-	pass # Replace with function body.
+	%CreditsModal.visible = true;

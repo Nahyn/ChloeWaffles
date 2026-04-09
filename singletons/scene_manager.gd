@@ -54,5 +54,6 @@ func load_screen( screen_type :SCREEN_TYPES ) -> Node:
 	await animation_player.animation_finished
 	get_tree().change_scene_to_file(screen_path);
 	await get_tree().scene_changed;
+	SoundManager.play_music(screen_type);
 	_hide_between_screen.call_deferred()
 	return get_tree().current_scene

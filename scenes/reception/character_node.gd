@@ -40,30 +40,44 @@ func generate_waffle() -> void:
 func _arrived() -> void:
 	%ThoughBubble.visible = true;
 	%QuestionPositionner.visible = true;
-	%WaffleNode.visible = false;
+	%WafflePositionner.visible = false;
 	if character_resource != null and character_resource.sprite != null:
 		texture_rect.texture = character_resource.sprite
+		%BubbleAnchor.position.y = character_resource.though_bubble_y
+	name = str("CharacterNode_", character_resource.name);
 	generate_waffle();
 	phase_timer.start_timer();
+	SoundManager.play_entry_sound(global_position);
 
 func has_order_visible() -> bool:
-	return %WaffleNode.visible;
+	return %WafflePositionner.visible;
 
 func show_order() -> void:
 	%QuestionPositionner.visible = false;
-	%WaffleNode.visible = true;
+	%WafflePositionner.visible = true;
 
 func _leaving() -> void:
 	EventManager.client_leaving.emit(self);
 	%ThoughBubble.visible = false;
+	%ThoughBackgroundParticles.visible = false;
 	%PomfParticles.emitting = true;
 	await %PomfParticles.finished;
+	SoundManager.play_exit_sound(global_position);
 	queue_free();
 
 func _on_phase_timer_failed() -> void:
+	prints("_on_phase_timer_failed", character_resource.name);
 	EventManager.client_missed.emit();
 	_leaving();
 
-func _on_texture_rect_gui_input(event: InputEvent) -> void:
+func _on_mouse_click_area_gui_input(event: InputEvent) -> void:
 	if EventManager.is_event_left_click(event):
 		EventManager.client_clicked.emit(self)
+
+
+func _on_mouse_click_area_mouse_entered() -> void:
+	%AnimationPlayer.play("on_hover")
+
+
+func _on_mouse_click_area_mouse_exited() -> void:
+	pass # Replace with function body.

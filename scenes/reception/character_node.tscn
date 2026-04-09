@@ -1,64 +1,47 @@
-[gd_scene load_steps=20 format=3 uid="uid://wcecrj3i8y8j"]
+[gd_scene load_steps=21 format=3 uid="uid://wcecrj3i8y8j"]
 
 [ext_resource type="Script" uid="uid://d2mhnid2o33od" path="res://scenes/reception/character_node.gd" id="1_hnbpa"]
 [ext_resource type="Texture2D" uid="uid://717ms3gldrpy" path="res://assets/graphics/particles/placeholder_particles.png" id="2_arm1n"]
 [ext_resource type="Resource" uid="uid://bqsq8s3yro622" path="res://assets/resources/characters/ruben_character.tres" id="2_w5yg0"]
+[ext_resource type="Texture2D" uid="uid://cbhcf0pnxjnb3" path="res://assets/graphics/sprites/Ruben.png" id="3_gxkfs"]
+[ext_resource type="Texture2D" uid="uid://h6njfx38yaxb" path="res://assets/graphics/particles/though_bubble.png" id="3_w5yg0"]
 [ext_resource type="PackedScene" uid="uid://dqt1bsryg2t3u" path="res://scenes/common/phase_timer.tscn" id="4_4vrxq"]
 [ext_resource type="PackedScene" uid="uid://c4ktetgyfxye6" path="res://scenes/waffle/waffle_node.tscn" id="4_dords"]
-[ext_resource type="Texture2D" uid="uid://di1grpgl6u5ob" path="res://assets/graphics/ui/placeholder_waffle_timer.png" id="5_row61"]
+[ext_resource type="Texture2D" uid="uid://c80i2qqtkeyvt" path="res://assets/graphics/ui/client_timer.png" id="6_gxkfs"]
 [ext_resource type="Script" uid="uid://cwgpi5udd0f8m" path="res://assets/resources/phase_timer_segment.gd" id="6_row61"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hnbpa"]
-atlas = ExtResource("2_arm1n")
-region = Rect2(0, 50, 50, 50)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_br68c"]
-content_margin_left = 20.0
-content_margin_top = 20.0
-content_margin_right = 20.0
-content_margin_bottom = 20.0
-texture = SubResource("AtlasTexture_hnbpa")
-texture_margin_left = 11.0
-texture_margin_top = 16.0
-texture_margin_right = 15.0
-texture_margin_bottom = 17.0
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dords"]
-load_path = "res://.godot/imported/placeholder_waffle_timer.png-52360ff73dacf159dd35fd88b9ca4c8f.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w5yg0"]
-atlas = SubResource("CompressedTexture2D_dords")
-region = Rect2(0, 0, 200, 200)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gxkfs"]
-load_path = "res://.godot/imported/placeholder_waffle_timer.png-52360ff73dacf159dd35fd88b9ca4c8f.ctex"
+[sub_resource type="Curve" id="Curve_w5yg0"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5106383, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qfsoq"]
-atlas = SubResource("CompressedTexture2D_gxkfs")
-region = Rect2(400, 0, 200, 200)
+atlas = ExtResource("6_gxkfs")
+region = Rect2(76, 0, 76, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v32ci"]
-atlas = ExtResource("5_row61")
-region = Rect2(200, 0, 200, 200)
+atlas = ExtResource("6_gxkfs")
+region = Rect2(0, 0, 76, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yh3to"]
+atlas = ExtResource("6_gxkfs")
+region = Rect2(152, 0, 76, 0)
 
 [sub_resource type="Resource" id="Resource_dords"]
 script = ExtResource("6_row61")
-duration = 10.0
+duration = 20.0
 multiplier = 1.5
 metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
 
 [sub_resource type="Resource" id="Resource_w5yg0"]
 script = ExtResource("6_row61")
-duration = 20.0
+duration = 30.0
 tint = Color(0, 0.8039216, 0.23529412, 1)
 multiplier = 1.0
 metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
 
 [sub_resource type="Resource" id="Resource_gxkfs"]
 script = ExtResource("6_row61")
-duration = 10.0
+duration = 20.0
 tint = Color(1, 0.1882353, 0, 1)
 multiplier = 0.7
 metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
@@ -67,9 +50,62 @@ metadata/_custom_type_script = "uid://cwgpi5udd0f8m"
 atlas = ExtResource("2_arm1n")
 region = Rect2(0, 50, 50, 50)
 
-[sub_resource type="Curve" id="Curve_w5yg0"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.54651165, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
+[sub_resource type="Animation" id="Animation_qfsoq"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_gxkfs"]
+resource_name = "on_hover"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.23333333, -0.047707915, 1, -0.10000001, 0.1178627, 0, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.16666667, 0.077148676, 1, -0.16666667, -0.055850625, 0, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v32ci"]
+_data = {
+&"RESET": SubResource("Animation_qfsoq"),
+&"on_hover": SubResource("Animation_gxkfs")
+}
 
 [node name="CharacterNode" type="Control"]
 layout_mode = 3
@@ -96,18 +132,33 @@ offset_top = -800.0
 offset_right = 224.5
 grow_horizontal = 2
 grow_vertical = 0
+pivot_offset = Vector2(300, 944)
+texture = ExtResource("3_gxkfs")
+
+[node name="MouseClickArea" type="Control" parent="TextureRect"]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
 
 [node name="BubbleAnchor" type="Control" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -932.0
-offset_bottom = -932.0
+offset_top = -320.0
+offset_bottom = -320.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="BubblePositionner" type="Control" parent="BubbleAnchor"]
 unique_name_in_owner = true
@@ -119,9 +170,11 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="ThoughBubble" type="PanelContainer" parent="BubbleAnchor/BubblePositionner"]
 unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -134,12 +187,35 @@ offset_right = 100.0
 offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_br68c")
+mouse_filter = 2
 
-[node name="Control" type="Control" parent="BubbleAnchor/BubblePositionner/ThoughBubble"]
+[node name="ThoughtBubbleContainer" type="Control" parent="BubbleAnchor/BubblePositionner/ThoughBubble"]
 layout_mode = 2
+mouse_filter = 2
 
-[node name="WafflePositionner" type="Control" parent="BubbleAnchor/BubblePositionner/ThoughBubble/Control"]
+[node name="ThoughBackgroundParticles" type="CPUParticles2D" parent="BubbleAnchor/BubblePositionner/ThoughBubble/ThoughtBubbleContainer"]
+unique_name_in_owner = true
+position = Vector2(100, 100)
+scale = Vector2(0.99999994, 0.99999994)
+amount = 25
+texture = ExtResource("3_w5yg0")
+lifetime = 5.0
+preprocess = 1.0
+lifetime_randomness = 0.4
+local_coords = true
+emission_shape = 1
+emission_sphere_radius = 75.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+scale_amount_min = 0.7
+scale_amount_max = 0.8
+scale_amount_curve = SubResource("Curve_w5yg0")
+
+[node name="WafflePositionner" type="Control" parent="BubbleAnchor/BubblePositionner/ThoughBubble/ThoughtBubbleContainer"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -151,10 +227,11 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.4, 0.4)
 
-[node name="WaffleNode" parent="BubbleAnchor/BubblePositionner/ThoughBubble/Control/WafflePositionner" instance=ExtResource("4_dords")]
+[node name="WaffleNode" parent="BubbleAnchor/BubblePositionner/ThoughBubble/ThoughtBubbleContainer/WafflePositionner" instance=ExtResource("4_dords")]
 unique_name_in_owner = true
+locked = true
 
-[node name="QuestionPositionner" type="Control" parent="BubbleAnchor/BubblePositionner/ThoughBubble/Control"]
+[node name="QuestionPositionner" type="Control" parent="BubbleAnchor/BubblePositionner/ThoughBubble/ThoughtBubbleContainer"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -164,8 +241,9 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
-[node name="Label" type="Label" parent="BubbleAnchor/BubblePositionner/ThoughBubble/Control/QuestionPositionner"]
+[node name="Label" type="Label" parent="BubbleAnchor/BubblePositionner/ThoughBubble/ThoughtBubbleContainer/QuestionPositionner"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -184,14 +262,25 @@ text = "?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PhaseTimer" parent="BubbleAnchor/BubblePositionner/ThoughBubble/Control" instance=ExtResource("4_4vrxq")]
+[node name="PhaseTimer" parent="BubbleAnchor/BubblePositionner/ThoughBubble/ThoughtBubbleContainer" instance=ExtResource("4_4vrxq")]
 unique_name_in_owner = true
 z_index = 2
 layout_mode = 1
-background_texture = SubResource("AtlasTexture_w5yg0")
-progress_texture = SubResource("AtlasTexture_qfsoq")
-over_texture = SubResource("AtlasTexture_v32ci")
+offset_left = 127.0
+offset_right = 127.0
+progress_fill_mode = 3
+background_texture = SubResource("AtlasTexture_qfsoq")
+progress_texture = SubResource("AtlasTexture_v32ci")
+over_texture = SubResource("AtlasTexture_yh3to")
 phases = Array[ExtResource("6_row61")]([SubResource("Resource_dords"), SubResource("Resource_w5yg0"), SubResource("Resource_gxkfs")])
+
+[node name="ThoughtBubbleOverlay" type="Control" parent="BubbleAnchor/BubblePositionner/ThoughBubble/ThoughtBubbleContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="PomfParticles" type="CPUParticles2D" parent="BubbleAnchor/BubblePositionner"]
 unique_name_in_owner = true
@@ -212,5 +301,14 @@ angular_velocity_max = 90.0
 scale_amount_max = 2.0
 scale_amount_curve = SubResource("Curve_w5yg0")
 
-[connection signal="gui_input" from="TextureRect" to="." method="_on_texture_rect_gui_input"]
-[connection signal="failed" from="BubbleAnchor/BubblePositionner/ThoughBubble/Control/PhaseTimer" to="." method="_on_phase_timer_failed"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_v32ci")
+}
+
+[connection signal="gui_input" from="TextureRect/MouseClickArea" to="." method="_on_mouse_click_area_gui_input"]
+[connection signal="mouse_entered" from="TextureRect/MouseClickArea" to="." method="_on_mouse_click_area_mouse_entered"]
+[connection signal="mouse_exited" from="TextureRect/MouseClickArea" to="." method="_on_mouse_click_area_mouse_exited"]
+[connection signal="failed" from="BubbleAnchor/BubblePositionner/ThoughBubble/ThoughtBubbleContainer/PhaseTimer" to="." method="_on_phase_timer_failed"]
+[connection signal="gui_input" from="BubbleAnchor/BubblePositionner/ThoughBubble/ThoughtBubbleContainer/ThoughtBubbleOverlay" to="." method="_on_mouse_click_area_gui_input"]

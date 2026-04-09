@@ -1,10 +1,12 @@
 extends Control
 class_name OrderTicketNode
 
+const PHASE_TIMER = preload("uid://dqt1bsryg2t3u")
+
 var waffle_ordered :WaffleNode
 
 var ingredient_margin_default := -20.0;
-var max_ingredient_margin_hovered := -200.0;
+var max_ingredient_margin_hovered := -300.0;
 var ingredient_margin_hovered := max_ingredient_margin_hovered;
 
 var height_default := 300.0;
@@ -23,11 +25,10 @@ func randomize_appearance() -> void:
 	set_hovered.call_deferred(false);
 
 func initialize_timer( timer :PhaseTimer ) -> void:
-	var copied_timer = timer.duplicate();
+	var copied_timer = PHASE_TIMER.instantiate() as PhaseTimer;
 	copied_timer.name = "OrderTicketTimer";
+	copied_timer.copy_timer.call_deferred(timer);
 	%TimerPositionner.add_child(copied_timer);
-	
-	copied_timer.copy_timer.call_deferred(timer)
 
 func initialize_waffle( order :WaffleNode ) -> void:
 	waffle_ordered = order;

@@ -3,10 +3,6 @@ class_name WaffleMakerNode
 
 const WAFFLE_BURNED = preload("uid://ccvaarlbw0asy")
 
-@export var SUCCESS_SOUND :AudioStream
-@export var FAILURE_SOUND :AudioStream
-@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
-
 const FAILURE_PARTICLES = preload("uid://bc3448o1tiw3d")
 const SUCCESS_PARTICLES = preload("uid://d0o4t5a6xpjba")
 @onready var failure_particles: CPUParticles2D = $TextureRect/FailureParticles
@@ -50,7 +46,7 @@ func put_batter( waffle_ingredient :WaffleIngredientResource ) -> void:
 	%WaffleStockpile.visible = true;
 	%WaffleStockpile.ingredient = waffle_ingredient;
 	%WaffleStockpile.texture = waffle_ingredient.batter_texture;
-	
+	SoundManager.play_splat_sound(global_position)
 	phase_timer.reset();
 
 func hide_waffle() -> void:
@@ -68,18 +64,16 @@ func open_lid() -> void:
 		return
 	
 	var tmp_particles := SUCCESS_PARTICLES.instantiate() as CustomParticleSystem
-	var tmp_sound := SUCCESS_SOUND
 	if phase_timer.has_failed:
+		SoundManager.stop_looping_alarm_sound(global_position)
 		%WaffleStockpile.ingredient = WAFFLE_BURNED
 		tmp_particles = FAILURE_PARTICLES.instantiate() as CustomParticleSystem
-		tmp_sound = FAILURE_SOUND
 		waffle_multiplier = -2.0
 	failure_particles.emitting = false;
 	
 	tmp_particles.global_position = phase_timer.global_position - global_position
 	add_child(tmp_particles)
-	audio_stream_player_2d.stream = tmp_sound;
-	audio_stream_player_2d.play();
+	SoundManager.play_pop_sound(global_position);
 	
 	await animation_player.animation_finished
 	waffle_finished.emit(%WaffleStockpile.ingredient, waffle_multiplier);
@@ -108,9 +102,13 @@ func _on_timer_phases_container_phase_started(phase: PhaseTimerSegmentResource) 
 	current_phase = phase;
 	if phase.multiplier > 0:
 		%WaffleStockpile.texture = %WaffleStockpile.ingredient.stockpile_texture
+	
+	if phase_timer.phases[phase_timer.phases.size()-1] == current_phase:
+		SoundManager.play_alarm_sound(global_position);
 
 func _on_timer_phases_container_failed() -> void:
 	on_failure.emit()
+	SoundManager.play_looping_alarm_sound(global_position)
 	phase_timer.visible = false;
 	failure_particles.emitting = true;
 	EventManager.waffle_burnt.emit()

@@ -9,6 +9,7 @@
 script = ExtResource("1_ckgmd")
 name = "Alis"
 sprite = ExtResource("2_a6re2")
-usual_order_ingredients = Array[ExtResource("3_7mr1t")]([ExtResource("4_7mr1t"), null, null])
-usual_order_categories = Array[int]([1, 2, 3])
+though_bubble_y = -350
+usual_order_ingredients = Array[ExtResource("3_7mr1t")]([ExtResource("4_7mr1t"), null, null, null])
+usual_order_categories = Array[int]([1, 2, 3, 4])
 metadata/_custom_type_script = "uid://bo4xmsdnp75nv"

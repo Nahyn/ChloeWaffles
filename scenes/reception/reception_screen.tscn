@@ -9,7 +9,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_01s2h"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 2170, -1, 0, 0, 0, 0, 950, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 950, 1, 0, 0, 0, 0, 2170, 0)
 }
 point_count = 2
 
@@ -58,7 +58,8 @@ grow_vertical = 0
 mouse_filter = 2
 texture = SubResource("AtlasTexture_1rwiq")
 
-[node name="Chloe" type="TextureRect" parent="TextureRect"]
+[node name="ChloeTextureRect" type="TextureRect" parent="TextureRect"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0

@@ -10,6 +10,7 @@ update chloe (client/smile)
 chloe (yawn): Yaaawnnn...
 \dodo (annoyed): *sigh*
 leave dodo [animation="Fade Out"]
+audio "res://assets/audio/freesound_community-shop-door-bell-6405 - exit.wav"
 [wait time="0.6" hide_text="false"]
 chloe (player/smile): Well, now that you know how to take orders, i'm gonna open the shop.
 chloe (player/talking): And don't forget, if you mess up an order, you can always throw it out in the trash under the worktop.
