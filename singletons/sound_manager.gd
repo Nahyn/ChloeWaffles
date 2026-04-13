@@ -37,6 +37,11 @@ func _ready() -> void:
 func play_music( screen :SceneManager.SCREEN_TYPES ) -> void:
 	if not music_by_screen.has(screen):
 		return
+	
+	var new_music = music_by_screen[screen]
+	if %AudioStreamPlayer.stream == new_music:
+		return
+	
 	%AudioStreamPlayer.stream = music_by_screen[screen]
 	%AudioStreamPlayer.play()
 

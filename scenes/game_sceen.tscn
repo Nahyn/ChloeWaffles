@@ -187,6 +187,15 @@ current = true
 [node name="SelectedItemControl" parent="CanvasLayer" instance=ExtResource("6_i4cry")]
 unique_name_in_owner = true
 
+[node name="Settings" type="TextureButton" parent="CanvasLayer"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 65.0
+offset_bottom = 65.0
+scale = Vector2(1.3, 1.3)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("9_1glmp")
+
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 5
@@ -340,23 +349,14 @@ text = "Back to main menu"
 [node name="AudioParameters" parent="CanvasLayer/AudioParametersModal" instance=ExtResource("8_1glmp")]
 layout_mode = 2
 
-[node name="Settings" type="TextureButton" parent="."]
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 65.0
-offset_bottom = 65.0
-scale = Vector2(1.3, 1.3)
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource("9_1glmp")
-
 [connection signal="go_screen_down" from="ReceptionScreenPositionner/ReceptionScreen" to="." method="camera_down"]
 [connection signal="go_screen_right" from="AssemblyScreenPositionner/AssemblyScreen" to="." method="camera_right"]
 [connection signal="go_screen_up" from="AssemblyScreenPositionner/AssemblyScreen" to="." method="camera_up"]
 [connection signal="go_screen_left" from="WafflerMakerScreenPositionner/WaffleMakerScreen" to="." method="camera_left"]
 [connection signal="plate_clicked" from="WafflePlate" to="." method="_on_waffle_plate_clicked"]
+[connection signal="pressed" from="CanvasLayer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="CanvasLayer/SuccessScreen/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/GameOverScreen/HBoxContainer/BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/GameOverScreen/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="visibility_changed" from="CanvasLayer/AudioParametersModal" to="." method="_on_audio_parameters_modal_visibility_changed"]
 [connection signal="pressed" from="CanvasLayer/AudioParametersModal/BackToMenuPositionner/BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]
-[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
