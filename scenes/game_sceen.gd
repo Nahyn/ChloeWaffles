@@ -45,7 +45,8 @@ func _ready() -> void:
 	
 	%SuccessScreen.visible = false;
 	%GameOverScreen.visible = false;
-			
+	%AudioParametersModal.visible = false;
+	
 	for ticket_slot in order_ticket_slots:
 		clear_ticket_slot(ticket_slot)
 
@@ -53,10 +54,10 @@ func initialize( gameplay_data :GameplayDayResouce ) -> void:
 	score_objective = gameplay_data.day_score;
 	var reception_screen = (%ReceptionScreen as ReceptionScreen);
 	
-	for reception_attribute in ["daily_clients", "daily_client_count", "client_delay", "client_movement_duration"]:
+	for reception_attribute in ["daily_client_count", "client_delay", "client_movement_duration"]:
 		if gameplay_data[reception_attribute] != null:
 			reception_screen[reception_attribute] = gameplay_data[reception_attribute];
-	
+	reception_screen.daily_clients = gameplay_data.daily_clients.duplicate();
 	reception_screen.start.call_deferred();
 
 func clear_ticket_slot( ticket_slot :Control ) -> void:
@@ -120,6 +121,7 @@ func change_score( _modifier :int ) -> void:
 func _input(event: InputEvent) -> void:
 	if EventManager.is_event_right_click(event):
 		unselect_item()
+
 
 func _on_client_leaving( client :CharacterNode ) -> void:
 	_remove_order(client.get_ordered_waffle())
@@ -330,4 +332,13 @@ func _on_retry_button_pressed() -> void:
 	GameplayController.retry_gameplay()
 
 func _on_back_to_menu_button_pressed() -> void:
+	Engine.time_scale = 1
 	SceneManager.go_to_main_menu()
+
+
+func _on_audio_parameters_modal_visibility_changed() -> void:
+	Engine.time_scale = 0 if %AudioParametersModal.visible else 1;
+
+
+func _on_settings_pressed() -> void:
+	%AudioParametersModal.visible = true;
